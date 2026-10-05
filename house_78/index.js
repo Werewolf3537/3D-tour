@@ -184,18 +184,24 @@
 
   function switchScene(scene) {
     var currentView = viewer.view();
-    var currentYaw = currentView ? currentView.yaw() : null;
+    var targetYaw = null;
     var currentPitch = currentView ? currentView.pitch() : null;
     var currentFov = currentView ? currentView.fov() : null;
+
+    if (currentView && typeof currentScene !== 'undefined' && currentScene) {
+      var oldYawOffset = currentScene.data.initialViewParameters.yaw;
+      var newYawOffset = scene.data.initialViewParameters.yaw;
+      targetYaw = currentView.yaw() - oldYawOffset + newYawOffset;
+    }
 
     stopAutorotate();
     scene.view.setParameters(scene.data.initialViewParameters);
     scene.scene.switchTo();
     
     var newView = viewer.view();
-    if (newView && currentYaw !== null) {
+    if (newView && targetYaw !== null) {
       newView.setParameters({
-        yaw: currentYaw,
+        yaw: targetYaw,
         pitch: currentPitch,
         fov: currentFov
       });
