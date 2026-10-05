@@ -190,6 +190,7 @@
 
     stopAutorotate();
     
+    // Передаем сохраненные координаты прямо в опции перехода
     scene.scene.switchTo({
       viewParameters: {
         yaw: savedYaw !== null ? savedYaw : scene.data.initialViewParameters.yaw,
