@@ -190,13 +190,18 @@
 
     stopAutorotate();
     
-    scene.scene.switchTo({
-      viewParameters: {
-        yaw: savedYaw !== null ? savedYaw : scene.data.initialViewParameters.yaw,
-        pitch: savedPitch !== null ? savedPitch : scene.data.initialViewParameters.pitch,
-        fov: savedFov !== null ? savedFov : scene.data.initialViewParameters.fov
+    scene.scene.switchTo();
+
+    setTimeout(function() {
+      var newView = viewer.view();
+      if (newView && savedYaw !== null) {
+        newView.setParameters({
+          yaw: savedYaw,
+          pitch: savedPitch,
+          fov: savedFov
+        });
       }
-    });
+    }, 10);
 
     startAutorotate();
     updateSceneName(scene);
