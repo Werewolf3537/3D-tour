@@ -323,7 +323,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 
 .no-touch #sceneList .scene:hover {
   background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: rgba(103,115,131,0.3);
 }
 
 #sceneList .scene.current {
