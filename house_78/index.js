@@ -281,10 +281,18 @@
       var currentView = viewer.view();
       
       if (currentView && targetScene) {
+        var currentYaw = currentView.yaw();
+        var currentPitch = currentView.pitch();
+        var currentFov = currentView.fov();
+
+        targetScene.data.initialViewParameters.yaw = currentYaw;
+        targetScene.data.initialViewParameters.pitch = currentPitch;
+        targetScene.data.initialViewParameters.fov = currentFov;
+
         targetScene.view.setParameters({
-          yaw: currentView.yaw(),
-          pitch: currentView.pitch(),
-          fov: currentView.fov()
+          yaw: currentYaw,
+          pitch: currentPitch,
+          fov: currentFov
         });
       }
       
