@@ -183,9 +183,22 @@
   }
 
   function switchScene(scene) {
+    var currentView = viewer.view();
+    var savedYaw = currentView ? currentView.yaw() : null;
+    var savedPitch = currentView ? currentView.pitch() : null;
+    var savedFov = currentView ? currentView.fov() : null;
+
     stopAutorotate();
-    scene.view.setParameters(scene.data.initialViewParameters);
     scene.scene.switchTo();
+    
+    if (savedYaw !== null) {
+      scene.view.setParameters({
+        yaw: savedYaw,
+        pitch: savedPitch,
+        fov: savedFov
+      });
+    }
+
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
