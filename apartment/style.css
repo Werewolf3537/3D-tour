@@ -370,11 +370,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
   font-size: 16px;
 
-  width: max-content !important;
-
-  min-width: 250px !important;
-
-  max-width: 450px; !important;
+  width: 350px !important;
 
   padding: 8px 10px;
 
@@ -386,6 +382,7 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
   color: #fff;
 
   white-space: normal; !important;
+  word-wrap: break-word !important;
   text-overflow: clip;
   overflow: visible;
 
