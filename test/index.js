@@ -185,6 +185,19 @@
   function switchScene(scene) {
     stopAutorotate();
     scene.scene.switchTo();
+    
+    viewer.once('transitionComplete', function() {
+      var newView = viewer.view();
+      if (newView && window.nextSceneYaw !== undefined && window.nextSceneYaw !== null) {
+        newView.setParameters({
+          yaw: window.nextSceneYaw,
+          pitch: window.nextScenePitch,
+          fov: window.nextSceneFov
+        });
+        window.nextSceneYaw = null;
+      }
+    });
+
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
@@ -265,18 +278,13 @@
     // Add click event handler.
     wrapper.addEventListener('click', function() {
       var currentView = viewer.view();
-      var savedYaw = currentView ? currentView.yaw() : null;
-      var savedPitch = currentView ? currentView.pitch() : null;
-      var savedFov = currentView ? currentView.fov() : null;
-
-      var targetScene = findSceneById(hotspot.target);
-      
-      if (targetScene && savedYaw !== null) {
-        targetScene.view.setParameters({
-          yaw: savedYaw,
-          pitch: savedPitch,
-          fov: savedFov
-        });
+      if (currentView) {
+        window.nextSceneYaw = currentView.yaw();
+        window.nextScenePitch = currentView.pitch();
+        window.nextSceneFov = currentView.fov();
+      }
+      switchScene(findSceneById(hotspot.target));
+    });
       }
 
       switchScene(targetScene);
