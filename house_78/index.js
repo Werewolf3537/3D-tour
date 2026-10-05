@@ -184,7 +184,19 @@
 
   function switchScene(scene) {
     stopAutorotate();
-    scene.view.setParameters(scene.data.initialViewParameters);
+    
+    var currentView = viewer.view();
+    
+    if (currentView) {
+      scene.view.setParameters({
+        yaw: currentView.yaw(),
+        pitch: currentView.pitch(),
+        fov: currentView.fov()
+      });
+    } else {
+      scene.view.setParameters(scene.data.initialViewParameters);
+    }
+    
     scene.scene.switchTo();
     startAutorotate();
     updateSceneName(scene);
