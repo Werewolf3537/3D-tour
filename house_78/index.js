@@ -183,21 +183,24 @@
   }
 
   function switchScene(scene) {
-    stopAutorotate();
-    
     var currentView = viewer.view();
-    
-    if (currentView) {
-      scene.view.setParameters({
-        yaw: currentView.yaw(),
-        pitch: currentView.pitch(),
-        fov: currentView.fov()
-      });
-    } else {
-      scene.view.setParameters(scene.data.initialViewParameters);
-    }
-    
+    var currentYaw = currentView ? currentView.yaw() : null;
+    var currentPitch = currentView ? currentView.pitch() : null;
+    var currentFov = currentView ? currentView.fov() : null;
+
+    stopAutorotate();
+    scene.view.setParameters(scene.data.initialViewParameters);
     scene.scene.switchTo();
+    
+    var newView = viewer.view();
+    if (newView && currentYaw !== null) {
+      newView.setParameters({
+        yaw: currentYaw,
+        pitch: currentPitch,
+        fov: currentFov
+      });
+    }
+
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
