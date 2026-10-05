@@ -277,7 +277,18 @@
 
     // Add click event handler.
     wrapper.addEventListener('click', function() {
-      switchScene(findSceneById(hotspot.target));
+      var targetScene = findSceneById(hotspot.target);
+      var currentView = viewer.view();
+      
+      if (currentView && targetScene) {
+        targetScene.view.setParameters({
+          yaw: currentView.yaw(),
+          pitch: currentView.pitch(),
+          fov: currentView.fov()
+        });
+      }
+      
+      switchScene(targetScene);
     });
 
     // Prevent touch and scroll events from reaching the parent element.
