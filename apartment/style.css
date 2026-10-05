@@ -381,9 +381,9 @@ body.single-scene #sceneList, body.single-scene #sceneListToggle {
 
   color: #fff;
 
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  white-space: normal;
+  text-overflow: clip;
+  overflow: visible;
 
   cursor: pointer;
 
