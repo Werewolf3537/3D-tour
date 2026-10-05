@@ -323,12 +323,12 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 
 .no-touch #sceneList .scene:hover {
   background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.3);
+  background-color: rgba(20, 25, 35, 0.6) !important;
 }
 
 #sceneList .scene.current {
   background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: rgba(15, 18, 25, 0.75) !important;
 }
 
 /* Hide scene list when only a single scene exists */
