@@ -78,8 +78,15 @@
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
     var geometry = new Marzipano.CubeGeometry(data.levels);
 
-    var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 120*Math.PI/180, 120*Math.PI/180, 0.2);
-    var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
+    var limiter = Marzipano.RectilinearView.limit.fov(0.15, 1.8);
+
+    var initialParams = {
+      yaw: data.initialViewParameters.yaw,
+      pitch: data.initialViewParameters.pitch,
+      fov: Math.PI / 2
+    };
+
+    var view = new Marzipano.RectilinearView(initialParams, limiter);
 
     var scene = viewer.createScene({
       source: source,
