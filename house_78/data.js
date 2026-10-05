@@ -24,8 +24,8 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "yaw": 1.7386244161330353,
-        "pitch": 0.17060133608653416,
+        "yaw": 1.2770634101553888,
+        "pitch": 0.18768246996275195,
         "fov": 1.3965535682726662
       },
       "linkHotspots": [
@@ -62,8 +62,8 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "yaw": 0.14060253988829885,
-        "pitch": 0.18976625766904398,
+        "yaw": 1.3081551252116252,
+        "pitch": 0.1077768150631968,
         "fov": 1.3965535682726662
       },
       "linkHotspots": [
@@ -118,8 +118,8 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "yaw": 0.6279310750425644,
-        "pitch": 0.1850282985861078,
+        "yaw": 1.2234933336560339,
+        "pitch": 0.0876658354916664,
         "fov": 1.3965535682726662
       },
       "linkHotspots": [
@@ -174,8 +174,8 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "yaw": -0.04342643873445695,
-        "pitch": 0.17251945214980324,
+        "yaw": 1.246959169375092,
+        "pitch": 0.09735551845282053,
         "fov": 1.3965535682726662
       },
       "linkHotspots": [
@@ -218,8 +218,8 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "yaw": -1.0360851902956476,
-        "pitch": 0.21840164099158343,
+        "yaw": -0.3697995445698581,
+        "pitch": 0.12957974483525092,
         "fov": 1.3965535682726662
       },
       "linkHotspots": [
@@ -262,9 +262,9 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "pitch": 0,
-        "yaw": 0,
-        "fov": 1.5707963267948966
+        "yaw": -0.3139111142804758,
+        "pitch": 0.05295151501627515,
+        "fov": 1.3965535682726662
       },
       "linkHotspots": [
         {
@@ -300,9 +300,9 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "pitch": 0,
-        "yaw": 0,
-        "fov": 1.5707963267948966
+        "yaw": -1.8606408982942657,
+        "pitch": 0.09933074550413323,
+        "fov": 1.3965535682726662
       },
       "linkHotspots": [
         {
@@ -338,9 +338,9 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "pitch": 0,
-        "yaw": 0,
-        "fov": 1.5707963267948966
+        "yaw": -1.861387452725804,
+        "pitch": 0.10292493269535186,
+        "fov": 1.3965535682726662
       },
       "linkHotspots": [
         {
@@ -376,9 +376,9 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "pitch": 0,
-        "yaw": 0,
-        "fov": 1.5707963267948966
+        "yaw": -2.775569600282701,
+        "pitch": 0.21172441378260487,
+        "fov": 1.3965535682726662
       },
       "linkHotspots": [
         {
@@ -420,9 +420,9 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "pitch": 0,
-        "yaw": 0,
-        "fov": 1.5707963267948966
+        "yaw": -0.15882400650847472,
+        "pitch": 0.06832453550487827,
+        "fov": 1.3965535682726662
       },
       "linkHotspots": [
         {
@@ -458,9 +458,9 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "pitch": 0,
-        "yaw": 0,
-        "fov": 1.5707963267948966
+        "yaw": -2.77824220905776,
+        "pitch": 0.08369481446053939,
+        "fov": 1.3965535682726662
       },
       "linkHotspots": [
         {
@@ -502,9 +502,9 @@ var APP_DATA = {
       ],
       "faceSize": 1500,
       "initialViewParameters": {
-        "pitch": 0,
-        "yaw": 0,
-        "fov": 1.5707963267948966
+        "yaw": -2.8038314634329105,
+        "pitch": 0.060353339695979,
+        "fov": 1.3965535682726662
       },
       "linkHotspots": [
         {
@@ -517,7 +517,7 @@ var APP_DATA = {
       "infoHotspots": []
     }
   ],
-  "name": "Project Title",
+  "name": "House_78",
   "settings": {
     "mouseViewMode": "drag",
     "autorotateEnabled": false,
