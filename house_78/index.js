@@ -184,14 +184,22 @@
 
   function switchScene(scene) {
     var currentView = viewer.view();
+    var oldScene = viewer.scene();
     var targetYaw = null;
     var currentPitch = currentView ? currentView.pitch() : null;
     var currentFov = currentView ? currentView.fov() : null;
 
-    if (currentView && typeof currentScene !== 'undefined' && currentScene) {
-      var oldYawOffset = currentScene.data.initialViewParameters.yaw;
-      var newYawOffset = scene.data.initialViewParameters.yaw;
-      targetYaw = currentView.yaw() - oldYawOffset + newYawOffset;
+    if (currentView && oldScene) {
+      // Находим данные старой сцены в массиве data
+      var oldSceneData = findSceneDataById(oldScene.id);
+      if (oldSceneData) {
+        // Считаем чистый поворот пользователя относительно "абсолютного севера" тура
+        var absoluteYaw = currentView.yaw() - oldSceneData.initialViewParameters.yaw;
+        // Прибавляем смещение новой сцены
+        targetYaw = absoluteYaw + scene.data.initialViewParameters.yaw;
+      } else {
+        targetYaw = currentView.yaw();
+      }
     }
 
     stopAutorotate();
