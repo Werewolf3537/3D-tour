@@ -182,18 +182,16 @@
     return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
   }
 
-  function switchScene(scene) {
+  function switchScene(scene, targetYaw) {
     var currentView = viewer.view();
-    var savedYaw = currentView ? currentView.yaw() : null;
     var savedPitch = currentView ? currentView.pitch() : null;
     var savedFov = currentView ? currentView.fov() : null;
 
     stopAutorotate();
     
-    // Передаем сохраненные координаты прямо в опции перехода
     scene.scene.switchTo({
       viewParameters: {
-        yaw: savedYaw !== null ? savedYaw : scene.data.initialViewParameters.yaw,
+        yaw: targetYaw !== undefined && targetYaw !== null ? targetYaw : scene.data.initialViewParameters.yaw,
         pitch: savedPitch !== null ? savedPitch : scene.data.initialViewParameters.pitch,
         fov: savedFov !== null ? savedFov : scene.data.initialViewParameters.fov
       }
