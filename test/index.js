@@ -78,12 +78,8 @@
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
     var geometry = new Marzipano.CubeGeometry(data.levels);
 
-    var limiter = Marzipano.RectilinearView.limit.compose([
-      Marzipano.RectilinearView.limit.fov(145*Math.PI/180, 120*Math.PI/180, 1*Math.PI/180),
-      Marzipano.RectilinearView.limit.pitch(-Math.PI/2, Math.PI/2),
-      Marzipano.RectilinearView.limit.yaw(-Math.PI, Math.PI)
-    ]);
-    var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
+    var limiter = Marzipano.RectilinearView.limit.traditional(1024, 120*Math.PI/180);
+    var view = new Marzipano.RectilinearView(initialView, limiter);
 
     var scene = viewer.createScene({
       source: source,
@@ -91,7 +87,6 @@
       view: view,
       pinFirstLevel: true
     });
-
 
     // Create link hotspots.
     data.linkHotspots.forEach(function(hotspot) {
