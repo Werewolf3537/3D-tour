@@ -171,10 +171,6 @@
 
   // Associate view controls with elements.
   var controls = viewer.controls();
-  controls.registerMethod('mouseDrag', new Marzipano.MouseDragControlMethod(document.body));
-  controls.registerMethod('touchDrag', new Marzipano.TouchDragControlMethod(document.body));
-  controls.registerMethod('mouseWheel', new Marzipano.MouseWheelControlMethod(document.body));
-  controls.registerMethod('touchPinch', new Marzipano.TouchPinchControlMethod(document.body));
   controls.registerMethod('upElement',    new Marzipano.ElementPressControlMethod(viewUpElement,     'y', -velocity, friction), true);
   controls.registerMethod('downElement',  new Marzipano.ElementPressControlMethod(viewDownElement,   'y',  velocity, friction), true);
   controls.registerMethod('leftElement',  new Marzipano.ElementPressControlMethod(viewLeftElement,   'x', -velocity, friction), true);
