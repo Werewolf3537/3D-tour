@@ -84,7 +84,7 @@
       fov: 90 * Math.PI / 180
     });
     
-    var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
+    var view = new Marzipano.RectilinearView(initialParameters, limiter);
 
     var scene = viewer.createScene({
       source: source,
