@@ -148,14 +148,24 @@
   // Set handler for scene switch.
   scenes.forEach(function(scene) {
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
-    el.addEventListener('click', function() {
-      switchScene(scene);
-      // On mobile, hide scene list after selecting a scene.
-      if (document.body.classList.contains('mobile')) {
-        hideSceneList();
+    
+    if (scene.data.hidemenu === true) {
+      if (el) {
+        el.style.display = 'none';
       }
-    });
+      return; 
+    }
+
+    if (el) {
+      el.addEventListener('click', function() {
+        switchScene(scene);
+        if (document.body.classList.contains('mobile')) {
+          hideSceneList();
+        }
+      });
+    }
   });
+
 
   // DOM elements for view controls.
   var viewUpElement = document.querySelector('#viewUp');
