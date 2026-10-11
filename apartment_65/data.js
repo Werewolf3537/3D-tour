@@ -299,6 +299,7 @@ var APP_DATA = {
           "pitch": 0.3393685093199146,
           "rotation": 0,
           "target": "5---"
+          "icon": "edit.png"
         },
         {
           "yaw": 2.454986353061125,
