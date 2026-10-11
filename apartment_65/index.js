@@ -91,6 +91,14 @@
     // Create link hotspots.
     data.linkHotspots.forEach(function(hotspot) {
       var element = createLinkHotspotElement(hotspot);
+      
+      if (hotspot.target === "5---") {
+        var img = element.querySelector('img');
+        if (img) {
+          img.src = 'img/edit.png';
+        }
+      }
+      
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     });
 
