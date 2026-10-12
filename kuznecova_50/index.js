@@ -190,7 +190,9 @@
 
     stopAutorotate();
     
-    viewer.once('sceneChange', function() {
+    scene.scene.switchTo();
+    
+    setTimeout(function() {
       var newView = viewer.view();
       if (newView && savedYaw !== null) {
         newView.setParameters({
@@ -199,10 +201,8 @@
           fov: savedFov
         });
       }
-    });
+    }, 50);
 
-    scene.scene.switchTo();
-    
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
@@ -211,7 +211,6 @@
       updateMapActiveDot(scene.data.id);
     }
   }
-
 
   function updateSceneName(scene) {
     sceneNameElement.innerHTML = sanitize(scene.data.name);
