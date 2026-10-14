@@ -413,15 +413,18 @@
   var switchBtn = document.getElementById('switch-style-btn');
 
   if (switchBtn) {
+    var isRepairShown = false; 
+
     switchBtn.addEventListener('click', function() {
+      isRepairShown = !isRepairShown; 
       
-      if (switchBtn.textContent === 'Вариант с ремонтом') {
+      if (isRepairShown) {
         switchBtn.textContent = 'Черновой вариант';
       } else {
         switchBtn.textContent = 'Вариант с ремонтом';
       }
-
     });
   }
 
 })();
+
