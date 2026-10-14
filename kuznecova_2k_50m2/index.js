@@ -410,4 +410,18 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
+  var switchBtn = document.getElementById('switch-style-btn');
+
+  if (switchBtn) {
+    switchBtn.addEventListener('click', function() {
+      
+      if (switchBtn.textContent === 'Вариант с ремонтом') {
+        switchBtn.textContent = 'Черновой вариант';
+      } else {
+        switchBtn.textContent = 'Вариант с ремонтом';
+      }
+
+    });
+  }
+
 })();
