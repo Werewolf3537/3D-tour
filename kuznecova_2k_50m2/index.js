@@ -205,6 +205,7 @@
 
     startAutorotate();
     updateSceneName(scene);
+    updateSceneList(scene);
     
     if (typeof updateMapActiveDot === 'function') {
       updateMapActiveDot(scene.data.id);
