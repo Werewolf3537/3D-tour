@@ -411,10 +411,24 @@
   switchScene(scenes[0]);
 
   var switchBtn = document.getElementById('switch-style-btn');
+
   if (switchBtn) {
-    switchBtn.textContent = 'ТЕСТ РАБОТАЕТ';
+    var isRepairShown = false; 
+
+    switchBtn.addEventListener('click', function(event) {
+      event.stopPropagation(); 
+      
+      isRepairShown = !isRepairShown; 
+
+      if (isRepairShown) {
+        switchBtn.textContent = 'Черновой вариант';
+      } else {
+        switchBtn.textContent = 'Вариант с ремонтом';
+      }
+    });
   }
 
 })();
+
 
 
