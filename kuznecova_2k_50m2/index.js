@@ -408,7 +408,7 @@
   }
 
   // Display the initial scene.
-  switchScene(scenes);
+  switchScene(scenes[0]);
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
     switchBtn.addEventListener('click', function(event) {
@@ -442,6 +442,7 @@
     });
   }
 })();
+
 
 
 
