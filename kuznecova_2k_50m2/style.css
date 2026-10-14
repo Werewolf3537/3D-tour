@@ -836,11 +836,11 @@ body.view-control-buttons .viewControlButton {
 
 .style-toggle-button {
   position: absolute;
-  top: 60px;
-  right: 60px;
+  top: 40px;
+  right:20px;
   z-index: 9999;
   padding: 12px 24px;
-  background-color: rgba(20, 25, 35, 0.6);
+  background-color: #007bff;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
