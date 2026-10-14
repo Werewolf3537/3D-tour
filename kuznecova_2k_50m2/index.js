@@ -415,10 +415,7 @@
       event.stopPropagation();
       var currentScene = viewer.scene();
       if (!currentScene) return;
-      var targetId = currentScene.data.pairedSceneId;
-      
-      console.log('Текущая сцена:', currentScene.data.id, 'Ищем пару:', targetId);
-      
+      var targetId = currentScene.dataScene.pairedSceneId;
       if (targetId) {
         var targetScene = findSceneById(targetId);
         if (targetScene) {
@@ -426,7 +423,7 @@
           targetScene.switchTo({
             viewState: currentViewParameters
           });
-          if (targetScene.data.name.includes('черновая')) {
+          if (targetScene.dataScene.name.includes('черновая')) {
             switchBtn.textContent = 'Вариант с ремонтом';
           } else {
             switchBtn.textContent = 'Черновой вариант';
@@ -436,6 +433,7 @@
     });
   }
 })();
+
 
 
 
