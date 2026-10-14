@@ -426,11 +426,8 @@
         var targetId = activeSceneWrapper.data.pairedSceneId;
         if (targetId) {
           var targetScene = findSceneById(targetId);
-          if (targetScene && targetScene.scene) {
-            var currentViewParameters = viewer.view().parameters();
-            targetScene.scene.switchTo({
-              viewState: currentViewParameters
-            });
+          if (targetScene) {
+            switchScene(targetScene);
             if (targetScene.data && targetScene.data.name.includes('черновая')) {
               switchBtn.textContent = 'Вариант с ремонтом';
             } else {
@@ -442,6 +439,7 @@
     });
   }
 })();
+
 
 
 
