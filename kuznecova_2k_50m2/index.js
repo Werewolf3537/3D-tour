@@ -415,8 +415,16 @@
       event.stopPropagation();
       var currentScene = viewer.scene();
       if (!currentScene) return;
+      
+      // ВРЕМЕННАЯ ПРОВЕРКА: выводим ID, которые выдает плеер
+      console.log('ID из плеера:', currentScene.id);
+      if (currentScene.data) { console.log('ID из кубышки data:', currentScene.data.id); }
+      
       var currentSceneData = findSceneDataById(currentScene.id);
-      if (!currentSceneData) return;
+      if (!currentSceneData) {
+        console.log('Скрипт не смог найти данные для этого ID в data.js');
+        return;
+      }
       var targetId = currentSceneData.pairedSceneId;
       if (targetId) {
         var targetScene = findSceneById(targetId);
@@ -436,6 +444,7 @@
     });
   }
 })();
+
 
 
 
