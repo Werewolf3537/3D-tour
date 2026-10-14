@@ -408,7 +408,7 @@
   }
 
   // Display the initial scene.
-  switchScene(scenes[0]);
+  switchScene(scenes);
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
     switchBtn.addEventListener('click', function(event) {
@@ -423,16 +423,17 @@
           targetScene.switchTo({
             viewState: currentViewParameters
           });
-          if (targetScene.data.name.includes('черновая')) {
-            switchBtn.textContent = 'Вариант с ремонтом';
-          } else {
+          if (switchBtn.textContent === 'Вариант с ремонтом') {
             switchBtn.textContent = 'Черновой вариант';
+          } else {
+            switchBtn.textContent = 'Вариант с ремонтом';
           }
         }
       }
     });
   }
 })();
+
 
 
 
