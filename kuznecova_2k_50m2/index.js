@@ -408,7 +408,7 @@
   }
 
   // Display the initial scene.
-  switchScene(scenes[0]);
+  switchScene(scenes);
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
     switchBtn.addEventListener('click', function(event) {
@@ -426,9 +426,9 @@
         var targetId = activeSceneWrapper.data.pairedSceneId;
         if (targetId) {
           var targetScene = findSceneById(targetId);
-          if (targetScene) {
+          if (targetScene && targetScene.scene) {
             var currentViewParameters = viewer.view().parameters();
-            targetScene.switchTo({
+            targetScene.scene.switchTo({
               viewState: currentViewParameters
             });
             if (targetScene.data && targetScene.data.name.includes('черновая')) {
@@ -442,6 +442,7 @@
     });
   }
 })();
+
 
 
 
