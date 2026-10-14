@@ -415,7 +415,9 @@
   if (switchBtn) {
     var isRepairShown = false; 
 
-    switchBtn.addEventListener('click', function() {
+    switchBtn.addEventListener('click', function(event) {
+      event.stopPropagation(); 
+      
       isRepairShown = !isRepairShown; 
       
       if (isRepairShown) {
@@ -427,4 +429,5 @@
   }
 
 })();
+
 
