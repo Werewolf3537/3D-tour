@@ -205,7 +205,6 @@
 
     startAutorotate();
     updateSceneName(scene);
-    updateSceneList(scene);
     
     if (typeof updateMapActiveDot === 'function') {
       updateMapActiveDot(scene.data.id);
@@ -409,9 +408,6 @@
 
   // Display the initial scene.
   switchScene(scenes[0]);
-
-  document.body.classList.remove('menu-open');
-
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
     switchBtn.addEventListener('click', function(event) {
