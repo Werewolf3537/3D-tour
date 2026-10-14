@@ -409,26 +409,31 @@
 
   // Display the initial scene.
   switchScene(scenes[0]);
-
   var switchBtn = document.getElementById('switch-style-btn');
-
   if (switchBtn) {
-    var isRepairShown = false; 
-
     switchBtn.addEventListener('click', function(event) {
-      event.stopPropagation(); 
-      
-      isRepairShown = !isRepairShown; 
-
-      if (isRepairShown) {
-        switchBtn.textContent = 'Черновой вариант';
-      } else {
-        switchBtn.textContent = 'Вариант с ремонтом';
+      event.stopPropagation();
+      var currentScene = viewer.scene();
+      if (!currentScene) return;
+      var targetId = currentScene.data.pairedSceneId;
+      if (targetId) {
+        var targetScene = findSceneById(targetId);
+        if (targetScene) {
+          var currentViewParameters = viewer.view().parameters();
+          targetScene.switchTo({
+            viewState: currentViewParameters
+          });
+          if (targetScene.data.name.includes('черновая')) {
+            switchBtn.textContent = 'Вариант с ремонтом';
+          } else {
+            switchBtn.textContent = 'Черновой вариант';
+          }
+        }
       }
     });
   }
-
 })();
+
 
 
 

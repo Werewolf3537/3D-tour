@@ -3,6 +3,7 @@ var APP_DATA = {
     {
       "id": "0--1-",
       "name": "Коридор 1 (черновая)",
+      "pairedSceneId": "1--1-",
       "levels": [
         {
           "tileSize": 256,
@@ -43,6 +44,7 @@ var APP_DATA = {
     {
       "id": "1--1-",
       "name": "Коридор 1 (ремонт)",
+      "pairedSceneId": "0--1-",
       "levels": [
         {
           "tileSize": 256,
