@@ -408,7 +408,7 @@
   }
 
   // Display the initial scene.
-  switchScene(scenes);
+  switchScene(scenes[0]);
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
     switchBtn.addEventListener('click', function(event) {
@@ -416,6 +416,9 @@
       var currentScene = viewer.scene();
       if (!currentScene) return;
       var targetId = currentScene.data.pairedSceneId;
+      
+      console.log('Текущая сцена:', currentScene.data.id, 'Ищем пару:', targetId);
+      
       if (targetId) {
         var targetScene = findSceneById(targetId);
         if (targetScene) {
@@ -423,16 +426,17 @@
           targetScene.switchTo({
             viewState: currentViewParameters
           });
-          if (switchBtn.textContent === 'Вариант с ремонтом') {
-            switchBtn.textContent = 'Черновой вариант';
-          } else {
+          if (targetScene.data.name.includes('черновая')) {
             switchBtn.textContent = 'Вариант с ремонтом';
+          } else {
+            switchBtn.textContent = 'Черновой вариант';
           }
         }
       }
     });
   }
 })();
+
 
 
 
