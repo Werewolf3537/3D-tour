@@ -836,7 +836,7 @@ body.view-control-buttons .viewControlButton {
 
 .style-toggle-button {
   position: absolute;
-  top: 40px;
+  top: 50px;
   right:20px;
   z-index: 9999;
   padding: 12px 24px;
