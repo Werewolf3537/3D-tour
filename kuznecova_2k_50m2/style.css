@@ -857,3 +857,17 @@ body.view-control-buttons .viewControlButton {
 .no-touch .style-toggle-button:hover {
   background-color: rgb(103,115,131) !important;
 }
+
+.info-hotspot .info-hotspot-header {
+  background-color: transparent !important;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.info-hotspot .info-hotspot-button {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
