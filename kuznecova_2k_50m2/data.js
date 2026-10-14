@@ -89,6 +89,7 @@ var APP_DATA = {
     {
       "id": "2--2-",
       "name": "Коридор 2 (черновая)",
+      "pairedSceneId": "3--2",
       "levels": [
         {
           "tileSize": 256,
@@ -141,6 +142,7 @@ var APP_DATA = {
     {
       "id": "3--2-",
       "name": "Коридор 2 (ремонт)",
+      "pairedSceneId": "2--2-",
       "levels": [
         {
           "tileSize": 256,
@@ -197,6 +199,7 @@ var APP_DATA = {
     {
       "id": "4--3-",
       "name": "Коридор 3 (черновая)",
+      "pairedSceneId": "5--3-",
       "levels": [
         {
           "tileSize": 256,
@@ -249,6 +252,7 @@ var APP_DATA = {
     {
       "id": "5--3-",
       "name": "Коридор 3 (ремонт)",
+      "pairedSceneId": "4--3-",
       "levels": [
         {
           "tileSize": 256,
@@ -305,6 +309,7 @@ var APP_DATA = {
     {
       "id": "6--",
       "name": "Кухня (черновая)",
+      "pairedSceneId": "7--",
       "levels": [
         {
           "tileSize": 256,
@@ -339,6 +344,7 @@ var APP_DATA = {
     {
       "id": "7--",
       "name": "Кухня (ремонт)",
+      "pairedSceneId": "6--",
       "levels": [
         {
           "tileSize": 256,
