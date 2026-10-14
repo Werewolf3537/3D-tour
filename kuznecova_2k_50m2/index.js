@@ -411,21 +411,8 @@
   switchScene(scenes[0]);
 
   var switchBtn = document.getElementById('switch-style-btn');
-
   if (switchBtn) {
-    var isRepairShown = false; 
-
-    switchBtn.addEventListener('click', function(event) {
-      event.stopPropagation(); 
-      
-      isRepairShown = !isRepairShown; 
-      
-      if (isRepairShown) {
-        switchBtn.textContent = 'Черновой вариант';
-      } else {
-        switchBtn.textContent = 'Вариант с ремонтом';
-      }
-    });
+    switchBtn.textContent = 'ТЕСТ РАБОТАЕТ';
   }
 
 })();
