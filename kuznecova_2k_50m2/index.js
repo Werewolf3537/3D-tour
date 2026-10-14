@@ -428,16 +428,12 @@
           var targetScene = findSceneById(targetId);
           if (targetScene) {
             switchScene(targetScene);
-            if (switchBtn.textContent === 'Вариант с ремонтом') {
-              switchBtn.textContent = 'Черновой вариант';
-            } else {
-              switchBtn.textContent = 'Вариант с ремонтом';
-            }
           }
         }
       }
     });
   }
 })();
+
 
 
