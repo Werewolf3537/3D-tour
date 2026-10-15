@@ -408,7 +408,13 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
-  document.getElementById('sceneListToggle').click();
+  // Умное закрытие бокового меню при старте
+  if (document.body.classList.contains('menu-open')) {
+    var menuToggleBtn = document.getElementById('sceneListToggle');
+    if (menuToggleBtn) {
+      menuToggleBtn.click();
+    }
+  }
 
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
