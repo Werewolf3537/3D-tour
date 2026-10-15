@@ -879,7 +879,7 @@ body.view-control-buttons .viewControlButton {
   visibility: hidden !important;
 }
 
-/* 1. Главный контейнер, который держит всю конструкцию в углу */
+/* 1. Главный контейнер выстраивает элементы по правому краю */
 .portfolio-brand-block {
   position: absolute !important;
   bottom: 20px !important;
@@ -887,27 +887,25 @@ body.view-control-buttons .viewControlButton {
   z-index: 1000 !important;
   display: flex !important;
   flex-direction: column !important;
-  align-items: center !important;
-  gap: 10px !important; /* Расстояние между парящим логотипом и рамкой текста */
-  pointer-events: none !important; /* Чтобы сам прозрачный контейнер не мешал крутить панораму */
+  align-items: flex-end !important; /* СДВИГ НАПРАВО: выравниваем всё по правому краю экрана */
+  gap: 10px !important; /* Расстояние между логотипом и рамкой текста */
+  pointer-events: none !important;
 }
 
-/* 2. Настраиваем уменьшенный и аккуратный логотип */
+/* 2. Настраиваем увеличенный логотип по правому краю */
 .portfolio-logo {
-  width: 50px !important;  /* Уменьшили размер до 50px */
-  height: 50px !important; /* Уменьшили размер до 50px */
+  width: 70px !important;  /* Увеличили размер до 70px */
+  height: 70px !important; /* Увеличили размер до 70px */
   object-fit: contain !important;
   pointer-events: auto !important;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)) !important; /* Добавили мягкую тень, чтобы белый логотип не терялся на светлых стенах */
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)) !important;
 }
 
-/* 3. Возвращаем рамке с текстом её первоначальный чистый вид */
+/* 3. Рамка с текстом (её правый край теперь идеально совпадает с краем логотипа) */
 .portfolio-link-wrapper {
-  /* Сбрасываем флексы, которые мы добавляли на прошлом шаге */
   display: block !important;
-  text-align: center !important;
+  text-align: right !important; /* Выравниваем текст внутри рамки тоже направо */
   
-  /* Все ваши прошлые стили рамки */
   font-family: sans-serif !important;
   font-size: 14px !important;
   color: #ffffff !important;
