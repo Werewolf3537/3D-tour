@@ -927,15 +927,18 @@ body.view-control-buttons .viewControlButton {
   position: absolute !important;
   top: 70px !important;         /* Сдвиг вниз под иконку */
   left: 20px !important;        /* Сдвиг правее */
-  width: 320px !important;      /* Сделали свиток шире */
+  width: 320px !important;      /* Ширина свитка */
   background-color: rgba(20, 25, 35, 0.6) !important; /* Ваш темный полупрозрачный фон */
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-top-left-radius: 4px !important;  /* Скругляем верхние углы у заголовка */
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-top-left-radius: 4px !important;  /* Скругляем верхние углы */
   border-top-right-radius: 4px !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-  padding: 15px 15px 5px 15px !important;  /* Внутренние отступы вокруг заголовка */
+  padding: 15px 40px 10px 15px !important;  /* Отступы: увеличили снизу до 10px, справа оставили место под крестик */
   color: #ffffff !important;
   font-weight: bold !important;
+  line-height: 1.4 !important;  /* Выравниваем текст по вертикали */
   z-index: 100 !important;
 }
 
@@ -945,33 +948,38 @@ body.view-control-buttons .viewControlButton {
   opacity: 1 !important;
   visibility: visible !important;
   position: absolute !important;
-  top: 110px !important;        /* Встает ровно под блоком заголовка */
+  top: 115px !important;        /* Чуть опустили (было 110px), чтобы убрать наложение */
   left: 20px !important;
   width: 320px !important;      /* Такая же ширина */
   background-color: rgba(20, 25, 35, 0.6) !important; /* Тот же фон */
   border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-bottom-left-radius: 4px !important; /* Скругляем нижние углы у текста */
+  border-bottom-left-radius: 4px !important; /* Скругляем нижние углы */
   border-bottom-right-radius: 4px !important;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5) !important;
-  padding: 0 15px 15px 15px !important;   /* Внутренние отступы для списка */
+  padding: 10px 15px 15px 15px !important;   /* Добавили отступ сверху 10px, чтобы список не прилипал */
   color: #ffffff !important;
+  line-height: 1.4 !important;
   z-index: 100 !important;
 }
 
-/* Картинка крестика закрытия внутри свитка (если он нужен) */
+/* Картинка крестика закрытия внутри свитка */
 .info-hotspot.visible .info-hotspot-close-wrapper {
   display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
   position: absolute !important;
-  top: 80px !important;
-  left: 310px !important;
+  top: 82px !important;         /* Выровняли по центру строчки заголовка */
+  left: 310px !important;       /* Аккуратно прижали к правому краю плашки */
   z-index: 101 !important;
   cursor: pointer;
+  width: 16px !important;       /* Размер самого контейнера крестика */
+  height: 16px !important;
 }
+
 .info-hotspot.visible .info-hotspot-close-icon {
-  width: 12px !important;
-  height: 12px !important;
+  width: 16px !important;       /* Увеличили размер самого крестика (было 12px) */
+  height: 16px !important;
+  display: block !important;
 }
