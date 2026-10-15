@@ -869,3 +869,12 @@ body.view-control-buttons .viewControlButton {
   -webkit-perspective: 1000 !important;
   perspective: 1000 !important;
 }
+
+/* Намертво прячем всплывающий текст (название комнаты) над стрелочками перехода */
+.link-hotspot .link-hotspot-tooltip,
+.link-hotspot:hover .link-hotspot-tooltip,
+.link-hotspot-text {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
