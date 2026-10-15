@@ -864,3 +864,18 @@ body.view-control-buttons .viewControlButton {
   -webkit-perspective: 1000 !important;
   perspective: 1000 !important;
 }
+
+/* Убираем софтовый баг Apple с перегрузкой WebGL холста */
+#pano canvas {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  -webkit-transform: translateZ(0) !important;
+  transform: translateZ(0) !important;
+}
+
+/* Принудительно отключаем инерцию скролла iOS, которая ломает плавность Marzipano */
+#pano {
+  -webkit-overflow-scrolling: auto !important;
+}
