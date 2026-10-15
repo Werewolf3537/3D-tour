@@ -922,3 +922,21 @@ body.view-control-buttons .viewControlButton {
   padding: 15px !important;
   border-radius: 4px !important;
 }
+
+.info-hotspot {
+  width: 60px !important;
+  height: 60px !important;
+}
+
+.info-hotspot .info-hotspot-text {
+  position: absolute !important;
+  top: 70px !important;
+  left: 20px !important; 
+  width: 250px !important;
+}
+
+.info-hotspot .info-hotspot-title-wrapper {
+  position: absolute !important;
+  top: 70px !important;
+  left: 20px !important;
+}
