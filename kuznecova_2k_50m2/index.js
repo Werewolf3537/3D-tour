@@ -70,8 +70,8 @@
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
-  // Приказываем плееру вовремя очищать память от тяжелых скрытых текстур
-  viewer.textureStore().setAlgorithm(new Marzipano.LruTextureStoreAlgorithm(15));
+ // ИСПРАВЛЕННЫЙ ВАРИАНТ: заходим в память через .stage()
+  viewer.stage().textureStore().setAlgorithm(new Marzipano.LruTextureStoreAlgorithm(15));
 
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
