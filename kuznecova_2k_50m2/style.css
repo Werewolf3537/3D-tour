@@ -858,16 +858,22 @@ body.view-control-buttons .viewControlButton {
   background-color: rgb(103,115,131) !important;
 }
 
-.info-hotspot .info-hotspot-button {
+.info-hotspot .info-hotspot-icon-wrapper {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
-}
-
-.info-hotspot .info-hotspot-button img,
-.info-hotspot .info-hotspot-icon {
+  padding: 0 !important;
+  cursor: pointer;
   width: 60px !important;
   height: 60px !important;
-  object-fit: contain !important;
+}
+
+.info-hotspot .info-hotspot-icon {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.no-touch .info-hotspot .info-hotspot-icon-wrapper:hover img {
+  transform: none !important;
 }
