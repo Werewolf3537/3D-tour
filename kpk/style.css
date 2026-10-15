@@ -888,7 +888,7 @@ body.view-control-buttons .viewControlButton {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-end !important;
-  gap: 5px !important; /* УМЕНЬШИЛИ ЗАЗОР: логотип стал чуть ниже и ближе к тексту */
+  gap: 1px !important; /* УМЕНЬШИЛИ ЗАЗОР: логотип стал чуть ниже и ближе к тексту */
   pointer-events: none !important;
 }
 
