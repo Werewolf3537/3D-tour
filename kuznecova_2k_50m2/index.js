@@ -87,13 +87,8 @@
       view: view,
       pinFirstLevel: true
     });
-
-    // НАШИ ДВА ШАГА ДЛЯ СГЛАЖИВАНИЯ НА IPHONE:
-    // 1. Приказываем плееру всегда держать в памяти и показывать размытую миниатюру (превью)
     scene.source()._levels[0].fallbackOnly = false;
-    
-    // 2. Запрещаем плееру запрашивать тяжелые кубы 2048 во время быстрого движения пальцем
-    scene.scene.config = {
+    scene.config = {
       transitionDuration: 100,
       loadFirstStateOnly: true
     };
@@ -110,12 +105,9 @@
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     });
 
-    return {
-      data: data,
-      scene: scene,
-      view: view
-    };
+    return scene;
   });
+
 
   // Set up autorotate, if enabled.
   var autorotate = Marzipano.autorotate({
