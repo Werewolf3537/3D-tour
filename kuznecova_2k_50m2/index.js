@@ -87,11 +87,6 @@
       view: view,
       pinFirstLevel: true
     });
-    scene.source()._levels[0].fallbackOnly = false;
-    scene.config = {
-      transitionDuration: 100,
-      loadFirstStateOnly: true
-    };
 
     // Create link hotspots.
     data.linkHotspots.forEach(function(hotspot) {
@@ -105,9 +100,12 @@
       scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
     });
 
-    return scene;
+    return {
+      data: data,
+      scene: scene,
+      view: view
+    };
   });
-
 
   // Set up autorotate, if enabled.
   var autorotate = Marzipano.autorotate({
@@ -366,17 +364,6 @@
       wrapper.classList.toggle('visible');
       modal.classList.toggle('visible');
     };
-
-    iconWrapper.addEventListener('click', toggle);
-
-    closeWrapper.addEventListener('click', toggle);
-
-    modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
-
-    stopTouchAndScrollEventPropagation(wrapper);
-
-    return wrapper;
-  }
 
     // Show content when hotspot is clicked.
     wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
