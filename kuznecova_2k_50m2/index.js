@@ -407,14 +407,13 @@
 
   // Display the initial scene.
   switchScene(scenes[0]);
-
-  // Принудительно закрываем меню для всех устройств на старте
-  document.body.classList.remove('menu-open');
-  var menuToggleBtn = document.getElementById('sceneListToggle');
-  if (menuToggleBtn) {
-    menuToggleBtn.classList.add('collapsed');
-  }
-
+  setTimeout(function() {
+    document.body.classList.remove('menu-open');
+    var menuToggleBtn = document.getElementById('sceneListToggle');
+    if (menuToggleBtn) {
+      menuToggleBtn.classList.add('collapsed');
+    }
+  }, 100);
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
     switchBtn.addEventListener('click', function(event) {
@@ -440,6 +439,7 @@
     });
   }
 })();
+
 
 
 
