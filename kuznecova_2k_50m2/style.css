@@ -876,6 +876,20 @@ body.view-control-buttons .viewControlButton {
   transition: transform 0.2s ease-in-out !important; 
 }
 
+.info-hotspot:hover .info-hotspot-header,
+.info-hotspot:hover .info-hotspot-text {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.info-hotspot.visible .info-hotspot-header,
+.info-hotspot.visible .info-hotspot-text {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 .no-touch .info-hotspot .info-hotspot-icon-wrapper:hover .info-hotspot-icon {
   transform: scale(1.15) !important;
 }
