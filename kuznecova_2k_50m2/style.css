@@ -925,20 +925,20 @@ body.view-control-buttons .viewControlButton {
   opacity: 1 !important;
   visibility: visible !important;
   position: absolute !important;
-  top: 70px !important;         /* Сдвиг вниз под иконку */
-  left: 20px !important;        /* Сдвиг правее */
-  width: 320px !important;      /* Ширина свитка */
-  background-color: rgba(20, 25, 35, 0.6) !important; /* Ваш темный полупрозрачный фон */
+  top: 70px !important;
+  left: 20px !important;
+  width: 320px !important;
+  background-color: rgba(20, 25, 35, 0.6) !important;
   border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-top-left-radius: 4px !important;  /* Скругляем верхние углы */
+  border-top-left-radius: 4px !important;
   border-top-right-radius: 4px !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
-  padding: 15px 40px 10px 15px !important;  /* Отступы: увеличили снизу до 10px, справа оставили место под крестик */
+  padding: 10px 40px 12px 15px !important;  /* Обновленные отступы: текст приподнялся выше */
   color: #ffffff !important;
   font-weight: bold !important;
-  line-height: 1.4 !important;  /* Выравниваем текст по вертикали */
+  line-height: 1.4 !important;
   z-index: 100 !important;
 }
 
