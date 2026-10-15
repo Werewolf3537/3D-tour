@@ -85,8 +85,18 @@
       source: source,
       geometry: geometry,
       view: view,
-      pinFirstLevel: false
+      pinFirstLevel: true
     });
+
+    // НАШИ ДВА ШАГА ДЛЯ СГЛАЖИВАНИЯ НА IPHONE:
+    // 1. Приказываем плееру всегда держать в памяти и показывать размытую миниатюру (превью)
+    scene.source()._levels[0].fallbackOnly = false;
+    
+    // 2. Запрещаем плееру запрашивать тяжелые кубы 2048 во время быстрого движения пальцем
+    scene.scene.config = {
+      transitionDuration: 100,
+      loadFirstStateOnly: true
+    };
 
     // Create link hotspots.
     data.linkHotspots.forEach(function(hotspot) {
@@ -364,6 +374,17 @@
       wrapper.classList.toggle('visible');
       modal.classList.toggle('visible');
     };
+
+    iconWrapper.addEventListener('click', toggle);
+
+    closeWrapper.addEventListener('click', toggle);
+
+    modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
+
+    stopTouchAndScrollEventPropagation(wrapper);
+
+    return wrapper;
+  }
 
     // Show content when hotspot is clicked.
     wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
