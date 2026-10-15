@@ -980,3 +980,15 @@ body.view-control-buttons .viewControlButton {
   height: 16px !important;
   display: block !important;
 }
+
+/* 1. Добавляем плавность для иконки перемещения (стрелочки) */
+.link-hotspot img,
+.link-hotspot-icon {
+  transition: transform 0.2s ease-in-out !important;
+}
+
+/* 2. ЭФФЕКТ НАВЕДЕНИЯ: плавно увеличиваем стрелочку на 15% */
+.no-touch .link-hotspot:hover img,
+.no-touch .link-hotspot-icon:hover {
+  transform: scale(1.15) !important;
+}
