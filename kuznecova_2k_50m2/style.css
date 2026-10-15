@@ -984,26 +984,12 @@ body.view-control-buttons .viewControlButton {
   display: block !important;
 }
 
-/* Жестко прячем боковое меню за левый край экрана на ПК по умолчанию */
-body.desktop #sceneList {
-  -webkit-transform: translateX(-220px) !important;
-  transform: translateX(-220px) !important;
+/* Прячем сам список комнат внутри шторки на ПК по умолчанию */
+body.desktop #sceneList .scenes {
+  display: none !important;
 }
 
-/* Возвращаем кнопку открытия меню в закрытое (свернутое) состояние */
-body.desktop #sceneListToggle {
-  -webkit-transform: translateX(0) !important;
-  transform: translateX(0) !important;
-}
-
-/* Показываем меню ТОЛЬКО тогда, когда пользователь САМ кликнул и шторка открылась */
-body.desktop.menu-open #sceneList {
-  -webkit-transform: translateX(0) !important;
-  transform: translateX(0) !important;
-}
-
-/* Сдвигаем кнопку открытия вместе со шторкой, когда меню распахнуто */
-body.desktop.menu-open #sceneListToggle {
-  -webkit-transform: translateX(220px) !important;
-  transform: translateX(220px) !important;
+/* Принудительно показываем список комнат ТОЛЬКО когда шторка открыта */
+body.desktop.menu-open #sceneList .scenes {
+  display: block !important;
 }
