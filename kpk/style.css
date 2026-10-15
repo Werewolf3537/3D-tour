@@ -887,24 +887,24 @@ body.view-control-buttons .viewControlButton {
   z-index: 1000 !important;
   display: flex !important;
   flex-direction: column !important;
-  align-items: flex-end !important; /* СДВИГ НАПРАВО: выравниваем всё по правому краю экрана */
-  gap: 10px !important; /* Расстояние между логотипом и рамкой текста */
+  align-items: flex-end !important;
+  gap: 5px !important; /* УМЕНЬШИЛИ ЗАЗОР: логотип стал чуть ниже и ближе к тексту */
   pointer-events: none !important;
 }
 
-/* 2. Настраиваем увеличенный логотип по правому краю */
+/* 2. Настраиваем компактный логотип 55px */
 .portfolio-logo {
-  width: 70px !important;  /* Увеличили размер до 70px */
-  height: 70px !important; /* Увеличили размер до 70px */
+  width: 55px !important;  /* Установили размер 55px */
+  height: 55px !important; /* Установили размер 55px */
   object-fit: contain !important;
   pointer-events: auto !important;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)) !important;
 }
 
-/* 3. Рамка с текстом (её правый край теперь идеально совпадает с краем логотипа) */
+/* 3. Рамка с текстом по правому краю */
 .portfolio-link-wrapper {
   display: block !important;
-  text-align: right !important; /* Выравниваем текст внутри рамки тоже направо */
+  text-align: right !important;
   
   font-family: sans-serif !important;
   font-size: 14px !important;
