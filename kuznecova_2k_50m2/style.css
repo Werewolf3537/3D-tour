@@ -858,55 +858,48 @@ body.view-control-buttons .viewControlButton {
   background-color: rgb(103,115,131) !important;
 }
 
-/* 1. РАСШИРЯЕМ КЛИКАБЕЛЬНУЮ ЗОНУ: делаем сам корневой хотспот размером 60px */
 .info-hotspot {
   width: 60px !important;
   height: 60px !important;
 }
 
-/* 2. СКРЫВАЕМ ВЕСЬ ВСПЛЫВАЮЩИЙ БЛОК НА СТАРТЕ */
 .info-hotspot .info-hotspot-header {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
 }
 
-/* 3. ОФОРМЛЯЕМ ОБЩИЙ КРАСИВЫЙ ФОН И СДВИГАЕМ ЕГО СТРОГО ПО КЛИКУ */
 .info-hotspot.visible .info-hotspot-header {
   display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
   
-  /* Позиционирование: сдвигаем весь блок ниже и правее иконки */
   position: absolute !important;
-  top: 70px !important;        /* На 10px ниже края нашей 60px иконки */
-  left: 20px !important;       /* Сдвиг правее */
+  top: 70px !important; 
+  left: 20px !important; 
   
-  /* Размеры и внешний вид вашего фирменного свитка */
-  width: 320px !important;     /* Сделали свиток шире (было 250px) */
-  background-color: rgba(20, 25, 35, 0.6) !important; /* Ваш темный полупрозрачный фон */
+  width: 320px !important;    
+  background-color: rgba(20, 25, 35, 0.6) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 4px !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
   padding: 15px !important;
 }
 
-/* 4. ВНУТРЕННИЕ ЭЛЕМЕНТЫ: просто разрешаем им показываться на общем фоне */
 .info-hotspot.visible .info-hotspot-title-wrapper,
 .info-hotspot.visible .info-hotspot-close-wrapper,
 .info-hotspot.visible .info-hotspot-text {
   display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
-  background: transparent !important; /* Убираем у них собственные фоны */
+  background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
-  color: #ffffff !important;        /* Белый цвет текста */
+  color: #ffffff !important;
 }
 
-/* Делаем небольшой аккуратный отступ между заголовком и основным текстом внутри свитка */
 .info-hotspot.visible .info-hotspot-title-wrapper {
   margin-bottom: 10px !important;
-  font-weight: bold !important;    /* Выделяем заголовок жирным */
+  font-weight: bold !important;
 }
