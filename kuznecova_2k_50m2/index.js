@@ -365,14 +365,12 @@
       modal.classList.toggle('visible');
     };
 
-    // Show content when hotspot is clicked.
-    wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
+    iconWrapper.addEventListener('click', toggle);
 
-    // Hide content when close icon is clicked.
+    closeWrapper.addEventListener('click', toggle);
+
     modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
 
-    // Prevent touch and scroll events from reaching the parent element.
-    // This prevents the view control logic from interfering with the hotspot.
     stopTouchAndScrollEventPropagation(wrapper);
 
     return wrapper;
