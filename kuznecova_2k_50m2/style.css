@@ -858,6 +858,23 @@ body.view-control-buttons .viewControlButton {
   background-color: rgb(103,115,131) !important;
 }
 
+.info-hotspot .info-hotspot-header {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.info-hotspot .info-hotspot-header::after,
+.info-hotspot .info-hotspot-header::before {
+  display: none !important;
+  content: none !important;
+}
+
 .info-hotspot .info-hotspot-icon-wrapper {
   background: transparent !important;
   background-color: transparent !important;
@@ -867,6 +884,7 @@ body.view-control-buttons .viewControlButton {
   cursor: pointer;
   width: 60px !important;
   height: 60px !important;
+  display: inline-block !important;
 }
 
 .info-hotspot .info-hotspot-icon {
@@ -876,20 +894,31 @@ body.view-control-buttons .viewControlButton {
   transition: transform 0.2s ease-in-out !important; 
 }
 
-.info-hotspot:hover .info-hotspot-header,
-.info-hotspot:hover .info-hotspot-text {
+.no-touch .info-hotspot .info-hotspot-icon-wrapper:hover .info-hotspot-icon {
+  transform: scale(1.15) !important;
+}
+
+.info-hotspot .info-hotspot-title-wrapper,
+.info-hotspot .info-hotspot-close-wrapper,
+.info-hotspot .info-hotspot-text {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
 }
 
-.info-hotspot.visible .info-hotspot-header,
+.info-hotspot.visible .info-hotspot-title-wrapper,
+.info-hotspot.visible .info-hotspot-close-wrapper,
 .info-hotspot.visible .info-hotspot-text {
-  display: block !important;
+  display: block !important; /* Или используйте flex, если у вас верстка на флексах */
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-.no-touch .info-hotspot .info-hotspot-icon-wrapper:hover .info-hotspot-icon {
-  transform: scale(1.15) !important;
+.info-hotspot.visible .info-hotspot-text {
+  background-color: rgba(20, 25, 35, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  color: #ffffff !important;
+  padding: 15px !important;
+  border-radius: 4px !important;
 }
