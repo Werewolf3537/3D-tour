@@ -365,12 +365,14 @@
       modal.classList.toggle('visible');
     };
 
-    iconWrapper.addEventListener('click', toggle);
+    // Show content when hotspot is clicked.
+    wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
 
-    closeWrapper.addEventListener('click', toggle);
-
+    // Hide content when close icon is clicked.
     modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
 
+    // Prevent touch and scroll events from reaching the parent element.
+    // This prevents the view control logic from interfering with the hotspot.
     stopTouchAndScrollEventPropagation(wrapper);
 
     return wrapper;
@@ -407,13 +409,6 @@
 
   // Display the initial scene.
   switchScene(scenes[0]);
-  setTimeout(function() {
-    document.body.classList.remove('menu-open');
-    var menuToggleBtn = document.getElementById('sceneListToggle');
-    if (menuToggleBtn) {
-      menuToggleBtn.classList.add('collapsed');
-    }
-  }, 100);
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
     switchBtn.addEventListener('click', function(event) {
@@ -439,7 +434,6 @@
     });
   }
 })();
-
 
 
 
