@@ -409,6 +409,9 @@
 
   // Display the initial scene.
   switchScene(scenes[0]);
+
+  hideSceneList();
+
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
     switchBtn.addEventListener('click', function(event) {
