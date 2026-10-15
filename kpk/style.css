@@ -914,3 +914,29 @@ body.view-control-buttons .viewControlButton {
   text-decoration: underline !important; /* Появится аккуратное подчеркивание */
 }
 
+/* Выравниваем элементы внутри нашей визитки строго по центру по вертикали */
+.portfolio-link-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 8px !important; /* Небольшой зазор между логотипом и текстом */
+}
+
+/* Настраиваем точные размеры вашего логотипа */
+.portfolio-logo {
+  width: 80px !important;
+  height: 80px !important;
+  object-fit: contain !important; /* Картинка не будет сжиматься или искажаться */
+  
+  /* Если ваш логотип круглый или вы хотите мягко скруглить углы у квадратного, 
+     можно раскомментировать (убрать /* ) строчку ниже: */
+  /* border-radius: 50% !important; */
+}
+
+/* Оборачиваем текст, чтобы он аккуратно стоял на своей строчке */
+.portfolio-text {
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+}
+
