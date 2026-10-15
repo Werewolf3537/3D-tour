@@ -854,3 +854,13 @@ body.view-control-buttons .viewControlButton {
 .no-touch .style-toggle-button:hover {
   background-color: rgb(103,115,131) !important;
 }
+
+/* Включаем мощное сглаживание и 3D-ускорение для iPhone */
+#pano, .marzipano-canvas, .marzipano-cube {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  -webkit-perspective: 1000 !important;
+  perspective: 1000 !important;
+}
