@@ -872,8 +872,10 @@ body.view-control-buttons .viewControlButton {
 .info-hotspot .info-hotspot-icon {
   width: 100% !important;
   height: 100% !important;
+  object-fit: contain !important;
+  transition: transform 0.2s ease-in-out !important; 
 }
 
-.no-touch .info-hotspot .info-hotspot-icon-wrapper:hover img {
-  transform: none !important;
+.no-touch .info-hotspot .info-hotspot-icon-wrapper:hover .info-hotspot-icon {
+  transform: scale(1.15) !important;
 }
