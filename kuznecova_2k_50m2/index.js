@@ -70,9 +70,6 @@
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
- // ИСПРАВЛЕННЫЙ ВАРИАНТ: заходим в память через .stage()
-  viewer.stage().textureStore().setAlgorithm(new Marzipano.LruTextureStoreAlgorithm(15));
-
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
     var urlPrefix = "tiles";
