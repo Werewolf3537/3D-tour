@@ -82,20 +82,16 @@
       urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
 
-    // ОПРЕДЕЛЯЕМ IPHONE / IPAD
+    // Проверяем, айфон ли это
     var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-    // АДАПТИВНАЯ ГЕОМЕТРИЯ:
-    var geometry;
+    // ЕСЛИ АЙФОН — ДАЕМ ЕМУ ТОЛЬКО ПЕРВЫЙ (ЛЕГКИЙ) УРОВЕНЬ КВАДРАТОВ
+    var levels = data.levels;
     if (isIOS && data.levels && data.levels.length > 0) {
-      // Для iOS берем только самый первый (базовый) уровень детализации.
-      // Это заставит панораму грузиться мгновенно целиком в виде подложки, 
-      // исключая ступенчатое появление квадратов при вращении.
-      geometry = new Marzipano.CubeGeometry([data.levels[0]]);
-    } else {
-      // Для ПК и Android оставляем полноценную многослойную пирамиду (Multi-res)
-      geometry = new Marzipano.CubeGeometry(data.levels);
+      levels = [data.levels[0]]; // Берем только самый легкий уровень из сгенерированных
     }
+    
+    var geometry = new Marzipano.CubeGeometry(levels);
 
     var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100*Math.PI/180, 120*Math.PI/180);
     var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
@@ -104,8 +100,15 @@
       source: source,
       geometry: geometry,
       view: view,
-      pinFirstLevel: true // Удерживает базовый размытый слой в памяти
+      pinFirstLevel: true // Это включит прогрузку через «мыло»
     });
+
+    return {
+      data: data,
+      scene: scene,
+      view: view
+    };
+  });
 
     // Create link hotspots.
     data.linkHotspots.forEach(function(hotspot) {
