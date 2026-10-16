@@ -64,15 +64,16 @@
   var viewerOpts = {
     controls: {
       mouseViewMode: data.settings.mouseViewMode
+    }, // <-- Обязательно поставьте эту запятую!
+    
+    // Ограничиваем кэш, чтобы убрать «квадраты» и не перегружать память Safari на iPhone
+    textureStore: {
+      previouslyVisibleCacheSize: 100
     }
   };
 
   // Initialize viewer.
   var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
-  textureStore: {
-    previouslyVisibleCacheSize: 2048 // Увеличиваем запас
-  }
-  });
 
   // Create scenes.
   var scenes = data.scenes.map(function(data) {
