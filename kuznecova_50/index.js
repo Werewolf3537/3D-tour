@@ -81,7 +81,21 @@
     var source = Marzipano.ImageUrlSource.fromString(
       urlPrefix + "/" + data.id + "/{z}/{f}/{y}/{x}.jpg",
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
-    var geometry = new Marzipano.CubeGeometry(data.levels);
+
+    // ОПРЕДЕЛЯЕМ IPHONE / IPAD
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    // АДАПТИВНАЯ ГЕОМЕТРИЯ:
+    var geometry;
+    if (isIOS && data.levels && data.levels.length > 0) {
+      // Для iOS берем только самый первый (базовый) уровень детализации.
+      // Это заставит панораму грузиться мгновенно целиком в виде подложки, 
+      // исключая ступенчатое появление квадратов при вращении.
+      geometry = new Marzipano.CubeGeometry([data.levels[0]]);
+    } else {
+      // Для ПК и Android оставляем полноценную многослойную пирамиду (Multi-res)
+      geometry = new Marzipano.CubeGeometry(data.levels);
+    }
 
     var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100*Math.PI/180, 120*Math.PI/180);
     var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
@@ -90,7 +104,7 @@
       source: source,
       geometry: geometry,
       view: view,
-      pinFirstLevel: true
+      pinFirstLevel: true // Удерживает базовый размытый слой в памяти
     });
 
     // Create link hotspots.
