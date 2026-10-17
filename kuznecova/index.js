@@ -417,14 +417,21 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
-  // НАШ ОБНОВЛЕННЫЙ БЛОК: Синхронизируем положение точки и вращение луча радара
+  // ФИКС ВРАЩЕНИЯ: Берём точный живой угол yaw напрямую из вьювера сцены
   viewer.addEventListener('viewChange', function() {
     var currentScene = viewer.scene();
-    var currentView = viewer.view();
     var mapDot = document.getElementById('mini-map-dot');
     
-    if (currentScene && currentView && mapDot) {
-      // 1. Извлекаем текущие проценты координат комнаты из data.js текущей сцены
+    if (currentScene && mapDot) {
+      // 1. Извлекаем живой угол поворота головы в радианах
+      var liveView = currentScene.view();
+      if (!liveView) return;
+      var yaw = liveView.yaw();
+      
+      // Переводим радианы в градусы
+      var degrees = yaw * (180 / Math.PI);
+
+      // 2. Считываем текущие проценты координат для комнат
       var activeSceneWrapper = null;
       for (var i = 0; i < scenes.length; i++) {
         if (scenes[i].scene === currentScene) {
@@ -440,11 +447,7 @@
         topCoords = activeSceneWrapper.data.mapCoords.top;
       }
 
-      // 2. Считаем угол поворота головы в градусах
-      var yaw = currentView.parameters().yaw;
-      var degrees = yaw * (180 / Math.PI);
-
-      // 3. Жестко и одновременно обновляем и координаты на карте, и угол вращения луча
+      // 3. Одновременно сдвигаем точку и крутим её луч
       mapDot.style.left = leftCoords;
       mapDot.style.top = topCoords;
       mapDot.style.transform = 'translate(-50%, -50%) rotate(' + degrees + 'deg)';
