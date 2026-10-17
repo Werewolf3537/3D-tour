@@ -206,16 +206,23 @@
     startAutorotate();
     updateSceneName(scene);
     
-    // НАШ НОВЫЙ БЛОК: Двигаем красную точку на нашей мини-карте
+    // НАШ ОБНОВЛЕННЫЙ БЛОК: Переносим точку и временно прячем луч от рывков
     if (scene.data && scene.data.mapCoords) {
       var mapDot = document.getElementById('mini-map-dot');
       if (mapDot) {
+        mapDot.classList.add('switching'); // Намертво выключаем луч в момент перехода
         mapDot.style.left = scene.data.mapCoords.left;
         mapDot.style.top = scene.data.mapCoords.top;
       }
     }
     
-    // СТРОЧКУ updateMapActiveDot МЫ ОТСЮДА ПОЛНОСТЬЮ УДАЛИЛИ, ЧТОБЫ ОНА НЕ МЕШАЛА
+    // Возвращаем луч обратно в нормальное состояние только после восстановления ракурса
+    setTimeout(function() {
+      var mapDot = document.getElementById('mini-map-dot');
+      if (mapDot) {
+        mapDot.classList.remove('switching'); // Включаем луч обратно, когда всё успокоилось
+      }
+    }, 150); // 150 миллисекунд — идеальная пауза, чтобы проскочить асинхронный затык Marzipano
   }
 
 

@@ -886,3 +886,10 @@ body.view-control-buttons .viewControlButton {
   
   z-index: -1 !important;
 }
+
+/* Прячем белый луч радара в момент переключения между комнатами */
+#mini-map-dot.switching::before {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
