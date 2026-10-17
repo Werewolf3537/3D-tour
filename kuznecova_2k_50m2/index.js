@@ -434,6 +434,28 @@
       }
     });
   }
+
+  // НАШ ФИНАЛЬНЫЙ БЛОК: Логика развёртывания и свёртывания мини-карты
+  var mapOpenBtn = document.getElementById('mini-map-toggle-btn');
+  var mapWrapper = document.getElementById('mini-map-wrapper');
+  var mapCloseBtn = document.getElementById('mini-map-close-btn');
+
+  if (mapOpenBtn && mapWrapper && mapCloseBtn) {
+    // НАЖАЛИ «КАРТА»: скрываем кнопку, плавно проявляем планировку
+    mapOpenBtn.addEventListener('click', function(event) {
+      event.stopPropagation(); // Защита, чтобы панорама не дергалась при клике
+      mapOpenBtn.classList.add('hidden-state');
+      mapWrapper.classList.add('active-state');
+    });
+
+    // НАЖАЛИ НА КРЕСТИК: скрываем планировку, возвращаем кнопку обратно
+    mapCloseBtn.addEventListener('click', function(event) {
+      event.stopPropagation();
+      mapWrapper.classList.remove('active-state');
+      mapOpenBtn.classList.remove('hidden-state');
+    });
+  }
+
 })();
 
 
