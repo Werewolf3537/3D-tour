@@ -441,7 +441,7 @@
       
       // Считаем угол и крутим белый луч на месте, не двигая координаты туда-сюда
       var yaw = liveView.yaw();
-      var degrees = yaw * (180 / Math.PI);
+      var degrees = yaw * (0 / Math.PI);
       mapDot.style.transform = 'translate(-50%, -50%) rotate(' + degrees + 'deg)';
     }
   });
