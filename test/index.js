@@ -415,40 +415,23 @@
   }
 
   // Display the initial scene.
-  switchScene(scenes[0]);
+  switchScene(scenes);
 
-  // СУПЕР-ФИКС: Идеальное вращение и точное удержание координат комнат
+  // НАШ ОБНОВЛЕННЫЙ БЛОК: Только вращение луча радара (без рывков координат!)
   viewer.addEventListener('viewChange', function() {
     var currentScene = viewer.scene();
     var mapDot = document.getElementById('mini-map-dot');
     
     if (currentScene && mapDot) {
-      // 1. Считаем живой угол поворота головы в градусах
       var liveView = currentScene.view();
       if (!liveView) return;
+      
+      // Считаем угол и крутим белый луч на месте, не двигая координаты туда-сюда
       var yaw = liveView.yaw();
       var degrees = yaw * (180 / Math.PI);
-
-      // 2. Ищем координаты комнаты в глобальном массиве по её названию
-      var leftCoords = "50%";
-      var topCoords = "50%";
-      
-      for (var i = 0; i < scenes.length; i++) {
-        // Проверяем совпадение текущей сцены плеера с массивом
-        if (scenes[i].scene === currentScene && scenes[i].data) {
-          if (scenes[i].data.mapCoords) {
-            leftCoords = scenes[i].data.mapCoords.left;
-            topCoords = scenes[i].data.mapCoords.top;
-          }
-          break;
-        }
-      }
-
-      // 3. Жестко фиксируем координаты и крутим радар
-      mapDot.style.left = leftCoords;
-      mapDot.style.top = topCoords;
       mapDot.style.transform = 'translate(-50%, -50%) rotate(' + degrees + 'deg)';
     }
   });
 
 })();
+
