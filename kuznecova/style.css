@@ -863,21 +863,24 @@ body.view-control-buttons .viewControlButton {
   z-index: 100 !important;
 }
 
-/* ЭФФЕКТНЫЙ БЕЛЫЙ ЛУЧ РАДАР (Яркий и плотный) */
+/* ЭФФЕКТНЫЙ БЕЛЫЙ ЛУЧ РАДАР (Идеально отцентрованный) */
 #mini-map-dot::before {
   content: '' !important;
   position: absolute !important;
-  top: 6px !important; 
-  left: 6px !important;
+  
+  /* ИСПРАВЛЕНИЕ: привязываем остриё строго к центру шарика, игнорируя рамки */
+  top: 50% !important; 
+  left: 50% !important;
   
   /* Компактные размеры конуса */
   width: 50px !important;   
   height: 60px !important;  
   
   transform-origin: top center !important;
+  /* Сдвигаем треугольник ровно на половину его ширины влево */
   transform: translate(-50%, 0) !important;
   
-  /* СДЕЛАЛИ В 2 РАЗА ЯРЧЕ: Стартовая плотность белого теперь 0.9 вместо 0.5 */
+  /* Плотный белый градиент */
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%) !important;
   
   /* Геометрия острого треугольника */
@@ -885,6 +888,7 @@ body.view-control-buttons .viewControlButton {
   
   z-index: -1 !important;
 }
+
 
 
 
