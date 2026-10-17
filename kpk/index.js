@@ -205,12 +205,30 @@
 
     startAutorotate();
     updateSceneName(scene);
-    updateSceneList(scene);
     
-    if (typeof updateMapActiveDot === 'function') {
-      updateMapActiveDot(scene.data.id);
+    // Переносим точку и временно прячем луч и точку от рывков
+    if (scene.data && scene.data.mapCoords) {
+      var mapDot = document.getElementById('mini-map-dot');
+      if (mapDot) {
+        mapDot.classList.add('switching'); // Точка и луч начинают плавно растворяться (0.2с)
+        
+        // Переносим координаты на плане с микро-задержкой в 150мс, когда точка УЖЕ стала невидимой
+        setTimeout(function() {
+          mapDot.style.left = scene.data.mapCoords.left;
+          mapDot.style.top = scene.data.mapCoords.top;
+        }, 150);
+      }
     }
+    
+    // Плавное проявление точки на новом месте, когда панорама полностью зафиксирована
+    setTimeout(function() {
+      var mapDot = document.getElementById('mini-map-dot');
+      if (mapDot) {
+        mapDot.classList.remove('switching'); // Маркер красиво и мягко загорается на новом месте
+      }
+    }, 300); // Увеличили общую паузу до 300мс для идеально мягкого эффекта кино
   }
+
 
   function updateSceneName(scene) {
     sceneNameElement.innerHTML = sanitize(scene.data.name);
@@ -411,6 +429,22 @@
   switchScene(scenes[0]);
 
   hideSceneList();
+
+  // НАШ ОБНОВЛЕННЫЙ БЛОК: Только вращение луча радара (без рывков координат!)
+  viewer.addEventListener('viewChange', function() {
+    var currentScene = viewer.scene();
+    var mapDot = document.getElementById('mini-map-dot');
+    
+    if (currentScene && mapDot) {
+      var liveView = currentScene.view();
+      if (!liveView) return;
+      
+      // Считаем угол и крутим белый луч на месте, не двигая координаты туда-сюда
+      var yaw = liveView.yaw();
+      var degrees = yaw * (180 / Math.PI);
+      mapDot.style.transform = 'translate(-50%, -50%) rotate(' + degrees + 'deg)';
+    }
+  });
 
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {

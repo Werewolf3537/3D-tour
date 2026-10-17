@@ -3,6 +3,7 @@ var APP_DATA = {
     {
       "id": "0-1",
       "name": "1",
+      "mapCoords": { "left": "25%", "top": "40%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -47,6 +48,7 @@ var APP_DATA = {
     {
       "id": "1-2",
       "name": "2",
+      "mapCoords": { "left": "50%", "top": "40%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -97,6 +99,7 @@ var APP_DATA = {
     {
       "id": "2-3",
       "name": "3",
+      "mapCoords": { "left": "75%", "top": "40%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
