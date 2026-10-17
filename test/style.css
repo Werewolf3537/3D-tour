@@ -829,7 +829,7 @@ body.view-control-buttons .viewControlButton {
   margin-left: 105px;
 }
 
-/* Контейнер мини-карты: теперь полностью прозрачный */
+/* 1. Контейнер мини-карты (прозрачный подложка, парит в углу) */
 #mini-map-wrapper {
   position: absolute !important;
   bottom: 20px !important;
@@ -840,16 +840,15 @@ body.view-control-buttons .viewControlButton {
   pointer-events: none !important;
 }
 
-/* Сама картинка чертежа */
+/* 2. Картинка планировки с мягкой тенью */
 #mini-map-img {
   width: 100% !important;
   height: auto !important;
   display: block !important;
-  /* Можно добавить легкую тень самой картинке, чтобы она не терялась на белом */
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)) !important; 
 }
 
-/* Красный маркер нашего местонахождения (ИДЕАЛЬНЫЙ СТАБИЛЬНЫЙ ВАРИАНТ) */
+/* 3. Красный маркер местонахождения с плавной анимацией прозрачности */
 #mini-map-dot {
   position: absolute !important;
   width: 12px !important;
@@ -859,43 +858,28 @@ body.view-control-buttons .viewControlButton {
   border-radius: 50% !important;
   box-shadow: 0 0 8px rgba(255, 51, 51, 0.8) !important;
   z-index: 100 !important;
-  
-  /* МЫ УБРАЛИ СТРОЧКУ TRANSITION! */
-  /* Теперь точка не ползет по карте с рывками, а переносится на новые координаты мгновенно */
+  /* Анимация растворения всей точки (шарик + луч вместе) */
+  transition: opacity 0.2s ease-in-out !important;
 }
 
-/* ЭФФЕКТНЫЙ БЕЛЫЙ ЛУЧ РАДАР (Идеально отцентрованный) */
+/* 4. Белый плотный луч-радар, растущий строго из центра шарика */
 #mini-map-dot::before {
   content: '' !important;
   position: absolute !important;
   top: 50% !important; 
   left: 50% !important;
-  
-  /* Размеры конуса */
   width: 50px !important;   
   height: 60px !important;  
-  
   transform-origin: top center !important;
-  transform: translate(-50%, 0) !important; /* Острие ровно в центре шарика */
-  
-  /* Плотный белый градиент */
+  transform: translate(-50%, 0) !important; 
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%) !important;
-  
-  /* Геометрия острого треугольника */
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%) !important;
-  
   z-index: -1 !important;
 }
 
-/* Настраиваем время плавного растворения луча (0.2 секунды) */
-#mini-map-dot::before {
-  /* ... на всякий случай проверяем, чтобы внутри этого блока в вашем CSS была эта строчка: ... */
-  transition: opacity 0.2s ease-in-out !important;
-}
-
-/* Мягко растворяем белый луч в момент перехода между комнатами */
-#mini-map-dot.switching::before {
+/* 5. Мягкое растворение всей конструкции в момент смены комнат */
+#mini-map-dot.switching {
   opacity: 0 !important;
   visibility: hidden !important;
-  /* Убрали display: none, чтобы анимация прозрачности работала корректно */
 }
+
