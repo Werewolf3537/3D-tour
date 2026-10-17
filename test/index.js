@@ -417,35 +417,41 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
-  // НАСТОЯЩИЙ ФИКС ВРАЩЕНИЯ: Управляем всей геометрией через JavaScript
+  // СУПЕР-ФИКС: Идеальное вращение и точное удержание координат комнат
   viewer.addEventListener('viewChange', function() {
     var currentScene = viewer.scene();
     var mapDot = document.getElementById('mini-map-dot');
     
     if (currentScene && mapDot) {
-      // 1. Извлекаем живой угол поворота головы в радианах
+      // 1. Считаем живой угол поворота головы в градусах
       var liveView = currentScene.view();
       if (!liveView) return;
-      
-      // Переводим радианы в градусы для CSS
       var yaw = liveView.yaw();
       var degrees = yaw * (180 / Math.PI);
 
-      // 2. Достаем координаты из data.js текущей открытой комнаты
+      // 2. Ищем координаты комнаты в глобальном массиве по её названию
       var leftCoords = "50%";
       var topCoords = "50%";
       
-      var sceneData = (typeof currentScene.data === 'function') ? currentScene.data() : currentScene.data;
-      if (sceneData && sceneData.mapCoords) {
-        leftCoords = sceneData.mapCoords.left;
-        topCoords = sceneData.mapCoords.top;
+      for (var i = 0; i < scenes.length; i++) {
+        // Проверяем совпадение текущей сцены плеера с массивом
+        if (scenes[i].scene === currentScene && scenes[i].data) {
+          if (scenes[i].data.mapCoords) {
+            leftCoords = scenes[i].data.mapCoords.left;
+            topCoords = scenes[i].data.mapCoords.top;
+          }
+          break;
+        }
       }
 
-      // 3. Передаем браузеру все стили разом БЕЗ конфликтов с CSS
+      // 3. Жестко фиксируем координаты и крутим радар
       mapDot.style.left = leftCoords;
       mapDot.style.top = topCoords;
       mapDot.style.transform = 'translate(-50%, -50%) rotate(' + degrees + 'deg)';
     }
   });
+
+})();
+
 
 })();
