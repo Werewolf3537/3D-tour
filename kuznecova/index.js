@@ -417,17 +417,36 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
-  // НАШ НОВЫЙ БЛОК: Отслеживаем поворот головы и крутим луч на мини-карте
+  // НАШ ОБНОВЛЕННЫЙ БЛОК: Синхронизируем положение точки и вращение луча радара
   viewer.addEventListener('viewChange', function() {
+    var currentScene = viewer.scene();
     var currentView = viewer.view();
     var mapDot = document.getElementById('mini-map-dot');
-    if (currentView && mapDot) {
-      // Получаем угол yaw в радианах из Marzipano
-      var yaw = currentView.parameters().yaw;
-      // Переводим радианы в градусы для CSS
-      var degrees = yaw * (180 / Math.PI);
+    
+    if (currentScene && currentView && mapDot) {
+      // 1. Извлекаем текущие проценты координат комнаты из data.js текущей сцены
+      var activeSceneWrapper = null;
+      for (var i = 0; i < scenes.length; i++) {
+        if (scenes[i].scene === currentScene) {
+          activeSceneWrapper = scenes[i];
+          break;
+        }
+      }
       
-      // Вращаем луч. Добавляем +180, если луч изначально смотрит не в ту сторону на плане
+      var leftCoords = "50%";
+      var topCoords = "50%";
+      if (activeSceneWrapper && activeSceneWrapper.data && activeSceneWrapper.data.mapCoords) {
+        leftCoords = activeSceneWrapper.data.mapCoords.left;
+        topCoords = activeSceneWrapper.data.mapCoords.top;
+      }
+
+      // 2. Считаем угол поворота головы в градусах
+      var yaw = currentView.parameters().yaw;
+      var degrees = yaw * (180 / Math.PI);
+
+      // 3. Жестко и одновременно обновляем и координаты на карте, и угол вращения луча
+      mapDot.style.left = leftCoords;
+      mapDot.style.top = topCoords;
       mapDot.style.transform = 'translate(-50%, -50%) rotate(' + degrees + 'deg)';
     }
   });
