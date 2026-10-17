@@ -417,4 +417,19 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
+  // НАШ НОВЫЙ БЛОК: Отслеживаем поворот головы и крутим луч на мини-карте
+  viewer.addEventListener('viewChange', function() {
+    var currentView = viewer.view();
+    var mapDot = document.getElementById('mini-map-dot');
+    if (currentView && mapDot) {
+      // Получаем угол yaw в радианах из Marzipano
+      var yaw = currentView.parameters().yaw;
+      // Переводим радианы в градусы для CSS
+      var degrees = yaw * (180 / Math.PI);
+      
+      // Вращаем луч. Добавляем +180, если луч изначально смотрит не в ту сторону на плане
+      mapDot.style.transform = 'translate(-50%, -50%) rotate(' + degrees + 'deg)';
+    }
+  });
+
 })();

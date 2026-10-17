@@ -829,27 +829,24 @@ body.view-control-buttons .viewControlButton {
   margin-left: 105px;
 }
 
-/* Контейнер мини-карты в левом нижнем углу */
+/* Контейнер мини-карты: теперь полностью прозрачный */
 #mini-map-wrapper {
   position: absolute !important;
   bottom: 20px !important;
   left: 20px !important;
   z-index: 1000 !important;
-  background-color: rgba(20, 25, 35, 0.6) !important; /* Наш фирменный стиль подложки */
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 8px !important;
-  padding: 10px !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
-  width: 180px !important; /* Задайте нужную вам ширину карты */
+  width: 180px !important;
   height: auto !important;
-  pointer-events: none !important; /* Карта не мешает кликать по панораме */
+  pointer-events: none !important;
 }
 
-/* Сама картинка планировки */
+/* Сама картинка чертежа */
 #mini-map-img {
   width: 100% !important;
   height: auto !important;
   display: block !important;
+  /* Можно добавить легкую тень самой картинке, чтобы она не терялась на белом */
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)) !important; 
 }
 
 /* Красный маркер нашего местонахождения */
@@ -857,15 +854,34 @@ body.view-control-buttons .viewControlButton {
   position: absolute !important;
   width: 12px !important;
   height: 12px !important;
-  background-color: #ff3333 !important; /* Яркая красная точка */
-  border: 2px solid #ffffff !important;   /* Белая окантовка, чтобы не терялась */
+  background-color: #ff3333 !important;
+  border: 2px solid #ffffff !important;
   border-radius: 50% !important;
   box-shadow: 0 0 8px rgba(255, 51, 51, 0.8) !important;
-  transform: translate(-50%, -50%) !important; /* Центрируем точку на координатах */
-  transition: top 0.3s ease-in-out, left 0.3s ease-in-out !important; /* Плавное скольжение точки */
-  
-  /* Начальные координаты (скрипт их заменит, как только тур запустится) */
-  top: 50%;
-  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  transition: top 0.3s ease-in-out, left 0.3s ease-in-out !important;
 }
+
+/* СОЗДАЕМ ЛУЧ ВЗГЛЯДА (Радар) */
+#mini-map-dot::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  
+  /* Делаем прозрачный треугольник (луч света) */
+  width: 0 !important;
+  height: 0 !important;
+  border-left: 25px solid transparent !important;  /* Ширина луча слева */
+  border-right: 25px solid transparent !important; /* Ширина луча справа */
+  border-top: 60px solid rgba(255, 51, 51, 0.35) !important; /* Длина луча (60px) и его прозрачность */
+  
+  /* Точка вращения луча должна быть строго по центру красного шарика */
+  transform-origin: top center !important;
+  /* Сдвигаем треугольник, чтобы его вершина росла из центра точки */
+  transform: translate(-50%, 0) rotate(0deg) !important;
+  
+  z-index: -1 !important; /* Прячем луч под красный шарик, чтобы он не перекрывал его */
+}
+
 
