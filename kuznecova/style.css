@@ -849,7 +849,7 @@ body.view-control-buttons .viewControlButton {
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)) !important; 
 }
 
-/* Красный маркер нашего местонахождения (убрали анимацию transition, чтобы он крутился мгновенно) */
+/* Красный маркер нашего местонахождения (ОЧИЩЕННЫЙ ВАРИАНТ) */
 #mini-map-dot {
   position: absolute !important;
   width: 12px !important;
@@ -858,27 +858,23 @@ body.view-control-buttons .viewControlButton {
   border: 2px solid #ffffff !important;
   border-radius: 50% !important;
   box-shadow: 0 0 8px rgba(255, 51, 51, 0.8) !important;
-  /* Центрируем и готовим к динамическому вращению из JS */
-  transform: translate(-50%, -50%) rotate(0deg) !important;
   z-index: 100 !important;
+  /* Убрали transform и !important отсюда, чтобы JS мог свободно вращать точку */
 }
 
 /* ЭФФЕКТНЫЙ БЕЛЫЙ ЛУЧ РАДАР (Идеально отцентрованный) */
 #mini-map-dot::before {
   content: '' !important;
   position: absolute !important;
-  
-  /* ИСПРАВЛЕНИЕ: привязываем остриё строго к центру шарика, игнорируя рамки */
   top: 50% !important; 
   left: 50% !important;
   
-  /* Компактные размеры конуса */
+  /* Размеры конуса */
   width: 50px !important;   
   height: 60px !important;  
   
   transform-origin: top center !important;
-  /* Сдвигаем треугольник ровно на половину его ширины влево */
-  transform: translate(-50%, 0) !important;
+  transform: translate(-50%, 0) !important; /* Острие ровно в центре шарика */
   
   /* Плотный белый градиент */
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%) !important;
