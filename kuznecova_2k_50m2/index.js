@@ -205,11 +205,28 @@
 
     startAutorotate();
     updateSceneName(scene);
-    updateSceneList(scene);
     
-    if (typeof updateMapActiveDot === 'function') {
-      updateMapActiveDot(scene.data.id);
+    // Переносим точку и временно прячем луч и точку от рывков
+    if (scene.data && scene.data.mapCoords) {
+      var mapDot = document.getElementById('mini-map-dot');
+      if (mapDot) {
+        mapDot.classList.add('switching'); // Точка и луч начинают плавно растворяться (0.2с)
+        
+        // Переносим координаты на плане с микро-задержкой в 150мс, когда точка УЖЕ стала невидимой
+        setTimeout(function() {
+          mapDot.style.left = scene.data.mapCoords.left;
+          mapDot.style.top = scene.data.mapCoords.top;
+        }, 150);
+      }
     }
+    
+    // Плавное проявление точки на новом месте, когда панорама полностью зафиксирована
+    setTimeout(function() {
+      var mapDot = document.getElementById('mini-map-dot');
+      if (mapDot) {
+        mapDot.classList.remove('switching'); // Маркер красиво и мягко загорается на новом месте
+      }
+    }, 300); // Увеличили общую паузу до 300мс для идеально мягкого эффекта кино
   }
 
   function updateSceneName(scene) {
