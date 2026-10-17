@@ -863,28 +863,29 @@ body.view-control-buttons .viewControlButton {
   z-index: 100 !important;
 }
 
-/* ЭФФЕКТНЫЙ БЕЛЫЙ ЛУЧ РАДАР С ГРАДИЕНТОМ (Укороченный в 2 раза) */
+/* ЭФФЕКТНЫЙ БЕЛЫЙ ЛУЧ РАДАР (Яркий и плотный) */
 #mini-map-dot::before {
   content: '' !important;
   position: absolute !important;
   top: 6px !important; 
   left: 6px !important;
   
-  /* Размеры: уменьшили конус, чтобы он смотрелся аккуратно и компактно */
-  width: 50px !important;   /* Ширина луча на финише (было 100px) */
-  height: 60px !important;  /* Длина луча взгляда в 2 раза короче (было 120px) */
+  /* Компактные размеры конуса */
+  width: 50px !important;   
+  height: 60px !important;  
   
   transform-origin: top center !important;
   transform: translate(-50%, 0) !important;
   
-  /* ПЕРЕКРАСИЛИ В БЕЛЫЙ: Мягкий белый градиент, плавно тающий в полную прозрачность */
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%) !important;
+  /* СДЕЛАЛИ В 2 РАЗА ЯРЧЕ: Стартовая плотность белого теперь 0.9 вместо 0.5 */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%) !important;
   
   /* Геометрия острого треугольника */
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%) !important;
   
   z-index: -1 !important;
 }
+
 
 
 
