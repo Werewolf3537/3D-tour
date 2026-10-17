@@ -415,7 +415,6 @@
   }
 
   // Display the initial scene.
-  // Display the initial scene.
   switchScene(scenes[0]);
 
   // НАСТОЯЩИЙ ФИКС ВРАЩЕНИЯ: Управляем всей геометрией через JavaScript

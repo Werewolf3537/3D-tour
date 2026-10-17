@@ -417,4 +417,35 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
+  // НАСТОЯЩИЙ ФИКС ВРАЩЕНИЯ: Управляем всей геометрией через JavaScript
+  viewer.addEventListener('viewChange', function() {
+    var currentScene = viewer.scene();
+    var mapDot = document.getElementById('mini-map-dot');
+    
+    if (currentScene && mapDot) {
+      // 1. Извлекаем живой угол поворота головы в радианах
+      var liveView = currentScene.view();
+      if (!liveView) return;
+      
+      // Переводим радианы в градусы для CSS
+      var yaw = liveView.yaw();
+      var degrees = yaw * (180 / Math.PI);
+
+      // 2. Достаем координаты из data.js текущей открытой комнаты
+      var leftCoords = "50%";
+      var topCoords = "50%";
+      
+      var sceneData = (typeof currentScene.data === 'function') ? currentScene.data() : currentScene.data;
+      if (sceneData && sceneData.mapCoords) {
+        leftCoords = sceneData.mapCoords.left;
+        topCoords = sceneData.mapCoords.top;
+      }
+
+      // 3. Передаем браузеру все стили разом БЕЗ конфликтов с CSS
+      mapDot.style.left = leftCoords;
+      mapDot.style.top = topCoords;
+      mapDot.style.transform = 'translate(-50%, -50%) rotate(' + degrees + 'deg)';
+    }
+  });
+
 })();
