@@ -3,6 +3,7 @@ var APP_DATA = {
     {
       "id": "0-bathroom-1-edit_upscale",
       "name": "BathRoom 1 Edit_upscale",
+      "mapCoords": { "left": "25%", "top": "40%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -34,6 +35,7 @@ var APP_DATA = {
     {
       "id": "1-bathroom-2-edit_upscale",
       "name": "BathRoom 2 Edit_upscale",
+      "mapCoords": { "left": "65%", "top": "30%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
