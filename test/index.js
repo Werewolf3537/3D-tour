@@ -415,7 +415,7 @@
   }
 
   // Display the initial scene.
-  switchScene(scenes);
+  switchScene(scenes[0]);
 
   // НАШ ОБНОВЛЕННЫЙ БЛОК: Только вращение луча радара (без рывков координат!)
   viewer.addEventListener('viewChange', function() {
@@ -434,4 +434,3 @@
   });
 
 })();
-
