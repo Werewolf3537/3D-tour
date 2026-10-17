@@ -863,29 +863,28 @@ body.view-control-buttons .viewControlButton {
   z-index: 100 !important;
 }
 
-/* ЭФФЕКТНЫЙ ЛУЧ РАДАР С ГРАДИЕНТОМ (Острый угол у шарика) */
+/* ЭФФЕКТНЫЙ БЕЛЫЙ ЛУЧ РАДАР С ГРАДИЕНТОМ (Укороченный в 2 раза) */
 #mini-map-dot::before {
   content: '' !important;
   position: absolute !important;
-  /* Закрепляем верхнюю острую точку ровно в центре красного шарика */
   top: 6px !important; 
   left: 6px !important;
   
-  /* Размеры раскрывающегося конуса луча */
-  width: 100px !important;   /* Ширина луча на финише */
-  height: 120px !important;  /* Длина луча взгляда */
+  /* Размеры: уменьшили конус, чтобы он смотрелся аккуратно и компактно */
+  width: 50px !important;   /* Ширина луча на финише (было 100px) */
+  height: 60px !important;  /* Длина луча взгляда в 2 раза короче (было 120px) */
   
-  /* Сдвигаем и переворачиваем конус, чтобы остриё росло из центра */
   transform-origin: top center !important;
   transform: translate(-50%, 0) !important;
   
-  /* Красивый полупрозрачный красный градиент, уходящий в полную прозрачность */
-  background: linear-gradient(to bottom, rgba(255, 51, 51, 0.4) 0%, rgba(255, 51, 51, 0) 100%) !important;
+  /* ПЕРЕКРАСИЛИ В БЕЛЫЙ: Мягкий белый градиент, плавно тающий в полную прозрачность */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%) !important;
   
-  /* Магия CSS: превращаем прямоугольный градиент в острый треугольник конуса */
+  /* Геометрия острого треугольника */
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%) !important;
   
   z-index: -1 !important;
 }
+
 
 
