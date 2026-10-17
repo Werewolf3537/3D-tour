@@ -427,6 +427,23 @@
 
   hideSceneList();
 
+  // НАШ ОБНОВЛЕННЫЙ БЛОК: Только вращение луча радара (без рывков координат!)
+  viewer.addEventListener('viewChange', function() {
+    var currentScene = viewer.scene();
+    var mapDot = document.getElementById('mini-map-dot');
+    
+    if (currentScene && mapDot) {
+      var liveView = currentScene.view();
+      if (!liveView) return;
+      
+      // Считаем угол и крутим белый луч на месте, не двигая координаты туда-сюда
+      var yaw = liveView.yaw();
+      var degrees = yaw * (180 / Math.PI);
+      // ИСПРАВЛЕНИЕ: Добавили + 180 прямо внутрь строки поворота
+      mapDot.style.transform = 'translate(-50%, -50%) rotate(' + (degrees + 180) + 'deg)';
+    }
+  });
+
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
     switchBtn.addEventListener('click', function(event) {
@@ -474,6 +491,4 @@
   }
 
 })();
-
-
 
