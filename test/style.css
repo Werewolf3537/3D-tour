@@ -887,9 +887,15 @@ body.view-control-buttons .viewControlButton {
   z-index: -1 !important;
 }
 
-/* Прячем белый луч радара в момент переключения между комнатами */
+/* Настраиваем время плавного растворения луча (0.2 секунды) */
+#mini-map-dot::before {
+  /* ... на всякий случай проверяем, чтобы внутри этого блока в вашем CSS была эта строчка: ... */
+  transition: opacity 0.2s ease-in-out !important;
+}
+
+/* Мягко растворяем белый луч в момент перехода между комнатами */
 #mini-map-dot.switching::before {
-  display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
+  /* Убрали display: none, чтобы анимация прозрачности работала корректно */
 }

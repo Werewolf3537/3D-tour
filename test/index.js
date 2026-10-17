@@ -210,19 +210,19 @@
     if (scene.data && scene.data.mapCoords) {
       var mapDot = document.getElementById('mini-map-dot');
       if (mapDot) {
-        mapDot.classList.add('switching'); // Намертво выключаем луч в момент перехода
+        mapDot.classList.add('switching'); // Луч начинает плавно таять
         mapDot.style.left = scene.data.mapCoords.left;
         mapDot.style.top = scene.data.mapCoords.top;
       }
     }
     
-    // Возвращаем луч обратно в нормальное состояние только после восстановления ракурса
+    // Плавное возвращение луча обратно, когда панорама полностью зафиксирована
     setTimeout(function() {
       var mapDot = document.getElementById('mini-map-dot');
       if (mapDot) {
-        mapDot.classList.remove('switching'); // Включаем луч обратно, когда всё успокоилось
+        mapDot.classList.remove('switching'); // Луч красиво и плавно проявляется
       }
-    }, 150); // 150 миллисекунд — идеальная пауза, чтобы проскочить асинхронный затык Marzipano
+    }, 250); // Увеличили паузу до 250мс для идеального баланса плавности
   }
 
 
