@@ -440,7 +440,7 @@
       var yaw = liveView.yaw();
       var degrees = yaw * (180 / Math.PI);
       // ИСПРАВЛЕНИЕ: Добавили + 180 прямо внутрь строки поворота
-      mapDot.style.transform = 'translate(-50%, -50%) rotate(' + (degrees + 180) + 'deg)';
+      mapDot.style.transform = 'translate(-50%, -50%) rotate(' + (degrees + 270) + 'deg)';
     }
   });
 
