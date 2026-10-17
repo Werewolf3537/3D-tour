@@ -849,7 +849,7 @@ body.view-control-buttons .viewControlButton {
   filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5)) !important; 
 }
 
-/* Красный маркер нашего местонахождения (ОЧИЩЕННЫЙ ВАРИАНТ) */
+/* Красный маркер нашего местонахождения (ИДЕАЛЬНЫЙ СТАБИЛЬНЫЙ ВАРИАНТ) */
 #mini-map-dot {
   position: absolute !important;
   width: 12px !important;
@@ -859,7 +859,9 @@ body.view-control-buttons .viewControlButton {
   border-radius: 50% !important;
   box-shadow: 0 0 8px rgba(255, 51, 51, 0.8) !important;
   z-index: 100 !important;
-  /* Убрали transform и !important отсюда, чтобы JS мог свободно вращать точку */
+  
+  /* МЫ УБРАЛИ СТРОЧКУ TRANSITION! */
+  /* Теперь точка не ползет по карте с рывками, а переносится на новые координаты мгновенно */
 }
 
 /* ЭФФЕКТНЫЙ БЕЛЫЙ ЛУЧ РАДАР (Идеально отцентрованный) */
