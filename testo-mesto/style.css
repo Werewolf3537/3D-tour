@@ -924,9 +924,20 @@ body.view-control-buttons .viewControlButton {
 }
 
 		/* ПОЛНОСТЬЮ СКРЫВАЕМ КНОПКУ БОКОВОГО МЕНЮ С ЭКРАНА И ОТКЛЮЧАЕМ КЛИКИ */
+/* 1. Возвращаем оригинальный квадратный блок переключателя на экран */
 #sceneListToggle {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none !important; /* Отключаем любые клики по нему */
+}
+
+/* 2. Намертво стираем все иконки, полоски и буквы внутри этого квадрата */
+#sceneListToggle .icon,
+#sceneListToggle::before,
+#sceneListToggle::after {
   display: none !important;
+  content: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
-  pointer-events: none !important;
 }
