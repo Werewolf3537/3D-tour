@@ -78,15 +78,8 @@
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
     var geometry = new Marzipano.CubeGeometry(data.levels);
 
-    // 1. Задаем лимиты: 140*Math.PI/180 — мощный рыбий глаз назад, 30*Math.PI/180 — зум вплотную
-    var limiter = Marzipano.RectilinearView.limit.fov(30*Math.PI/180, 140*Math.PI/180);
-
-    // 2. Принудительно выставляем красивый, широкий стартовый ракурс для ВСЕХ сцен
-    var viewParams = data.initialViewParameters;
-    viewParams.fov = 100 * Math.PI / 180; // Комфортный просторный угол прямо при загрузке комнат
-    
-    var view = new Marzipano.RectilinearView(viewParams, limiter);
-
+    var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100*Math.PI/180, 145*Math.PI/180);
+    var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
 
     var scene = viewer.createScene({
       source: source,
