@@ -79,8 +79,10 @@ body.multiple-scenes.mobile #titleBar {
   height: 100%;
   line-height: 30px;
   padding: 5px;
-  background-color: rgb(58,68,84);
-  background-color: rgba(58,68,84,0.8);
+  background-color: rgb(20, 25, 35); /* Подстраховка: сплошной темный цвет */
+  background-color: rgba(20, 25, 35, 0.6) !important; /* Ваш фирменный полупрозрачный стиль */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -832,4 +834,101 @@ body.view-control-buttons .viewControlButton {
 }
 .viewControlButton-6 {
   margin-left: 105px;
+}
+
+/* 1. Добавляем плавность для иконки перемещения (стрелочки) */
+.link-hotspot img,
+.link-hotspot-icon {
+  transition: transform 0.2s ease-in-out !important;
+}
+
+/* 2. ЭФФЕКТ НАВЕДЕНИЯ: плавно увеличиваем стрелочку на 15% */
+.no-touch .link-hotspot:hover img,
+.no-touch .link-hotspot-icon:hover {
+  transform: scale(1.15) !important;
+}
+
+#titleBar .sceneName {
+  width: 100%;
+  height: 100%;
+  line-height: 30px;
+  padding: 5px;
+  background-color: rgb(20, 25, 35); /* Подстраховка: сплошной темный цвет */
+  background-color: rgba(20, 25, 35, 0.6) !important; /* Ваш фирменный полупрозрачный стиль */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Включаем мощное сглаживание и 3D-ускорение для iPhone */
+#pano, .marzipano-canvas, .marzipano-cube {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  -webkit-perspective: 1000 !important;
+  perspective: 1000 !important;
+}
+
+/* СТИЛЬ КОНТЕЙНЕРА ПОД ССЫЛКУ НА САЙТ */
+/* 1. Главный контейнер выстраивает элементы по правому краю */
+.portfolio-brand-block {
+  position: absolute !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 1px !important; /* УМЕНЬШИЛИ ЗАЗОР: логотип стал чуть ниже и ближе к тексту */
+  pointer-events: none !important;
+}
+
+/* 2. Настраиваем компактный логотип 55px */
+.portfolio-logo {
+  width: 55px !important;  /* Установили размер 55px */
+  height: 55px !important; /* Установили размер 55px */
+  object-fit: contain !important;
+  pointer-events: auto !important;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)) !important;
+}
+
+/* 3. Рамка с текстом по правому краю */
+.portfolio-link-wrapper {
+  display: block !important;
+  text-align: right !important;
+  
+  font-family: sans-serif !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+  background-color: rgba(20, 25, 35, 0.6) !important;
+  padding: 8px 15px !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+  pointer-events: auto !important;
+}
+
+/* Ссылка внутри рамки */
+.portfolio-link-wrapper a {
+  color: #007bff !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  transition: color 0.2s ease-in-out !important;
+}
+
+.portfolio-link-wrapper a:hover {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+		/* ПРЯЧЕМ ВСПЫЛВАЮЩИЙ ТЕКСТ (название комнаты) НАД СТРЕЛОЧКАМИ ПЕРЕХОДА */
+.link-hotspot .link-hotspot-tooltip,
+.link-hotspot:hover .link-hotspot-tooltip,
+.link-hotspot-text {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }

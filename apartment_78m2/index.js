@@ -389,4 +389,32 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
+			//СКРЫВАЕМ МЕНЮ СО СПИСКОМ ХОТПОИНТОВ
+  hideSceneList();
+
+  var switchBtn = document.getElementById('switch-style-btn');
+  if (switchBtn) {
+    switchBtn.addEventListener('click', function(event) {
+      event.stopPropagation();
+      var currentScene = viewer.scene();
+      if (!currentScene) return;
+      var activeSceneWrapper = null;
+      for (var i = 0; i < scenes.length; i++) {
+        if (scenes[i].scene === currentScene) {
+          activeSceneWrapper = scenes[i];
+          break;
+        }
+      }
+      if (activeSceneWrapper && activeSceneWrapper.data) {
+        var targetId = activeSceneWrapper.data.pairedSceneId;
+        if (targetId) {
+          var targetScene = findSceneById(targetId);
+          if (targetScene) {
+            switchScene(targetScene);
+          }
+        }
+      }
+    });
+  }
+
 })();
