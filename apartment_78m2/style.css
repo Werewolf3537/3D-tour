@@ -933,28 +933,36 @@ body.view-control-buttons .viewControlButton {
   visibility: hidden !important;
 }
 
-			/* Настраиваем элементы ссылок внутри бокового меню Marzipano */
+			/* НАСТРАИВАЕМ ЭЛЕМЕНТЫ ССЫЛОК ВНУТРИ БОКОВОГО МЕНЮ */
+/* Увеличиваем ширину боковой панели, чтобы длинный текст не переносился */
+#sceneList {
+  width: 260px !important; /* Сделали панель шире (было 220px) */
+}
+
+/* Сдвигаем кнопку открытия меню на новое расстояние, чтобы она не налезала на широкую панель */
+body.menu-open #sceneListToggle {
+  -webkit-transform: translateX(260px) !important;
+  transform: translateX(260px) !important;
+}
+
+/* Возвращаем оригинальные отступы, высоту строк и запрещаем перенос слов */
 #sceneList .custom-menu-link {
   display: block !important;
-  padding: 14px 20px !important;
-  color: #ffffff !important;
   text-decoration: none !important;
   font-family: sans-serif !important;
-  font-size: 14px !important;
   font-weight: normal !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-  transition: background-color 0.2s ease-in-out, color 0.2s !important;
   text-align: left !important;
+  white-space: nowrap !important; /* ЗАПРЕТ ПЕРЕНОСА: текст теперь всегда строго в одну строчку */
 }
 
-/* Красивый серо-стальной блик при наведении на пункт меню */
-#sceneList .custom-menu-link:hover {
-  background-color: rgba(103, 115, 131, 0.3) !important;
+/* Восстанавливаем оригинальный размер текста и встроенные отступы Marzipano */
+#sceneList .custom-menu-link .text {
+  font-size: 14px !important;
   color: #ffffff !important;
 }
 
-/* Очищаем маркеры списков, если они унаследовались от шаблона */
-#sceneList ul.scenes li {
-  padding: 0 !important;
-  background: none !important;
+/* ВОЗВРАЩАЕМ ИСХОДНУЮ ПОДСВЕТКУ ПРИ НАВЕДЕНИИ (как было в чистом коде) */
+#sceneList .custom-menu-link:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Родной полупрозрачный блик Marzipano */
 }
+
