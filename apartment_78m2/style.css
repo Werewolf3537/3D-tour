@@ -934,29 +934,27 @@ body.view-control-buttons .viewControlButton {
 }
 
 			/* НАСТРАИВАЕМ ЭЛЕМЕНТЫ ССЫЛОК ВНУТРИ БОКОВОГО МЕНЮ */
-/* 1. Делаем боковую панель фиксированной и широкой под длинный текст */
+/* 1. Задаем фиксированную широкую панель, чтобы текст не переносился */
 #sceneList {
-  width: 350px !important; /* Наша надежная ширина под русский текст */
-  
-  /* Жестко прячем её за левый край экрана строго на эту ширину */
-  -webkit-transform: translateX(-350px) !important;
-  transform: translateX(-350px) !important;
-  transition: transform 0.4s ease-in-out !important;
+  width: 320px !important; /* Отличная ширина, куда влезет любой текст */
+  margin-left: -320px !important; /* Надежно прячем шторку за левый край */
+  transition: margin-left 0.4s ease-in-out !important; /* Плавное скольжение */
 }
 
-/* РОДНОЙ ФИКС: Выдвигаем шторку на экран, когда Marzipano добавляет класс .enabled */
+/* Выдвигаем шторку на экран по родным классам Marzipano */
 #sceneList.enabled {
-  -webkit-transform: translateX(0) !important;
-  transform: translateX(0) !important;
+  margin-left: 0 !important;
 }
 
-/* 2. Прижимаем кнопку открытия к правому боку панели при её активации */
-#sceneListToggle.enabled {
-  -webkit-transform: translateX(350px) !important;
-  transform: translateX(350px) !important;
+/* 2. Настраиваем кнопку меню (она плавно отъезжает строго на ширину панели) */
+#sceneListToggle {
+  transition: margin-left 0.4s ease-in-out !important;
+}
+#sceneListToggle.collapsed {
+  margin-left: 320px !important; /* Кнопка сдвигается ровно на 320px вбок */
 }
 
-/* 3. Оформление ссылок в шторке (без переносов слов и с родной подсветкой) */
+/* 3. Оформление ссылок в шторке (без переносов слов и без прокрутки) */
 #sceneList .custom-menu-link {
   display: block !important;
   text-decoration: none !important;
@@ -965,6 +963,7 @@ body.view-control-buttons .viewControlButton {
   text-align: left !important;
   white-space: nowrap !important; /* Текст гарантированно всегда в одну строчку */
   padding: 14px 20px !important;
+  box-sizing: border-box !important;
 }
 
 #sceneList .custom-menu-link .text {
@@ -972,13 +971,19 @@ body.view-control-buttons .viewControlButton {
   color: #ffffff !important;
 }
 
-/* Родная полупрозрачная подсветка Marzipano при наведении мышки */
+/* Полупрозрачная подсветка при наведении */
 #sceneList .custom-menu-link:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Очищаем маркеры списков шаблона */
+/* Очищаем маркеры списков и убираем паразитную прокрутку */
+#sceneList ul.scenes {
+  overflow: hidden !important; /* Убираем скроллбар */
+  padding: 0 !important;
+  margin: 0 !important;
+}
 #sceneList ul.scenes li {
   padding: 0 !important;
   background: none !important;
+  margin: 0 !important;
 }
