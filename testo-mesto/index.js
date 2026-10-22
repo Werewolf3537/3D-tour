@@ -465,6 +465,7 @@
       mapWrapper.classList.remove('active-state');
       mapOpenBtn.classList.remove('hidden-state');
     });
+  }
 
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
