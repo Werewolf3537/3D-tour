@@ -429,6 +429,43 @@
 
   hideSceneList();
 
+  // НАШ ОБНОВЛЕННЫЙ БЛОК: Только вращение луча радара (без рывков координат!)
+  viewer.addEventListener('viewChange', function() {
+    var currentScene = viewer.scene();
+    var mapDot = document.getElementById('mini-map-dot');
+    
+    if (currentScene && mapDot) {
+      var liveView = currentScene.view();
+      if (!liveView) return;
+      
+      // Считаем угол и крутим белый луч на месте, не двигая координаты туда-сюда
+      var yaw = liveView.yaw();
+      var degrees = yaw * (180 / Math.PI);
+      // ИСПРАВЛЕНИЕ: Добавили + 180 прямо внутрь строки поворота
+      mapDot.style.transform = 'translate(-50%, -50%) rotate(' + (degrees + 180) + 'deg)';
+    }
+  });
+
+  // НАШ ФИНАЛЬНЫЙ БЛОК: Логика развёртывания и свёртывания мини-карты
+  var mapOpenBtn = document.getElementById('mini-map-toggle-btn');
+  var mapWrapper = document.getElementById('mini-map-wrapper');
+  var mapCloseBtn = document.getElementById('mini-map-close-btn');
+
+  if (mapOpenBtn && mapWrapper && mapCloseBtn) {
+    // НАЖАЛИ «КАРТА»: скрываем кнопку, плавно проявляем планировку
+    mapOpenBtn.addEventListener('click', function(event) {
+      event.stopPropagation(); // Защита, чтобы панорама не дергалась при клике
+      mapOpenBtn.classList.add('hidden-state');
+      mapWrapper.classList.add('active-state');
+    });
+
+    // НАЖАЛИ НА КРЕСТИК: скрываем планировку, возвращаем кнопку обратно
+    mapCloseBtn.addEventListener('click', function(event) {
+      event.stopPropagation();
+      mapWrapper.classList.remove('active-state');
+      mapOpenBtn.classList.remove('hidden-state');
+    });
+
   var switchBtn = document.getElementById('switch-style-btn');
   if (switchBtn) {
     switchBtn.addEventListener('click', function(event) {
