@@ -183,12 +183,33 @@
   }
 
   function switchScene(scene) {
+    var currentView = viewer.view();
+    var savedYaw = currentView ? currentView.yaw() : null;
+    var savedPitch = currentView ? currentView.pitch() : null;
+    var savedFov = currentView ? currentView.fov() : null;
+
     stopAutorotate();
-    scene.view.setParameters(scene.data.initialViewParameters);
+    
     scene.scene.switchTo();
+    
+    setTimeout(function() {
+      var newView = viewer.view();
+      if (newView && savedYaw !== null) {
+        newView.setParameters({
+          yaw: savedYaw,
+          pitch: savedPitch,
+          fov: savedFov
+        });
+      }
+    }, 50);
+
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
+    
+    if (typeof updateMapActiveDot === 'function') {
+      updateMapActiveDot(scene.data.id);
+    }
   }
 
   function updateSceneName(scene) {
