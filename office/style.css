@@ -831,3 +831,6 @@ body.view-control-buttons .viewControlButton {
   margin-left: 105px;
 }
 
+			
+#sceneList .scene.active { background: transparent !important; }
+
