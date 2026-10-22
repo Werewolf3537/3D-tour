@@ -891,3 +891,8 @@ body.view-control-buttons .viewControlButton {
   background-color: rgba(255, 255, 255, 0.1);
   color: #fff;
 }
+
+/* Прячем стандартную кнопку управления списком сцен Marzipano */
+#sceneListToggle {
+  display: none !important;
+}

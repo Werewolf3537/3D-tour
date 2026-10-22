@@ -15,13 +15,19 @@
 <!-- Кнопка для открытия и закрытия меню -->
 <button id="menuToggleBtn" class="menu-toggle-btn">☰ Меню туров</button>
 
-<!-- Измененный контейнер меню (изначально добавляем класс hidden, чтобы скрыть) -->
+<!-- Контейнер меню -->
 <div id="sceneList" class="custom-sidebar hidden">
+  
+  <!-- Элемент-невидимка для защиты от ошибок Marzipano -->
+  <a href="javascript:void(0)" class="scene" data-id="0-t_panoramic_1" style="display: none !important;">
+    <span class="text"></span>
+  </a>
+
+  <!-- Ваше настоящее меню -->
   <div class="sidebar-header">
     <h3>Мои Туры</h3>
   </div>
   <ul class="tour-links-list">
-    <!-- Замените ссылки и названия на свои -->
     <li><a href="https://wolf-studio.ru/kuznecova_2k_50m2/" target="_blank">Квартира на Кузнецова</a></li>
     <li><a href="https://wolf-studio.ru/kpk/" target="_blank">Магазин КПК</a></li>
     <li><a href="https://wolf-studio.ru/testo-mesto/" target="_blank">Ресторан Тесто-Место</a></li>
