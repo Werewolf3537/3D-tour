@@ -25,10 +25,7 @@
   var panoElement = document.querySelector('#pano');
   var sceneNameElement = document.querySelector('#titleBar .sceneName');
   var sceneListElement = document.querySelector('#sceneList');
- 
-  // Перенаправляем поиск на новые ссылки, чтобы Marzipano их не терял
-  var sceneElements = document.querySelectorAll('#sceneList .tour-links-list a');
-  
+  var sceneElements = document.querySelectorAll('#sceneList .scene');
   var sceneListToggleElement = document.querySelector('#sceneListToggle');
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');

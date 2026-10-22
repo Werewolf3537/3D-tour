@@ -18,12 +18,19 @@
 <!-- Контейнер меню -->
 <div id="sceneList" class="custom-sidebar hidden">
   
-  <!-- Элемент-невидимка для защиты от ошибок Marzipano -->
-  <a href="javascript:void(0)" class="scene" data-id="0-t_panoramic_1" style="display: none !important;">
-    <span class="text"></span>
-  </a>
+  <!-- Скрытый блок для «обмана» Marzipano (скрипт найдет ссылки и не упадет в ошибку) -->
+  <div style="display: none !important;">
+    <ul class="scenes">
+      <a href="javascript:void(0)" class="scene" data-id="0-t_panoramic_1">
+        <li class="text">T_Panoramic_1</li>
+      </a>
+      <a href="javascript:void(0)" class="scene" data-id="1-t_panoramic_2">
+        <li class="text">T_Panoramic_2</li>
+      </a>
+    </ul>
+  </div>
 
-  <!-- Ваше настоящее меню -->
+  <!-- Ваше настоящее меню, которое видит пользователь -->
   <div class="sidebar-header">
     <h3>Мои Туры</h3>
   </div>
