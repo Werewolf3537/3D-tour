@@ -78,7 +78,7 @@
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
     var geometry = new Marzipano.CubeGeometry(data.levels);
 
-    var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 145*Math.PI/180, 30*Math.PI/180);
+    var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 70*Math.PI/180, 30*Math.PI/180);
     // НАШ АВТОМАТИЧЕСКИЙ ШАГ: Принудительно ставим fov 1.5 для всех сцен
     var viewParams = data.initialViewParameters;
     viewParams.fov = 1.5 * (Math.PI / 180) * 70; // Переводим коэффициент 1.5 в радианы Marzipano
