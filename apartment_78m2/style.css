@@ -937,7 +937,7 @@ body.view-control-buttons .viewControlButton {
 /* 1. Опускаем саму шторку на высоту верхней кнопки (на 40px) */
 #sceneList {
   top: 40px !important;
-  height: calc(100% - 40px) !important; /* Корректируем высоту, чтобы меню не уходило под экран */
+  height: calc(100% - 40px) !important;
 }
 
 /* 2. Настройка наших ссылок: увеличиваем высоту строк за счет внутренних отступов */
@@ -947,19 +947,18 @@ body.view-control-buttons .viewControlButton {
   font-family: sans-serif !important;
   font-weight: normal !important;
   text-align: left !important;
-  
-  /* УВЕЛИЧИЛИ ОТСТУПЫ: 18px сверху и снизу (было 14px), чтобы текст свободно «дышал» */
   padding: 18px 20px !important; 
   box-sizing: border-box !important;
+  height: auto !important; /* Гарантируем автовысоту на всех устройствах */
 }
 
-/* 3. Настройка текста с аккуратным переносом строк */
-#sceneList .custom-menu-link .text {
+/* 3. НАШ ОБНОВЛЕННЫЙ КЛАСС: Текст теперь полностью защищен от стирания плеером */
+#sceneList .custom-menu-link .custom-text {
   font-size: 14px !important;
   color: #ffffff !important;
   white-space: normal !important; /* Разрешаем перенос текста */
   display: inline-block !important;
-  line-height: 1.5 !important; /* Добавили комфортный межстрочный интервал */
+  line-height: 1.5 !important;
 }
 
 /* Родная полупрозрачная подсветка Marzipano */
@@ -967,9 +966,12 @@ body.view-control-buttons .viewControlButton {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Сброс стандартных маркеров шаблона */
-#sceneList ul.scenes li {
+/* Сброс стандартных маркеров и высоты строк шаблона, которые прятали текст */
+#sceneList ul.scenes li,
+#sceneList ul.scenes li a.scene {
   padding: 0 !important;
   background: none !important;
   margin: 0 !important;
+  height: auto !important; /* Фикс для ПК, чтобы строки не зажимались */
+  min-height: auto !important;
 }
