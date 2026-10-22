@@ -196,17 +196,7 @@
   }
 
   function updateSceneList(scene) {
-    // Код внутри закомментирован, поэтому выделение больше не сработает
-    /*
-    for (var i = 0; i < sceneElements.length; i++) {
-      var el = sceneElements[i];
-      if (el.getAttribute('data-id') === scene.data.id) {
-        el.classList.add('current');
-      } else {
-        el.classList.remove('current');
-      }
-    }
-    /*
+    // Функция теперь пустая, она ничего не считывает и не выделяет строки
   }
 
   function showSceneList() {
