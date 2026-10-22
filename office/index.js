@@ -196,6 +196,8 @@
   }
 
   function updateSceneList(scene) {
+    // Код внутри закомментирован, поэтому выделение больше не сработает
+    /*
     for (var i = 0; i < sceneElements.length; i++) {
       var el = sceneElements[i];
       if (el.getAttribute('data-id') === scene.data.id) {
@@ -204,6 +206,7 @@
         el.classList.remove('current');
       }
     }
+    /*
   }
 
   function showSceneList() {
