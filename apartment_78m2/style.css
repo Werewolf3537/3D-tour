@@ -934,56 +934,33 @@ body.view-control-buttons .viewControlButton {
 }
 
 			/* НАСТРАИВАЕМ ЭЛЕМЕНТЫ ССЫЛОК ВНУТРИ БОКОВОГО МЕНЮ */
-/* 1. Задаем фиксированную широкую панель, чтобы текст не переносился */
-#sceneList {
-  width: 320px !important; /* Отличная ширина, куда влезет любой текст */
-  margin-left: -320px !important; /* Надежно прячем шторку за левый край */
-  transition: margin-left 0.4s ease-in-out !important; /* Плавное скольжение */
-}
-
-/* Выдвигаем шторку на экран по родным классам Marzipano */
-#sceneList.enabled {
-  margin-left: 0 !important;
-}
-
-/* 2. Настраиваем кнопку меню (она плавно отъезжает строго на ширину панели) */
-#sceneListToggle {
-  transition: margin-left 0.4s ease-in-out !important;
-}
-#sceneListToggle.collapsed {
-  margin-left: 320px !important; /* Кнопка сдвигается ровно на 320px вбок */
-}
-
-/* 3. Оформление ссылок в шторке (без переносов слов и без прокрутки) */
+/* Настройка наших новых ссылок внутри родной шторки */
 #sceneList .custom-menu-link {
   display: block !important;
   text-decoration: none !important;
   font-family: sans-serif !important;
   font-weight: normal !important;
   text-align: left !important;
-  white-space: nowrap !important; /* Текст гарантированно всегда в одну строчку */
-  padding: 14px 20px !important;
-  box-sizing: border-box !important;
 }
 
+/* Настройка текста: разрешаем аккуратный перенос длинных названий на новую строку */
 #sceneList .custom-menu-link .text {
   font-size: 14px !important;
   color: #ffffff !important;
+  white-space: normal !important; /* РАЗРЕШАЕМ ПЕРЕНОС: текст красиво впишется в родную ширину 220px */
+  display: inline-block !important;
+  line-height: 1.4 !important;
 }
 
-/* Полупрозрачная подсветка при наведении */
+/* Родная полупрозрачная подсветка Marzipano при наведении мышки */
 #sceneList .custom-menu-link:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Очищаем маркеры списков и убираем паразитную прокрутку */
-#sceneList ul.scenes {
-  overflow: hidden !important; /* Убираем скроллбар */
-  padding: 0 !important;
-  margin: 0 !important;
-}
+/* Очищаем внешние отступы списков, чтобы они не ломали штатную верстку */
 #sceneList ul.scenes li {
   padding: 0 !important;
   background: none !important;
   margin: 0 !important;
 }
+
