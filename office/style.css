@@ -831,5 +831,25 @@ body.view-control-buttons .viewControlButton {
   margin-left: 105px;
 }
 
-			
+
+/* Настройки для компьютеров (экраны шире 768px) */
+@media (min-width: 769px) {
+  #sceneList {
+    width: 320px !important; /* Увеличиваем ширину шторки на ПК */
+  }
+  
+  /* Корректируем сдвиг панорамы вправо, чтобы меню не перекрывало картинку при открытии */
+  body.column #pano {
+    left: 320px !important; 
+  }
+}
+
+/* Настройки переноса текста для всех устройств */
+#sceneList .scene .text {
+  white-space: normal !important;   /* Разрешаем перенос длинного текста на новую строку */
+  word-wrap: break-word !important; /* Безопасный перенос длинных слов */
+  line-height: 1.4 !important;      /* Увеличиваем межстрочный интервал для читаемости */
+  padding-right: 10px !important;   /* Небольшой отступ справа, чтобы текст не прижимался к краю */
+}
+	
 
