@@ -389,36 +389,27 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
-document.addEventListener('DOMContentLoaded', function() {
-  const menuToggleBtn = document.getElementById('menuToggleBtn');
-  // ИСПРАВЛЕНО: ищем sceneList вместо customSidebar
-  const customSidebar = document.getElementById('sceneList'); 
+  // Код анимации меню
+  document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('menuToggleBtn');
+    const menu = document.getElementById('sceneList');
 
-  if (menuToggleBtn && customSidebar) {
-    menuToggleBtn.addEventListener('click', function(event) {
-      // Переключаем класс hidden, который отвечает за сдвиг панели
-      customSidebar.classList.toggle('hidden');
-      
-      // Предотвращаем всплытие события
-      event.stopPropagation(); 
-    });
+    if (btn && menu) {
+      // Клик по кнопке открывает/закрывает меню
+      btn.addEventListener('click', function(e) {
+        menu.classList.toggle('hidden');
+        e.stopPropagation();
+      });
+      // Клик внутри меню не закрывает его
+      menu.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+      // Клик по панораме закрывает меню
+      document.getElementById('pano').addEventListener('click', function() {
+        menu.classList.add('hidden');
+      });
+    }
+  });
 
-    // Останавливаем скрытие при клике внутри самого меню
-    customSidebar.addEventListener('click', function(event) {
-      event.stopPropagation();
-    });
-  }
-
-  // Дополнительно: закрывать меню при клике на саму панораму
-  const panoElement = document.getElementById('pano'); 
-  if (panoElement && customSidebar) {
-    panoElement.addEventListener('click', function() {
-      if (!customSidebar.classList.contains('hidden')) {
-        customSidebar.classList.add('hidden');
-      }
-    });
-  }
-});
 
 })();
-

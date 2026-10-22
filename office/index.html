@@ -12,34 +12,28 @@
 
 <div id="pano"></div>
 
-<!-- Кнопка для открытия и закрытия меню -->
-<button id="menuToggleBtn" class="menu-toggle-btn">☰ Меню туров</button>
 
-<!-- Контейнер меню -->
-<div id="sceneList" class="custom-sidebar hidden">
-  
-  <!-- Скрытый блок для «обмана» Marzipano (скрипт найдет ссылки и не упадет в ошибку) -->
-  <div style="display: none !important;">
-    <ul class="scenes">
-      <a href="javascript:void(0)" class="scene" data-id="0-t_panoramic_1">
+
+<!-- Наша кнопка для открытия/закрытия прямо над меню -->
+<button id="menuToggleBtn" style="position: absolute; top: 40px; left: 15px; z-index: 1000; padding: 5px 10px; background: rgba(0,0,0,0.5); color: #fff; border: 1px solid #fff; cursor: pointer;">☰ Меню</button>
+
+<!-- Добавляем только класс "hidden" к вашему оригинальному блоку -->
+<div id="sceneList" class="hidden">
+  <ul class="scenes">
+    
+      <!-- Заменяем javascript:void(0) на вашу ссылку и добавляем target="_blank" -->
+      <a href="https://example.com" target="_blank" class="scene" data-id="0-t_panoramic_1">
         <li class="text">T_Panoramic_1</li>
       </a>
-      <a href="javascript:void(0)" class="scene" data-id="1-t_panoramic_2">
+    
+      <a href="https://example.com" target="_blank" class="scene" data-id="1-t_panoramic_2">
         <li class="text">T_Panoramic_2</li>
       </a>
-    </ul>
-  </div>
-
-  <!-- Ваше настоящее меню, которое видит пользователь -->
-  <div class="sidebar-header">
-    <h3>Мои Туры</h3>
-  </div>
-  <ul class="tour-links-list">
-    <li><a href="https://wolf-studio.ru/kuznecova_2k_50m2/" target="_blank">Квартира на Кузнецова</a></li>
-    <li><a href="https://wolf-studio.ru/kpk/" target="_blank">Магазин КПК</a></li>
-    <li><a href="https://wolf-studio.ru/testo-mesto/" target="_blank">Ресторан Тесто-Место</a></li>
+    
   </ul>
 </div>
+
+
 
 
 <div id="titleBar">
