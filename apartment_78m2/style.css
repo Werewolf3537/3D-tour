@@ -936,51 +936,44 @@ body.view-control-buttons .viewControlButton {
 			/* НАСТРАИВАЕМ ЭЛЕМЕНТЫ ССЫЛОК ВНУТРИ БОКОВОГО МЕНЮ */
 /* ПРИНУДИТЕЛЬНОЕ ИСПРАВЛЕНИЕ ГЕОМЕТРИИ ШТОРКИ MARZIPANO ДЛЯ ВСЕХ ЭКРАНОВ */
 
-/* 1. Намертво убираем верхнюю пустоту и прижимаем меню к кнопке */
-#sceneList,
-.desktop #sceneList,
-.mobile #sceneList {
-  top: 33px !important;
-  height: calc(100% - 33px) !important;
+/* 1. ПОДНИМАЕМ ШТОРКУ: убираем зазор между кнопкой и контейнером меню */
+#sceneList {
+  top: 40px !important; /* Родная высота верхней панели */
+  height: calc(100% - 40px) !important;
 }
 
-/* 2. Раздвигаем слипшиеся строчки за счет увеличения высоты элементов списка */
+/* Фикс для мобильной версии шаблона (там отступ задается через body) */
+body.mobile #sceneList {
+  top: 40px !important;
+  height: calc(100% - 40px) !important;
+}
+
+/* 2. РАЗДВИГАЕМ СТРОЧКИ: перебиваем родную фиксированную высоту элементов Marzipano */
+#sceneList .scene,
 #sceneList ul.scenes li,
-.desktop #sceneList ul.scenes li,
-#sceneList ul.scenes li a.scene,
-.desktop #sceneList ul.scenes li a.scene {
-  height: auto !important; /* Отключаем заводской зажим высоты Marzipano */
-  min-height: auto !important;
+#sceneList ul.scenes li a {
+  height: auto !important;       /* Отменяем заводской зажим высоты в 30px */
+  min-height: 60px !important;   /* Задаем просторную минимальную высоту для каждого пункта */
   padding: 0 !important;
   margin: 0 !important;
-  background: none !important;
 }
 
-/* 3. Увеличиваем расстояние между строками и внутренние отступы ссылок */
-#sceneList .custom-menu-link,
-.desktop #sceneList .custom-menu-link {
+/* 3. НАСТРОЙКА НАШИХ ССЫЛОК: делаем большие, сочные отступы */
+#sceneList .custom-menu-link {
   display: block !important;
-  padding-top: 24px !important;    /* Увеличили верхний отступ */
-  padding-bottom: 24px !important; /* Увеличили нижний отступ */
+  padding-top: 20px !important;    /* Расстояние сверху */
+  padding-bottom: 20px !important; /* Расстояние снизу */
   padding-left: 20px !important;
   padding-right: 20px !important;
   box-sizing: border-box !important;
-  text-decoration: none !important;
 }
 
-/* 4. Настройка межстрочного интервала для перенесенного текста */
-#sceneList .custom-menu-link .custom-text,
-.desktop #sceneList .custom-menu-link .custom-text {
+/* 4. Настройка текста и межстрочного интервала */
+#sceneList .custom-menu-link .custom-text {
   font-family: sans-serif !important;
   font-size: 14px !important;
   color: #ffffff !important;
-  white-space: normal !important;
+  white-space: normal !important; /* Разрешаем аккуратный перенос строк */
+  line-height: 1.6 !important;   /* Расстояние между строчками внутри одного названия */
   display: inline-block !important;
-  line-height: 1.7 !important; /* Сделали текст внутри строки еще просторнее */
-}
-
-/* Родная полупрозрачная подсветка при наведении */
-#sceneList .custom-menu-link:hover,
-.desktop #sceneList .custom-menu-link:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
 }
