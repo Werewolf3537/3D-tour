@@ -1033,7 +1033,7 @@ body.view-control-buttons .viewControlButton {
 
 /* Ссылка внутри рамки */
 .portfolio-link-wrapper a {
-  color: #677383 !important;
+  color: #007bff !important;
   text-decoration: none !important;
   font-weight: bold !important;
   transition: color 0.2s ease-in-out !important;
