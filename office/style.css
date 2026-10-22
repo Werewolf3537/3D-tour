@@ -828,3 +828,66 @@ body.view-control-buttons .viewControlButton {
 .viewControlButton-6 {
   margin-left: 105px;
 }
+
+/* Кнопка управления меню */
+.menu-toggle-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+/* Выезжающая панель (используем ID оригинального меню) */
+#sceneList {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(20, 20, 20, 0.95);
+  color: #fff;
+  z-index: 999;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease;
+  padding-top: 80px;
+  box-sizing: border-box;
+  display: block !important; /* Перебиваем стандартное скрытие Marzipano */
+}
+
+/* Класс для скрытия (сдвиг влево) */
+#sceneList.hidden {
+  transform: translateX(-100%);
+}
+
+/* Стили для ссылок внутри */
+.sidebar-header h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+}
+.tour-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tour-links-list li a {
+  display: block;
+  padding: 15px 20px;
+  color: #ccc;
+  text-decoration: none;
+  font-family: sans-serif;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.3s, color 0.3s;
+}
+.tour-links-list li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}

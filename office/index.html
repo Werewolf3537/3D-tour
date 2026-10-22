@@ -12,19 +12,22 @@
 
 <div id="pano"></div>
 
-<div id="sceneList">
-  <ul class="scenes">
-    
-      <a href="javascript:void(0)" class="scene" data-id="0-t_panoramic_1">
-        <li class="text">T_Panoramic_1</li>
-      </a>
-    
-      <a href="javascript:void(0)" class="scene" data-id="1-t_panoramic_2">
-        <li class="text">T_Panoramic_2</li>
-      </a>
-    
+<!-- Кнопка для открытия и закрытия меню -->
+<button id="menuToggleBtn" class="menu-toggle-btn">☰ Меню туров</button>
+
+<!-- Измененный контейнер меню (изначально добавляем класс hidden, чтобы скрыть) -->
+<div id="sceneList" class="custom-sidebar hidden">
+  <div class="sidebar-header">
+    <h3>Мои Туры</h3>
+  </div>
+  <ul class="tour-links-list">
+    <!-- Замените ссылки и названия на свои -->
+    <li><a href="https://wolf-studio.ru/kuznecova_2k_50m2/" target="_blank">Квартира на Кузнецова</a></li>
+    <li><a href="https://wolf-studio.ru/kpk/" target="_blank">Магазин КПК</a></li>
+    <li><a href="https://wolf-studio.ru/testo-mesto/" target="_blank">Ресторан Тесто-Место</a></li>
   </ul>
 </div>
+
 
 <div id="titleBar">
   <h1 class="sceneName"></h1>
