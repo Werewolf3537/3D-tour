@@ -934,36 +934,36 @@ body.view-control-buttons .viewControlButton {
 }
 
 			/* НАСТРАИВАЕМ ЭЛЕМЕНТЫ ССЫЛОК ВНУТРИ БОКОВОГО МЕНЮ */
-/* 1. Делаем боковую панель фиксированной и ОЧЕНЬ широкой под длинный текст */
+/* 1. Делаем боковую панель фиксированной и широкой под длинный текст */
 #sceneList {
-  width: 350px !important; /* Увеличили ширину до 350px, чтобы влезла любая длинная фраза! */
+  width: 350px !important; /* Наша надежная ширина под русский текст */
   
-  /* Жестко и надежно прячем её ровно на эту ширину за левый край экрана */
+  /* Жестко прячем её за левый край экрана строго на эту ширину */
   -webkit-transform: translateX(-350px) !important;
   transform: translateX(-350px) !important;
   transition: transform 0.4s ease-in-out !important;
 }
 
-/* Плавно выдвигаем её обратно на экран при клике на три полоски */
-body.menu-open #sceneList {
+/* РОДНОЙ ФИКС: Выдвигаем шторку на экран, когда Marzipano добавляет класс .enabled */
+#sceneList.enabled {
   -webkit-transform: translateX(0) !important;
   transform: translateX(0) !important;
 }
 
-/* 2. Прижимаем кнопку открытия к правому боку выезжающей панели при открытии */
-body.menu-open #sceneListToggle {
+/* 2. Прижимаем кнопку открытия к правому боку панели при её активации */
+#sceneListToggle.enabled {
   -webkit-transform: translateX(350px) !important;
   transform: translateX(350px) !important;
 }
 
-/* 3. Оформление ссылок в шторке (высота строк и родная подсветка) */
+/* 3. Оформление ссылок в шторке (без переносов слов и с родной подсветкой) */
 #sceneList .custom-menu-link {
   display: block !important;
   text-decoration: none !important;
   font-family: sans-serif !important;
   font-weight: normal !important;
   text-align: left !important;
-  white-space: nowrap !important; /* Текст гарантированно всегда в одну строчку без переносов */
+  white-space: nowrap !important; /* Текст гарантированно всегда в одну строчку */
   padding: 14px 20px !important;
 }
 
