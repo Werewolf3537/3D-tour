@@ -150,7 +150,7 @@ var APP_DATA = {
     {
       "id": "3-4",
       "name": "4",
-      "mapCoords": { "left": "21%", "top": "63%" }, // ДОБАВИЛИ КООРДИНАТЫ 
+      "mapCoords": { "left": "19%", "top": "62%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -348,7 +348,7 @@ var APP_DATA = {
     {
       "id": "7-8",
       "name": "8",
-      "mapCoords": { "left": "72%", "top": "63%" }, // ДОБАВИЛИ КООРДИНАТЫ 
+      "mapCoords": { "left": "63%", "top": "72%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
