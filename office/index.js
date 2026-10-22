@@ -30,9 +30,6 @@
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
 
-  // СКРЫВАЕМ МЕНЮ В НАЧАЛЕ ТУРА:
-  document.body.classList.remove('column'); 
-
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
     var setMode = function() {
