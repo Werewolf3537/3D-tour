@@ -145,6 +145,7 @@
     showSceneList();
   }
 
+  /*
   // Set handler for scene switch.
   scenes.forEach(function(scene) {
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
@@ -156,6 +157,7 @@
       }
     });
   });
+  */
 
   // DOM elements for view controls.
   var viewUpElement = document.querySelector('#viewUp');
