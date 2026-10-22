@@ -829,12 +829,3 @@ body.view-control-buttons .viewControlButton {
   margin-left: 105px;
 }
 
-/* Изначально прячем меню встроенным в Marzipano способом, но через сдвиг */
-#sceneList.hidden {
-  transform: translateX(-100%);
-}
-/* Скрываем стандартную кнопку-иконку Marzipano, чтобы она не дублировала нашу */
-#sceneListToggle {
-  display: none !important;
-}
-

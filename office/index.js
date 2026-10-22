@@ -30,6 +30,9 @@
   var autorotateToggleElement = document.querySelector('#autorotateToggle');
   var fullscreenToggleElement = document.querySelector('#fullscreenToggle');
 
+  // СКРЫВАЕМ МЕНЮ В НАЧАЛЕ ТУРА:
+  document.body.classList.remove('column'); 
+
   // Detect desktop or mobile mode.
   if (window.matchMedia) {
     var setMode = function() {
@@ -388,28 +391,5 @@
 
   // Display the initial scene.
   switchScene(scenes[0]);
-
-  // Код анимации меню
-  document.addEventListener('DOMContentLoaded', function() {
-    const btn = document.getElementById('menuToggleBtn');
-    const menu = document.getElementById('sceneList');
-
-    if (btn && menu) {
-      // Клик по кнопке открывает/закрывает меню
-      btn.addEventListener('click', function(e) {
-        menu.classList.toggle('hidden');
-        e.stopPropagation();
-      });
-      // Клик внутри меню не закрывает его
-      menu.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
-      // Клик по панораме закрывает меню
-      document.getElementById('pano').addEventListener('click', function() {
-        menu.classList.add('hidden');
-      });
-    }
-  });
-
 
 })();
