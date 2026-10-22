@@ -934,51 +934,47 @@ body.view-control-buttons .viewControlButton {
 }
 
 			/* НАСТРАИВАЕМ ЭЛЕМЕНТЫ ССЫЛОК ВНУТРИ БОКОВОГО МЕНЮ */
-/* 1. Делаем боковую панель фиксированной и ОЧЕНЬ широкой под длинный текст */
+/* Увеличиваем ширину боковой панели, чтобы длинный текст не переносился */
 #sceneList {
-  width: 350px !important; /* Увеличили ширину до 350px, чтобы влезла любая длинная фраза! */
-  
-  /* Жестко и надежно прячем её ровно на эту ширину за левый край экрана */
-  -webkit-transform: translateX(-350px) !important;
-  transform: translateX(-350px) !important;
-  transition: transform 0.4s ease-in-out !important;
+  width: 400px !important; /* Сделали панель шире (было 220px) */
 }
 
-/* Плавно выдвигаем её обратно на экран при клике на три полоски */
+/* Сдвигаем кнопку открытия меню на новое расстояние, чтобы она не налезала на широкую панель */
+body.menu-open #sceneListToggle {
+  -webkit-transform: translateX(400px) !important;
+  transform: translateX(400px) !important;
+}
+
+/* Полностью убираем широкую панель за левый край экрана, когда меню закрыто */
+#sceneList {
+  -webkit-transform: translateX(-400px) !important;
+  transform: translateX(-400px) !important;
+  transition: all 0.5s ease !important; /* Плавное скольжение */
+}
+
+/* Возвращаем панель обратно на экран на всю её ширину, когда пользователь нажал «Меню» */
 body.menu-open #sceneList {
   -webkit-transform: translateX(0) !important;
   transform: translateX(0) !important;
 }
 
-/* 2. Прижимаем кнопку открытия к правому боку выезжающей панели при открытии */
-body.menu-open #sceneListToggle {
-  -webkit-transform: translateX(350px) !important;
-  transform: translateX(350px) !important;
-}
-
-/* 3. Оформление ссылок в шторке (высота строк и родная подсветка) */
+/* Возвращаем оригинальные отступы, высоту строк и запрещаем перенос слов */
 #sceneList .custom-menu-link {
   display: block !important;
   text-decoration: none !important;
   font-family: sans-serif !important;
   font-weight: normal !important;
   text-align: left !important;
-  white-space: nowrap !important; /* Текст гарантированно всегда в одну строчку без переносов */
-  padding: 14px 20px !important;
+  white-space: nowrap !important; /* ЗАПРЕТ ПЕРЕНОСА: текст теперь всегда строго в одну строчку */
 }
 
+/* Восстанавливаем оригинальный размер текста и встроенные отступы Marzipano */
 #sceneList .custom-menu-link .text {
   font-size: 14px !important;
   color: #ffffff !important;
 }
 
-/* Родная полупрозрачная подсветка Marzipano при наведении мышки */
+/* ВОЗВРАЩАЕМ ИСХОДНУЮ ПОДСВЕТКУ ПРИ НАВЕДЕНИИ (как было в чистом коде) */
 #sceneList .custom-menu-link:hover {
-  background-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* Очищаем маркеры списков шаблона */
-#sceneList ul.scenes li {
-  padding: 0 !important;
-  background: none !important;
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Родной полупрозрачный блик Marzipano */
 }
