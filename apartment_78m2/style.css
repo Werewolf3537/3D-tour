@@ -934,31 +934,34 @@ body.view-control-buttons .viewControlButton {
 }
 
 			/* НАСТРАИВАЕМ ЭЛЕМЕНТЫ ССЫЛОК ВНУТРИ БОКОВОГО МЕНЮ */
-/* 1. Опускаем саму шторку на высоту верхней кнопки (на 40px) */
+/* 1. ПОДНИМАЕМ ШТОРКУ: убираем пустоту между кнопкой и контейнером меню */
 #sceneList {
-  top: 40px !important;
-  height: calc(100% - 40px) !important;
+  top: 33px !important; /* Подняли до 33px — теперь зазора сверху больше нет */
+  height: calc(100% - 33px) !important;
 }
 
-/* 2. Настройка наших ссылок: увеличиваем высоту строк за счет внутренних отступов */
+/* 2. Настройка наших ссылок: увеличиваем расстояние между строками */
 #sceneList .custom-menu-link {
   display: block !important;
   text-decoration: none !important;
   font-family: sans-serif !important;
   font-weight: normal !important;
   text-align: left !important;
-  padding: 18px 20px !important; 
+  
+  /* УВЕЛИЧИЛИ ОТСТУПЫ: теперь между пунктами меню очень много свободного места */
+  padding: 22px 20px !important; 
   box-sizing: border-box !important;
-  height: auto !important; /* Гарантируем автовысоту на всех устройствах */
+  height: auto !important;
 }
 
-/* 3. НАШ ОБНОВЛЕННЫЙ КЛАСС: Текст теперь полностью защищен от стирания плеером */
+/* 3. Настройка самого текста и межстрочного интервала */
 #sceneList .custom-menu-link .custom-text {
+  font-family: sans-serif !important;
   font-size: 14px !important;
   color: #ffffff !important;
-  white-space: normal !important; /* Разрешаем перенос текста */
+  white-space: normal !important; /* Разрешаем красивый перенос строк */
   display: inline-block !important;
-  line-height: 1.5 !important;
+  line-height: 1.6 !important; /* Увеличили интервал внутри самого перенесённого текста */
 }
 
 /* Родная полупрозрачная подсветка Marzipano */
@@ -966,12 +969,12 @@ body.view-control-buttons .viewControlButton {
   background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Сброс стандартных маркеров и высоты строк шаблона, которые прятали текст */
+/* Сброс жесткой высоты строк оригинального шаблона, чтобы текст не слипался */
 #sceneList ul.scenes li,
 #sceneList ul.scenes li a.scene {
   padding: 0 !important;
   background: none !important;
   margin: 0 !important;
-  height: auto !important; /* Фикс для ПК, чтобы строки не зажимались */
+  height: auto !important; /* Разрешаем блокам ПК растягиваться свободно */
   min-height: auto !important;
 }
