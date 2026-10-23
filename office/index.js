@@ -145,7 +145,6 @@
     showSceneList();
   }
 
-  /*
   // Set handler for scene switch.
   scenes.forEach(function(scene) {
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
@@ -157,7 +156,6 @@
       }
     });
   });
-  */
 
   // DOM elements for view controls.
   var viewUpElement = document.querySelector('#viewUp');
@@ -194,11 +192,18 @@
   }
 
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = "Офис 60м2 г.Новосибирск";
+    sceneNameElement.innerHTML = sanitize(scene.data.name);
   }
 
   function updateSceneList(scene) {
-    // Функция теперь пустая, она ничего не считывает и не выделяет строки
+    for (var i = 0; i < sceneElements.length; i++) {
+      var el = sceneElements[i];
+      if (el.getAttribute('data-id') === scene.data.id) {
+        el.classList.add('current');
+      } else {
+        el.classList.remove('current');
+      }
+    }
   }
 
   function showSceneList() {
@@ -383,7 +388,5 @@
 
   // Display the initial scene.
   switchScene(scenes[0]);
-
-  hideSceneList();
 
 })();
