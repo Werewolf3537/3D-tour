@@ -302,7 +302,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 #sceneList .scene {
   display: block;
   width: 100%;
-  height: auto; /* <--- ИСПРАВЛЕНО с фиксированных 40px (чтобы строки не накладывались) */
+  height: auto !important; /* <--- ДОБАВИЛИ !important, чтобы сработало и на телефонах */
 }
 
 .mobile #sceneList .scene {
