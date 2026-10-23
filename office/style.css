@@ -835,21 +835,38 @@ body.view-control-buttons .viewControlButton {
 /* Настройки для компьютеров (экраны шире 768px) */
 @media (min-width: 769px) {
   #sceneList {
-    width: 320px !important; /* Увеличиваем ширину шторки на ПК */
+    width: 320px !important; /* Наша новая ширина шторки */
   }
   
-  /* Корректируем сдвиг панорамы вправо, чтобы меню не перекрывало картинку при открытии */
+  /* ИСПРАВЛЕНО: Сдвигаем меню на его полную новую ширину (320px) влево, когда оно скрыто */
+  body.mobile #sceneList, #sceneList {
+    transform: translateX(-320px) !important;
+  }
+  
+  /* Когда класс .open активен, возвращаем меню в исходное положение (показываем его) */
+  body.column #sceneList {
+    transform: translateX(0) !important;
+  }
+
+  /* Корректируем сдвиг самой панорамы вправо на ПК при открытом меню */
   body.column #pano {
     left: 320px !important; 
   }
 }
 
-/* Настройки переноса текста для всех устройств */
-#sceneList .scene .text {
-  white-space: normal !important;   /* Разрешаем перенос длинного текста на новую строку */
-  word-wrap: break-word !important; /* Безопасный перенос длинных слов */
-  line-height: 1.4 !important;      /* Увеличиваем межстрочный интервал для читаемости */
-  padding-right: 10px !important;   /* Небольшой отступ справа, чтобы текст не прижимался к краю */
+/* Настройки текста и пунктов меню для всех устройств */
+#sceneList .scene {
+  height: auto !important;          /* ИСПРАВЛЕНО: Разрешаем пункту меню растягиваться под двухстрочный текст */
+  min-height: 40px !important;      /* Минимальная базовая высота */
+  display: flex !important;         /* Включаем гибкую разметку для выравнивания */
+  align-items: center !important;   /* Центрируем текст по вертикали внутри пункта */
+  padding: 10px 15px !important;    /* Добавляем внутренние отступы, чтобы строки не слипались */
 }
-	
 
+#sceneList .scene .text {
+  white-space: normal !important;   /* Разрешаем перенос текста на новую строку */
+  word-wrap: break-word !important; /* Перенос длинных слов */
+  line-height: 1.5 !important;      /* ИСПРАВЛЕНО: Увеличиваем межстрочное расстояние, чтобы текст не перекрывался */
+  height: auto !important;          /* Убираем фиксированную высоту текста Marzipano */
+  margin: 0 !important;
+}
