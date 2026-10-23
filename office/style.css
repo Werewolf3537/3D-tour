@@ -311,7 +311,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 
 #sceneList .scene .text {
   width: 100%;
-  height: auto;                     /* ИСПРАВЛЕНО с 100% — позволяет блоку растягиваться вниз */
+  height: auto !important;          /* ИСПРАВЛЕНО с 100% — позволяет блоку растягиваться вниз */
   padding: 8px 15px;                /* ИСПРАВЛЕНО — добавляем аккуратные отступы сверху и снизу */
   line-height: 1.4;                 /* ИСПРАВЛЕНО с 30px — делает правильный интервал между строками текста */
   overflow: visible;                /* ИСПРАВЛЕНО с hidden — чтобы перенесенный текст не прятался */
