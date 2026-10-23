@@ -145,6 +145,7 @@
     showSceneList();
   }
 
+  /*
   // Set handler for scene switch.
   scenes.forEach(function(scene) {
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
@@ -156,6 +157,7 @@
       }
     });
   });
+  */
 
   // DOM elements for view controls.
   var viewUpElement = document.querySelector('#viewUp');
@@ -229,19 +231,13 @@
     }, 300); // Увеличили общую паузу до 300мс для идеально мягкого эффекта кино
   }
 
+
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = sanitize(scene.data.name);
+    sceneNameElement.innerHTML = "Квартира 2-к 50м2 г.Новокузнецк ЖК Кузнецова  |  Кирилл Бахарев";
   }
 
   function updateSceneList(scene) {
-    for (var i = 0; i < sceneElements.length; i++) {
-      var el = sceneElements[i];
-      if (el.getAttribute('data-id') === scene.data.id) {
-        el.classList.add('current');
-      } else {
-        el.classList.remove('current');
-      }
-    }
+    // Функция теперь пустая, она ничего не считывает и не выделяет строки
   }
 
   function showSceneList() {
@@ -382,12 +378,14 @@
       modal.classList.toggle('visible');
     };
 
-    iconWrapper.addEventListener('click', toggle);
+    // Show content when hotspot is clicked.
+    wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
 
-    closeWrapper.addEventListener('click', toggle);
-
+    // Hide content when close icon is clicked.
     modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);
 
+    // Prevent touch and scroll events from reaching the parent element.
+    // This prevents the view control logic from interfering with the hotspot.
     stopTouchAndScrollEventPropagation(wrapper);
 
     return wrapper;
@@ -444,31 +442,6 @@
     }
   });
 
-  var switchBtn = document.getElementById('switch-style-btn');
-  if (switchBtn) {
-    switchBtn.addEventListener('click', function(event) {
-      event.stopPropagation();
-      var currentScene = viewer.scene();
-      if (!currentScene) return;
-      var activeSceneWrapper = null;
-      for (var i = 0; i < scenes.length; i++) {
-        if (scenes[i].scene === currentScene) {
-          activeSceneWrapper = scenes[i];
-          break;
-        }
-      }
-      if (activeSceneWrapper && activeSceneWrapper.data) {
-        var targetId = activeSceneWrapper.data.pairedSceneId;
-        if (targetId) {
-          var targetScene = findSceneById(targetId);
-          if (targetScene) {
-            switchScene(targetScene);
-          }
-        }
-      }
-    });
-  }
-
   // НАШ ФИНАЛЬНЫЙ БЛОК: Логика развёртывания и свёртывания мини-карты
   var mapOpenBtn = document.getElementById('mini-map-toggle-btn');
   var mapWrapper = document.getElementById('mini-map-wrapper');
@@ -491,4 +464,3 @@
   }
 
 })();
-
