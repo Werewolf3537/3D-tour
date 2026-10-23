@@ -872,3 +872,72 @@ body.view-control-buttons .viewControlButton {
   -webkit-perspective: 1000 !important;
   perspective: 1000 !important;
 }
+
+
+
+
+
+
+/* СТИЛЬ КОНТЕЙНЕРА ПОД ССЫЛКУ НА САЙТ */
+/* 1. Главный контейнер выстраивает элементы по правому краю */
+.portfolio-brand-block {
+  position: absolute !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  gap: 1px !important; /* УМЕНЬШИЛИ ЗАЗОР: логотип стал чуть ниже и ближе к тексту */
+  pointer-events: none !important;
+}
+
+/* 2. Настраиваем компактный логотип 55px */
+.portfolio-logo {
+  width: 55px !important;  /* Установили размер 55px */
+  height: 55px !important; /* Установили размер 55px */
+  object-fit: contain !important;
+  pointer-events: auto !important;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)) !important;
+}
+
+/* 3. Рамка с текстом по правому краю */
+.portfolio-link-wrapper {
+  display: block !important;
+  text-align: right !important;
+  
+  font-family: sans-serif !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+  background-color: rgba(20, 25, 35, 0.6) !important;
+  padding: 8px 15px !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+  pointer-events: auto !important;
+}
+
+/* Ссылка внутри рамки */
+.portfolio-link-wrapper a {
+  color: #007bff !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
+  transition: color 0.2s ease-in-out !important;
+}
+
+.portfolio-link-wrapper a:hover {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+
+
+
+		/* ПРЯЧЕМ ВСПЫЛВАЮЩИЙ ТЕКСТ (название комнаты) НАД СТРЕЛОЧКАМИ ПЕРЕХОДА */
+.link-hotspot .link-hotspot-tooltip,
+.link-hotspot:hover .link-hotspot-tooltip,
+.link-hotspot-text {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}

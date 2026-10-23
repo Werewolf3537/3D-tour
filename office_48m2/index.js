@@ -389,4 +389,6 @@
   // Display the initial scene.
   switchScene(scenes[0]);
 
+  hideSceneList();
+
 })();
