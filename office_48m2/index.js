@@ -192,7 +192,7 @@
   }
 
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = sanitize(scene.data.name);
+    sceneNameElement.innerHTML = "Офис 48м2 г.Новосибирск";
   }
 
   function updateSceneList(scene) {
