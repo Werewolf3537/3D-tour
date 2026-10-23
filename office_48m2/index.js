@@ -232,7 +232,7 @@
   }
 
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = "Офис 48м2 г.Новосибирск";
+    sceneNameElement.innerHTML = "Офис 48м2 г.Новосибирск | Дизайнер - Ирина Вирт";
   }
 
   function updateSceneList(scene) {
