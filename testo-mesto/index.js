@@ -145,6 +145,7 @@
     showSceneList();
   }
 
+  /*
   // Set handler for scene switch.
   scenes.forEach(function(scene) {
     var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
@@ -156,6 +157,7 @@
       }
     });
   });
+  */
 
   // DOM elements for view controls.
   var viewUpElement = document.querySelector('#viewUp');
@@ -234,14 +236,7 @@
   }
 
   function updateSceneList(scene) {
-    for (var i = 0; i < sceneElements.length; i++) {
-      var el = sceneElements[i];
-      if (el.getAttribute('data-id') === scene.data.id) {
-        el.classList.add('current');
-      } else {
-        el.classList.remove('current');
-      }
-    }
+    // Функция теперь пустая, она ничего не считывает и не выделяет строки
   }
 
   function showSceneList() {
