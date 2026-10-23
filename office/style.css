@@ -303,8 +303,6 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   display: block;
   width: 100%;
   height: auto; /* <--- ИСПРАВЛЕНО с фиксированных 40px (чтобы строки не накладывались) */
-  padding: 10px 15px; /* <--- Можно немного увеличить отступы для читаемости */
-  /* остальные родные свойства оставляем */
 }
 
 .mobile #sceneList .scene {
@@ -313,13 +311,15 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 
 #sceneList .scene .text {
   width: 100%;
-  height: 100%;
-  padding: 0 15px;
-  line-height: 30px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  height: auto;                     /* ИСПРАВЛЕНО с 100% — позволяет блоку растягиваться вниз */
+  padding: 8px 15px;                /* ИСПРАВЛЕНО — добавляем аккуратные отступы сверху и снизу */
+  line-height: 1.4;                 /* ИСПРАВЛЕНО с 30px — делает правильный интервал между строками текста */
+  overflow: visible;                /* ИСПРАВЛЕНО с hidden — чтобы перенесенный текст не прятался */
+  text-overflow: clip;              /* ИСПРАВЛЕНО с ellipsis — убирает троеточие в конце строки */
+  white-space: normal;              /* ИСПРАВЛЕНО с nowrap — разрешает тексту переноситься на новые строки */
+  word-wrap: break-word;            /* ДОБАВЛЕНО — защищает от вылезания слишком длинных слов */
 }
+
 
 .mobile #sceneList .scene .text {
   line-height: 40px;
