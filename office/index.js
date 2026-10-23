@@ -194,7 +194,7 @@
   }
 
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = "Офис 60м2 г.Новокузнецк";
+    sceneNameElement.innerHTML = "Офис 60м2 г.Новосибирск";
   }
 
   function updateSceneList(scene) {
