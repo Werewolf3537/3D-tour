@@ -258,9 +258,9 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 #sceneList {
   position: absolute;
   top: 0;
-  left: -220px;
+  left: -350px;
   padding-top: 40px;
-  width: 220px;
+  width: 350px;
   max-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
