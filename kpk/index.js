@@ -233,7 +233,7 @@
 
 
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = sanitize(scene.data.name);
+    sceneNameElement.innerHTML = "Магазин КПК г.Новокузнецк";
   }
 
   function updateSceneList(scene) {
