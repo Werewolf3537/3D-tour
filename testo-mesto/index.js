@@ -232,7 +232,7 @@
   }
 
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = "Ресторан Тесто-Место г.Новокузнецк, ул.Доз 10а - 3 эт. ТРЦ Планета";
+    sceneNameElement.innerHTML = "Ресторан Тесто-Место г.Новокузнецк, ул.Доз 10а - 3 эт. ТРЦ Планета" | Дизайнер - Евгения Егорова;
   }
 
   function updateSceneList(scene) {
