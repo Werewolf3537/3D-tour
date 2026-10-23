@@ -233,7 +233,7 @@
 
 
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = "Магазин КПК г.Новокузнецк";
+    sceneNameElement.innerHTML = "Магазин КПК г.Новокузнецк | Дизайнер - Евгения Егорова";
   }
 
   function updateSceneList(scene) {
