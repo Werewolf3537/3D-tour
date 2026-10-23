@@ -1039,3 +1039,12 @@ body.view-control-buttons .viewControlButton {
   opacity: 0 !important;
   visibility: hidden !important;
 }
+
+		/* ПРЯЧЕМ ВСПЫЛВАЮЩИЙ ТЕКСТ (название комнаты) НАД СТРЕЛОЧКАМИ ПЕРЕХОДА */
+.link-hotspot .link-hotspot-tooltip,
+.link-hotspot:hover .link-hotspot-tooltip,
+.link-hotspot-text {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
