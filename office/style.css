@@ -869,3 +869,8 @@ body.view-control-buttons .viewControlButton {
   height: auto !important;          /* Убираем фиксированную высоту текста Marzipano */
   margin: 0 !important;
 }
+
+/* Перебиваем стандартное скрытие Marzipano через display: none для ПК */
+#sceneList {
+  display: block !important;
+}
