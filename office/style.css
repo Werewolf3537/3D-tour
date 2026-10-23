@@ -834,16 +834,15 @@ body.view-control-buttons .viewControlButton {
 
 /* Настройки для компьютеров (экраны шире 768px) */
 @media (min-width: 769px) {
+  /* Задаем новую ширину для шторки */
   #sceneList {
-    width: 320px !important; /* Наша новая ширина шторки */
-  }
-  
-  /* ИСПРАВЛЕНО: Сдвигаем меню на его полную новую ширину (320px) влево, когда оно скрыто */
-  body.mobile #sceneList, #sceneList {
+    width: 320px !important; 
+    /* Изначально сдвигаем скрытое меню влево на его полную новую ширину */
     transform: translateX(-320px) !important;
+    transition: transform 0.3s ease !important;
   }
   
-  /* Когда класс .open активен, возвращаем меню в исходное положение (показываем его) */
+  /* Когда в коде Marzipano срабатывает класс открытого меню — выдвигаем его обратно на экран */
   body.column #sceneList {
     transform: translateX(0) !important;
   }
