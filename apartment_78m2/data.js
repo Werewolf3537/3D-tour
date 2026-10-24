@@ -3,6 +3,7 @@ var APP_DATA = {
     {
       "id": "0-1",
       "name": "1",
+      "mapCoords": { "left": "51%", "top": "61%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -47,6 +48,7 @@ var APP_DATA = {
     {
       "id": "1-2",
       "name": "2",
+      "mapCoords": { "left": "51%", "top": "38%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -83,7 +85,7 @@ var APP_DATA = {
           "yaw": 2.0346993790115047,
           "pitch": 0.6669376876414628,
           "rotation": 0,
-          "target": "1-2"
+          "target": "2-3"
         },
         {
           "yaw": -1.5686388352714467,
@@ -103,6 +105,7 @@ var APP_DATA = {
     {
       "id": "2-3",
       "name": "3",
+      "mapCoords": { "left": "60%", "top": "48%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -165,6 +168,7 @@ var APP_DATA = {
     {
       "id": "3-4",
       "name": "4",
+      "mapCoords": { "left": "39%", "top": "37%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -209,6 +213,7 @@ var APP_DATA = {
     {
       "id": "4-5",
       "name": "5",
+      "mapCoords": { "left": "28%", "top": "32%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -259,6 +264,7 @@ var APP_DATA = {
     {
       "id": "5-6",
       "name": "6",
+      "mapCoords": { "left": "14%", "top": "36%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -303,6 +309,7 @@ var APP_DATA = {
     {
       "id": "6-7",
       "name": "7",
+      "mapCoords": { "left": "6%", "top": "22%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -341,6 +348,7 @@ var APP_DATA = {
     {
       "id": "7-8",
       "name": "8",
+      "mapCoords": { "left": "48%", "top": "15%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -379,6 +387,7 @@ var APP_DATA = {
     {
       "id": "8-9",
       "name": "9",
+      "mapCoords": { "left": "60%", "top": "20%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -417,6 +426,7 @@ var APP_DATA = {
     {
       "id": "9-10",
       "name": "10",
+      "mapCoords": { "left": "78%", "top": "32%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -461,6 +471,7 @@ var APP_DATA = {
     {
       "id": "10-11",
       "name": "11",
+      "mapCoords": { "left": "95%", "top": "27%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -499,6 +510,7 @@ var APP_DATA = {
     {
       "id": "11-12",
       "name": "12",
+      "mapCoords": { "left": "69%", "top": "62%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -543,6 +555,7 @@ var APP_DATA = {
     {
       "id": "12-14",
       "name": "14",
+      "mapCoords": { "left": "81%", "top": "75%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
@@ -587,6 +600,7 @@ var APP_DATA = {
     {
       "id": "13-13",
       "name": "13",
+      "mapCoords": { "left": "89%", "top": "68%" }, // ДОБАВИЛИ КООРДИНАТЫ 
       "levels": [
         {
           "tileSize": 256,
