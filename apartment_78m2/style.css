@@ -970,7 +970,6 @@ body.view-control-buttons .viewControlButton {
   bottom: 20px !important;
   left: 20px !important;
   z-index: 1000 !important;
-  width: 500px !important;
   height: auto !important;
   pointer-events: none !important;
   
@@ -980,12 +979,23 @@ body.view-control-buttons .viewControlButton {
   transition: opacity 0.2s ease-in-out, visibility 0.2s !important;
 }
 
-/* Класс АКТИВАЦИИ карты по клику */
-#mini-map-wrapper.active-state {
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important; /* Разрешаем кликать на крестик */
+/* 1. Настройки в процентах только для компьютеров */
+@media (min-width: 769px) {
+  #mini-map-wrapper {
+    width: 25% !important;   /* Карта займет четверть от ширины экрана ПК */
+    max-width: 550px;        /* Ограничение, чтобы на сверхшироких мониторах она не стала гигантской */
+    min-width: 350px;        /* Ограничение, чтобы на маленьких ноутбуках она не сжалась слишком сильно */
+  }
 }
+
+/* 2. Настройки в процентах только для телефонов */
+@media (max-width: 768px) {
+  #mini-map-wrapper {
+    width: 45% !important;   /* На смартфонах карта займет 45% от ширины экрана */
+    max-width: 220px;        /* Ограничение для больших телефонов */
+  }
+}
+
 
 /* 3. Кнопка-крестик закрытия внутри карты */
 #mini-map-close-btn {
