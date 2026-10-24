@@ -78,7 +78,7 @@
       { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/preview.jpg" });
     var geometry = new Marzipano.CubeGeometry(data.levels);
 
-    var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100*Math.PI/180, 145*Math.PI/180);
+    var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100*Math.PI/180, 120*Math.PI/180);
     var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
 
     var scene = viewer.createScene({
@@ -146,16 +146,16 @@
   }
 
   // Set handler for scene switch.
-  // scenes.forEach(function(scene) {
-  //  var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
-  //  el.addEventListener('click', function() {
-  //    switchScene(scene);
-  //    // On mobile, hide scene list after selecting a scene.
-  //    if (document.body.classList.contains('mobile')) {
-  //      hideSceneList();
-  //    }
-  //  });
-  // });
+  scenes.forEach(function(scene) {
+    var el = document.querySelector('#sceneList .scene[data-id="' + scene.data.id + '"]');
+    el.addEventListener('click', function() {
+      switchScene(scene);
+      // On mobile, hide scene list after selecting a scene.
+      if (document.body.classList.contains('mobile')) {
+        hideSceneList();
+      }
+    });
+  });
 
   // DOM elements for view controls.
   var viewUpElement = document.querySelector('#viewUp');
@@ -183,33 +183,12 @@
   }
 
   function switchScene(scene) {
-    var currentView = viewer.view();
-    var savedYaw = currentView ? currentView.yaw() : null;
-    var savedPitch = currentView ? currentView.pitch() : null;
-    var savedFov = currentView ? currentView.fov() : null;
-
     stopAutorotate();
-    
+    scene.view.setParameters(scene.data.initialViewParameters);
     scene.scene.switchTo();
-    
-    setTimeout(function() {
-      var newView = viewer.view();
-      if (newView && savedYaw !== null) {
-        newView.setParameters({
-          yaw: savedYaw,
-          pitch: savedPitch,
-          fov: savedFov
-        });
-      }
-    }, 50);
-
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
-    
-    if (typeof updateMapActiveDot === 'function') {
-      updateMapActiveDot(scene.data.id);
-    }
   }
 
   function updateSceneName(scene) {
@@ -409,33 +388,5 @@
 
   // Display the initial scene.
   switchScene(scenes[0]);
-
-			//СКРЫВАЕМ МЕНЮ СО СПИСКОМ ХОТПОИНТОВ
-  hideSceneList();
-
-  var switchBtn = document.getElementById('switch-style-btn');
-  if (switchBtn) {
-    switchBtn.addEventListener('click', function(event) {
-      event.stopPropagation();
-      var currentScene = viewer.scene();
-      if (!currentScene) return;
-      var activeSceneWrapper = null;
-      for (var i = 0; i < scenes.length; i++) {
-        if (scenes[i].scene === currentScene) {
-          activeSceneWrapper = scenes[i];
-          break;
-        }
-      }
-      if (activeSceneWrapper && activeSceneWrapper.data) {
-        var targetId = activeSceneWrapper.data.pairedSceneId;
-        if (targetId) {
-          var targetScene = findSceneById(targetId);
-          if (targetScene) {
-            switchScene(targetScene);
-          }
-        }
-      }
-    });
-  }
 
 })();

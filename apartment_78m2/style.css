@@ -209,8 +209,8 @@ body.fullscreen-enabled.mobile #autorotateToggle {
   width: 40px;
   height: 40px;
   padding: 5px;
-  background-color: rgb(103,115,131);
-  background-color: rgba(103,115,131,0.8);
+  background-color: rgb(0, 123, 255);       /* Чистый синий */
+  background-color: rgba(0, 123, 255, 0.8); /* Полупрозрачный синий */
 }
 
 .mobile #sceneListToggle {
@@ -258,9 +258,9 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 #sceneList {
   position: absolute;
   top: 0;
-  left: -220px;
+  left: -350px;
   padding-top: 40px;
-  width: 220px;
+  width: 350px;
   max-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
@@ -276,7 +276,7 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 #sceneList .scenes {
   width: 100%;
   background-color: rgb(58,68,84);
-  background-color: rgba(58,68,84,0.4) !important;
+  background-color: rgba(20, 25, 35, 0.6) !important;
   border: 1px solid rgba(255, 255, 255, 0.8) !important;
   border-radius: 5px;
 }
@@ -296,13 +296,13 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 }
 
 #sceneList.enabled {
-  margin-left: 220px;
+  margin-left: 350px;
 }
 
 #sceneList .scene {
   display: block;
   width: 100%;
-  height: 30px;
+  height: auto !important; /* <--- ДОБАВИЛИ !important, чтобы сработало и на телефонах */
 }
 
 .mobile #sceneList .scene {
@@ -311,12 +311,13 @@ body.fullscreen-enabled.mobile #autorotateToggle {
 
 #sceneList .scene .text {
   width: 100%;
-  height: 100%;
-  padding: 0 15px;
-  line-height: 30px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  height: auto !important;          /* ИСПРАВЛЕНО с 100% — позволяет блоку растягиваться вниз */
+  padding: 8px 15px;                /* ИСПРАВЛЕНО — добавляем аккуратные отступы сверху и снизу */
+  line-height: 1.4;                 /* ИСПРАВЛЕНО с 30px — делает правильный интервал между строками текста */
+  overflow: visible;                /* ИСПРАВЛЕНО с hidden — чтобы перенесенный текст не прятался */
+  text-overflow: clip;              /* ИСПРАВЛЕНО с ellipsis — убирает троеточие в конце строки */
+  white-space: normal;              /* ИСПРАВЛЕНО с nowrap — разрешает тексту переноситься на новые строки */
+  word-wrap: break-word;            /* ДОБАВЛЕНО — защищает от вылезания слишком длинных слов */
 }
 
 .mobile #sceneList .scene .text {
@@ -836,6 +837,9 @@ body.view-control-buttons .viewControlButton {
   margin-left: 105px;
 }
 
+
+
+			/* АНИМАЦИЯ ДЛЯ ИКОНОК ПЕРЕМЕЩЕНИЯ */
 /* 1. Добавляем плавность для иконки перемещения (стрелочки) */
 .link-hotspot img,
 .link-hotspot-icon {
@@ -862,118 +866,3 @@ body.view-control-buttons .viewControlButton {
   white-space: nowrap;
 }
 
-/* Включаем мощное сглаживание и 3D-ускорение для iPhone */
-#pano, .marzipano-canvas, .marzipano-cube {
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden !important;
-  -webkit-perspective: 1000 !important;
-  perspective: 1000 !important;
-}
-
-/* СТИЛЬ КОНТЕЙНЕРА ПОД ССЫЛКУ НА САЙТ */
-/* 1. Главный контейнер выстраивает элементы по правому краю */
-.portfolio-brand-block {
-  position: absolute !important;
-  bottom: 20px !important;
-  right: 20px !important;
-  z-index: 1000 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-end !important;
-  gap: 1px !important; /* УМЕНЬШИЛИ ЗАЗОР: логотип стал чуть ниже и ближе к тексту */
-  pointer-events: none !important;
-}
-
-/* 2. Настраиваем компактный логотип 55px */
-.portfolio-logo {
-  width: 55px !important;  /* Установили размер 55px */
-  height: 55px !important; /* Установили размер 55px */
-  object-fit: contain !important;
-  pointer-events: auto !important;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)) !important;
-}
-
-/* 3. Рамка с текстом по правому краю */
-.portfolio-link-wrapper {
-  display: block !important;
-  text-align: right !important;
-  
-  font-family: sans-serif !important;
-  font-size: 14px !important;
-  color: #ffffff !important;
-  background-color: rgba(20, 25, 35, 0.6) !important;
-  padding: 8px 15px !important;
-  border-radius: 4px !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
-  pointer-events: auto !important;
-}
-
-/* Ссылка внутри рамки */
-.portfolio-link-wrapper a {
-  color: #007bff !important;
-  text-decoration: none !important;
-  font-weight: bold !important;
-  transition: color 0.2s ease-in-out !important;
-}
-
-.portfolio-link-wrapper a:hover {
-  color: #ffffff !important;
-  text-decoration: underline !important;
-}
-
-		/* ПРЯЧЕМ ВСПЫЛВАЮЩИЙ ТЕКСТ (название комнаты) НАД СТРЕЛОЧКАМИ ПЕРЕХОДА */
-.link-hotspot .link-hotspot-tooltip,
-.link-hotspot:hover .link-hotspot-tooltip,
-.link-hotspot-text {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-}
-
-			/* НАСТРАИВАЕМ ЭЛЕМЕНТЫ ССЫЛОК ВНУТРИ БОКОВОГО МЕНЮ */
-/* ПРИНУДИТЕЛЬНОЕ ИСПРАВЛЕНИЕ ГЕОМЕТРИИ ШТОРКИ MARZIPANO ДЛЯ ВСЕХ ЭКРАНОВ */
-
-/* 1. ПОДНИМАЕМ ШТОРКУ: убираем зазор между кнопкой и контейнером меню */
-#sceneList {
-  top: 40px !important; /* Родная высота верхней панели */
-  height: calc(100% - 40px) !important;
-}
-
-/* Фикс для мобильной версии шаблона (там отступ задается через body) */
-body.mobile #sceneList {
-  top: 40px !important;
-  height: calc(100% - 40px) !important;
-}
-
-/* 2. РАЗДВИГАЕМ СТРОЧКИ: перебиваем родную фиксированную высоту элементов Marzipano */
-#sceneList .scene,
-#sceneList ul.scenes li,
-#sceneList ul.scenes li a {
-  height: auto !important;       /* Отменяем заводской зажим высоты в 30px */
-  min-height: 60px !important;   /* Задаем просторную минимальную высоту для каждого пункта */
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* 3. НАСТРОЙКА НАШИХ ССЫЛОК: делаем большие, сочные отступы */
-#sceneList .custom-menu-link {
-  display: block !important;
-  padding-top: 20px !important;    /* Расстояние сверху */
-  padding-bottom: 20px !important; /* Расстояние снизу */
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  box-sizing: border-box !important;
-}
-
-/* 4. Настройка текста и межстрочного интервала */
-#sceneList .custom-menu-link .custom-text {
-  font-family: sans-serif !important;
-  font-size: 14px !important;
-  color: #ffffff !important;
-  white-space: normal !important; /* Разрешаем аккуратный перенос строк */
-  line-height: 1.6 !important;   /* Расстояние между строчками внутри одного названия */
-  display: inline-block !important;
-}

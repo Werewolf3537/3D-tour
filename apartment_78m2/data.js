@@ -1,8 +1,8 @@
 var APP_DATA = {
   "scenes": [
     {
-      "id": "0-",
-      "name": "Коридор",
+      "id": "0-1",
+      "name": "1",
       "levels": [
         {
           "tileSize": 256,
@@ -22,31 +22,31 @@ var APP_DATA = {
           "size": 2048
         }
       ],
-      "faceSize": 1500,
+      "faceSize": 2000,
       "initialViewParameters": {
-        "yaw": 1.433061444932357,
-        "pitch": 0.12702156199791048,
+        "yaw": 0.3036901110606962,
+        "pitch": 0.16400909787926565,
         "fov": 1.3965535682726662
       },
       "linkHotspots": [
         {
-          "yaw": 1.0567603235098968,
-          "pitch": 0.6671392679790955,
+          "yaw": 0.03580782238081426,
+          "pitch": 0.688299374574127,
           "rotation": 0,
-          "target": "1-------"
+          "target": "1-2"
         },
         {
-          "yaw": 2.0726726725194773,
-          "pitch": 0.582320180332685,
+          "yaw": 0.961841363289766,
+          "pitch": 0.5717565308052333,
           "rotation": 0,
-          "target": "5--------"
+          "target": "2-3"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "1-------",
-      "name": "Коридор с выходом в Спальню и Ванную",
+      "id": "1-2",
+      "name": "2",
       "levels": [
         {
           "tileSize": 256,
@@ -66,63 +66,7 @@ var APP_DATA = {
           "size": 2048
         }
       ],
-      "faceSize": 1500,
-      "initialViewParameters": {
-        "yaw": 0.43674395541795974,
-        "pitch": 0.30062260726804446,
-        "fov": 1.3965535682726662
-      },
-      "linkHotspots": [
-        {
-          "yaw": -1.8471165376218188,
-          "pitch": 0.6528100175071518,
-          "rotation": 0,
-          "target": "0-"
-        },
-        {
-          "yaw": -0.32236101749942137,
-          "pitch": 0.4348098690743303,
-          "rotation": 0,
-          "target": "4---"
-        },
-        {
-          "yaw": 0.6556198318220758,
-          "pitch": 0.31375917186957736,
-          "rotation": 0,
-          "target": "6-"
-        },
-        {
-          "yaw": 3.0929437439965692,
-          "pitch": 0.724581035917458,
-          "rotation": 0,
-          "target": "5--------"
-        }
-      ],
-      "infoHotspots": []
-    },
-    {
-      "id": "2---",
-      "name": "Кабинет в спальне",
-      "levels": [
-        {
-          "tileSize": 256,
-          "size": 256,
-          "fallbackOnly": true
-        },
-        {
-          "tileSize": 512,
-          "size": 512
-        },
-        {
-          "tileSize": 512,
-          "size": 1024
-        },
-        {
-          "tileSize": 512,
-          "size": 2048
-        }
-      ],
-      "faceSize": 1500,
+      "faceSize": 2000,
       "initialViewParameters": {
         "pitch": 0,
         "yaw": 0,
@@ -130,17 +74,35 @@ var APP_DATA = {
       },
       "linkHotspots": [
         {
-          "yaw": 1.2932436073203686,
-          "pitch": 0.4389123444865355,
+          "yaw": -3.0959753038736615,
+          "pitch": 0.6612775583856312,
           "rotation": 0,
-          "target": "3-"
+          "target": "0-1"
+        },
+        {
+          "yaw": 2.0346993790115047,
+          "pitch": 0.6669376876414628,
+          "rotation": 0,
+          "target": "1-2"
+        },
+        {
+          "yaw": -1.5686388352714467,
+          "pitch": 0.5710528435648143,
+          "rotation": 0,
+          "target": "3-4"
+        },
+        {
+          "yaw": -0.39442412692437223,
+          "pitch": 0.7565590168916145,
+          "rotation": 0,
+          "target": "7-8"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "3-",
-      "name": "Спальня",
+      "id": "2-3",
+      "name": "3",
       "levels": [
         {
           "tileSize": 256,
@@ -160,227 +122,7 @@ var APP_DATA = {
           "size": 2048
         }
       ],
-      "faceSize": 1500,
-      "initialViewParameters": {
-        "yaw": -0.6164531909777224,
-        "pitch": 0.21752419757584107,
-        "fov": 1.3965535682726662
-      },
-      "linkHotspots": [
-        {
-          "yaw": -1.7753788642598423,
-          "pitch": 0.4886136910063179,
-          "rotation": 0,
-          "target": "2---"
-        },
-        {
-          "yaw": 1.479338571296946,
-          "pitch": 0.4682326685635907,
-          "rotation": 0,
-          "target": "4---"
-        }
-      ],
-      "infoHotspots": []
-    },
-    {
-      "id": "4---",
-      "name": "Вход у спальни",
-      "levels": [
-        {
-          "tileSize": 256,
-          "size": 256,
-          "fallbackOnly": true
-        },
-        {
-          "tileSize": 512,
-          "size": 512
-        },
-        {
-          "tileSize": 512,
-          "size": 1024
-        },
-        {
-          "tileSize": 512,
-          "size": 2048
-        }
-      ],
-      "faceSize": 1500,
-      "initialViewParameters": {
-        "yaw": 2.856553548849993,
-        "pitch": 0.34766515762731487,
-        "fov": 1.3965535682726662
-      },
-      "linkHotspots": [
-        {
-          "yaw": 2.9039789796832967,
-          "pitch": 0.38245543002657456,
-          "rotation": 0,
-          "target": "1-------"
-        },
-        {
-          "yaw": -0.12204096388489916,
-          "pitch": 0.4090746339985962,
-          "rotation": 0,
-          "target": "3-"
-        }
-      ],
-      "infoHotspots": []
-    },
-    {
-      "id": "5--------",
-      "name": "Коридор с выходом на Кухню, Гостиную и Туалет",
-      "levels": [
-        {
-          "tileSize": 256,
-          "size": 256,
-          "fallbackOnly": true
-        },
-        {
-          "tileSize": 512,
-          "size": 512
-        },
-        {
-          "tileSize": 512,
-          "size": 1024
-        },
-        {
-          "tileSize": 512,
-          "size": 2048
-        }
-      ],
-      "faceSize": 1500,
-      "initialViewParameters": {
-        "yaw": 2.8253906008643277,
-        "pitch": 0.2028729876536115,
-        "fov": 1.3965535682726662
-      },
-      "linkHotspots": [
-        {
-          "yaw": -0.005274565094554262,
-          "pitch": 0.5916546372691869,
-          "rotation": 0,
-          "target": "1-------"
-        },
-        {
-          "yaw": 1.1610559271755072,
-          "pitch": 0.3235522076520745,
-          "rotation": 0,
-          "target": "7-"
-        },
-        {
-          "yaw": 2.1979341823245626,
-          "pitch": 0.3324591064876543,
-          "rotation": 0,
-          "target": "8-"
-        },
-        {
-          "yaw": -2.534152543632139,
-          "pitch": 0.3215154223704566,
-          "rotation": 0,
-          "target": "10---"
-        }
-      ],
-      "infoHotspots": []
-    },
-    {
-      "id": "6-",
-      "name": "Ванная",
-      "levels": [
-        {
-          "tileSize": 256,
-          "size": 256,
-          "fallbackOnly": true
-        },
-        {
-          "tileSize": 512,
-          "size": 512
-        },
-        {
-          "tileSize": 512,
-          "size": 1024
-        },
-        {
-          "tileSize": 512,
-          "size": 2048
-        }
-      ],
-      "faceSize": 1500,
-      "initialViewParameters": {
-        "yaw": 0.5322840633451911,
-        "pitch": 0.20668171990224593,
-        "fov": 1.3965535682726662
-      },
-      "linkHotspots": [
-        {
-          "yaw": 1.2847170639138596,
-          "pitch": 0.3171359410753567,
-          "rotation": 0,
-          "target": "1-------"
-        }
-      ],
-      "infoHotspots": []
-    },
-    {
-      "id": "7-",
-      "name": "Туалет",
-      "levels": [
-        {
-          "tileSize": 256,
-          "size": 256,
-          "fallbackOnly": true
-        },
-        {
-          "tileSize": 512,
-          "size": 512
-        },
-        {
-          "tileSize": 512,
-          "size": 1024
-        },
-        {
-          "tileSize": 512,
-          "size": 2048
-        }
-      ],
-      "faceSize": 1500,
-      "initialViewParameters": {
-        "yaw": 0.7432177315747879,
-        "pitch": 0.23230342071657617,
-        "fov": 1.3965535682726662
-      },
-      "linkHotspots": [
-        {
-          "yaw": 1.5273897212505414,
-          "pitch": 0.35159095061734646,
-          "rotation": 0,
-          "target": "5--------"
-        }
-      ],
-      "infoHotspots": []
-    },
-    {
-      "id": "8-",
-      "name": "Гостиная",
-      "levels": [
-        {
-          "tileSize": 256,
-          "size": 256,
-          "fallbackOnly": true
-        },
-        {
-          "tileSize": 512,
-          "size": 512
-        },
-        {
-          "tileSize": 512,
-          "size": 1024
-        },
-        {
-          "tileSize": 512,
-          "size": 2048
-        }
-      ],
-      "faceSize": 1500,
+      "faceSize": 2000,
       "initialViewParameters": {
         "pitch": 0,
         "yaw": 0,
@@ -388,23 +130,41 @@ var APP_DATA = {
       },
       "linkHotspots": [
         {
-          "yaw": -1.3495796760014187,
-          "pitch": 0.45438472218013715,
+          "yaw": -1.189800399968128,
+          "pitch": 0.6022333719315363,
           "rotation": 0,
-          "target": "9---"
+          "target": "1-2"
         },
         {
-          "yaw": 1.6988425529336233,
-          "pitch": 0.44606646348642087,
+          "yaw": -2.0321239092658256,
+          "pitch": 0.6251739858937508,
           "rotation": 0,
-          "target": "5--------"
+          "target": "0-1"
+        },
+        {
+          "yaw": 0.07573032744461017,
+          "pitch": 0.6458919530552354,
+          "rotation": 0,
+          "target": "8-9"
+        },
+        {
+          "yaw": 1.0617949131013376,
+          "pitch": 0.7372469620557371,
+          "rotation": 0,
+          "target": "9-10"
+        },
+        {
+          "yaw": 2.406743569837313,
+          "pitch": 0.45251273763531863,
+          "rotation": 0,
+          "target": "11-12"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "9---",
-      "name": "Лоджия в Гостиной",
+      "id": "3-4",
+      "name": "4",
       "levels": [
         {
           "tileSize": 256,
@@ -424,25 +184,31 @@ var APP_DATA = {
           "size": 2048
         }
       ],
-      "faceSize": 1500,
+      "faceSize": 2000,
       "initialViewParameters": {
-        "yaw": -2.6930698965341477,
-        "pitch": 0.15967750867233832,
-        "fov": 1.3965535682726662
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
       },
       "linkHotspots": [
         {
-          "yaw": -1.9675669276827996,
-          "pitch": 0.41286344912509776,
+          "yaw": 1.6458765250848888,
+          "pitch": 0.5365728141956794,
           "rotation": 0,
-          "target": "8-"
+          "target": "1-2"
+        },
+        {
+          "yaw": -1.3866687145215408,
+          "pitch": 0.6313492737585094,
+          "rotation": 0,
+          "target": "4-5"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "10---",
-      "name": "Вход на Кухню",
+      "id": "4-5",
+      "name": "5",
       "levels": [
         {
           "tileSize": 256,
@@ -462,31 +228,37 @@ var APP_DATA = {
           "size": 2048
         }
       ],
-      "faceSize": 1500,
+      "faceSize": 2000,
       "initialViewParameters": {
-        "yaw": -1.3246390541019117,
-        "pitch": 0.2513055626991836,
-        "fov": 1.3965535682726662
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
       },
       "linkHotspots": [
         {
-          "yaw": -2.9508742322244146,
-          "pitch": 0.6264460557949096,
+          "yaw": -1.7607175255187482,
+          "pitch": 0.5181645154928649,
           "rotation": 0,
-          "target": "11-"
+          "target": "5-6"
         },
         {
-          "yaw": -0.2317555043284223,
-          "pitch": 0.3451860265078608,
+          "yaw": 1.7481373525728374,
+          "pitch": 0.5603778442202874,
           "rotation": 0,
-          "target": "0-"
+          "target": "3-4"
+        },
+        {
+          "yaw": -1.3637273345855832,
+          "pitch": 0.35144553763755404,
+          "rotation": 0,
+          "target": "6-7"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "11-",
-      "name": "Кухня",
+      "id": "5-6",
+      "name": "6",
       "levels": [
         {
           "tileSize": 256,
@@ -506,18 +278,346 @@ var APP_DATA = {
           "size": 2048
         }
       ],
-      "faceSize": 1500,
+      "faceSize": 2000,
       "initialViewParameters": {
-        "yaw": -1.1161381017439673,
-        "pitch": 0.0838595990169324,
-        "fov": 1.3965535682726662
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
       },
       "linkHotspots": [
         {
-          "yaw": -0.027954322862822067,
-          "pitch": 0.47000205577383625,
+          "yaw": 1.5934414008801436,
+          "pitch": 0.3322743951701419,
           "rotation": 0,
-          "target": "10---"
+          "target": "3-4"
+        },
+        {
+          "yaw": -0.8926971554931082,
+          "pitch": 0.6337383299954524,
+          "rotation": 0,
+          "target": "6-7"
+        }
+      ],
+      "infoHotspots": []
+    },
+    {
+      "id": "6-7",
+      "name": "7",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2000,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [
+        {
+          "yaw": 2.142739756551167,
+          "pitch": 0.5998929487421609,
+          "rotation": 0,
+          "target": "5-6"
+        }
+      ],
+      "infoHotspots": []
+    },
+    {
+      "id": "7-8",
+      "name": "8",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2000,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [
+        {
+          "yaw": 3.087407106183095,
+          "pitch": 0.4113300900209431,
+          "rotation": 0,
+          "target": "1-2"
+        }
+      ],
+      "infoHotspots": []
+    },
+    {
+      "id": "8-9",
+      "name": "9",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2000,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [
+        {
+          "yaw": -3.023025926977221,
+          "pitch": 0.5812953384160924,
+          "rotation": 0,
+          "target": "2-3"
+        }
+      ],
+      "infoHotspots": []
+    },
+    {
+      "id": "9-10",
+      "name": "10",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2000,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [
+        {
+          "yaw": -1.7332384684042275,
+          "pitch": 0.3241739398768573,
+          "rotation": 0,
+          "target": "2-3"
+        },
+        {
+          "yaw": 1.3559393637394894,
+          "pitch": 0.4754419764002389,
+          "rotation": 0,
+          "target": "10-11"
+        }
+      ],
+      "infoHotspots": []
+    },
+    {
+      "id": "10-11",
+      "name": "11",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2000,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [
+        {
+          "yaw": -1.8056776893940576,
+          "pitch": 0.45144702964607397,
+          "rotation": 0,
+          "target": "9-10"
+        }
+      ],
+      "infoHotspots": []
+    },
+    {
+      "id": "11-12",
+      "name": "12",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2000,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [
+        {
+          "yaw": -1.496180559387092,
+          "pitch": 0.4636555891097238,
+          "rotation": 0,
+          "target": "2-3"
+        },
+        {
+          "yaw": 2.1167287722504007,
+          "pitch": 0.6507966117113355,
+          "rotation": 0,
+          "target": "12-14"
+        }
+      ],
+      "infoHotspots": []
+    },
+    {
+      "id": "12-14",
+      "name": "14",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2000,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [
+        {
+          "yaw": -1.227974635552183,
+          "pitch": 0.5621951505781588,
+          "rotation": 0,
+          "target": "11-12"
+        },
+        {
+          "yaw": 1.2185605210142416,
+          "pitch": 0.4943254275422575,
+          "rotation": 0,
+          "target": "13-13"
+        }
+      ],
+      "infoHotspots": []
+    },
+    {
+      "id": "13-13",
+      "name": "13",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 2000,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [
+        {
+          "yaw": -1.7193684292799496,
+          "pitch": 0.4123542475229094,
+          "rotation": 0,
+          "target": "12-14"
         }
       ],
       "infoHotspots": []
