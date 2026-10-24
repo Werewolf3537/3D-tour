@@ -231,7 +231,7 @@
 
 
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = sanitize(scene.data.name);
+    sceneNameElement.innerHTML = "Квартира 2-к 78м2 г.Нижний Новгород | Бахарев Кирилл";
   }
 
   function updateSceneList(scene) {
