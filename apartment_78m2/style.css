@@ -982,7 +982,7 @@ body.view-control-buttons .viewControlButton {
 /* Настройки адаптивной ширины в процентах от экрана (vw) */
 @media (min-width: 769px) {
   #mini-map-wrapper {
-    width: 30vw !important;    /* На ПК карта займет 25% от ширины окна */
+    width: 35vw !important;    /* На ПК карта займет 25% от ширины окна */
     min-width: 350px !important; /* Меньше 350px на ноутбуках не сожмется */
     max-width: 500px !important; /* Больше 500px на огромных мониторах не станет */
   }
@@ -990,7 +990,7 @@ body.view-control-buttons .viewControlButton {
 
 @media (max-width: 768px) {
   #mini-map-wrapper {
-    width: 70vw !important;    /* На смартфонах карта займет 45% от ширины экрана */
+    width: 85vw !important;    /* На смартфонах карта займет 45% от ширины экрана */
     min-width: 160px !important; /* Минимальный порог для маленьких экранов */
     max-width: 220px !important; /* Ограничение для больших телефонов */
   }
