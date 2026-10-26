@@ -383,14 +383,20 @@ html {
 /* Адаптивность для мобильных экранов */
 @media (max-width: 768px) {
     .about-section {
-        padding: 80px 20px; /* На смартфонах отступы делаем чуть компактнее */
+        padding: 80px 20px !important; /* Уменьшаем отступы на мобилках */
+        background-color: #14181d !important; /* Жестко закрепляем твой фирменный цвет фона */
     }
+    
     .block-title {
-        font-size: 32px; /* Уменьшаем заголовки на мобилках */
-        margin-bottom: 25px;
+        font-size: 32px !important; /* Уменьшаем заголовки */
+        margin-bottom: 25px !important;
+        color: #ffffff !important; /* Жестко закрепляем белый цвет заголовка */
     }
+    
     .about-text {
-        font-size: 15px; /* Удобный мобильный шрифт */
-        line-height: 1.6;
+        font-size: 15px !important; /* Удобный мобильный шрифт */
+        line-height: 1.6 !important;
+        color: rgba(255, 255, 255, 0.85) !important; /* Жестко закрепляем мягкий белый текст */
     }
 }
+
