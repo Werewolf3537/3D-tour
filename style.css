@@ -353,50 +353,110 @@ html {
 
 
 /* ==========================================================================
-   БЛОК: ОБО МНЕ
+   БЛОК: ОБО МНЕ (ОБНОВЛЕННЫЙ)
    ========================================================================== */
 
 .about-section {
-    /* Твой основной базовый цвет фона */
     background-color: #14181d; 
-    
-    /* Большие отступы сверху и снизу (120px), чтобы блок "дышал" */
     padding: 120px 20px; 
     display: flex;
     justify-content: center;
 }
 
-/* Контейнер для ограничения ширины текста, чтобы длинные строки легко читались */
-.about-content {
-    max-width: 850px;
+.about-container {
+    max-width: 1100px; /* Сделали контейнер чуть шире для 3 колонок */
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Стиль для текста "Обо мне" (на 50-60% меньше заголовка) */
 .about-text {
-    color: rgba(255, 255, 255, 0.85); /* Мягкий белый */
-    font-size: 18px; /* Оптимальный размер для чтения длинного текста */
-    line-height: 1.7; /* Комфортное расстояние между строками */
-    text-align: center; /* Центрируем текст, как ты просил */
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 19px;
+    line-height: 1.7;
+    text-align: center;
+    max-width: 850px;
+    margin-bottom: 60px; /* Отступ до колонок */
 }
 
-/* Адаптивность для мобильных экранов */
-@media (max-width: 768px) {
+/* Сетка для преимуществ */
+.about-features {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.feature-item {
+    flex: 1;
+    background-color: #1a2026; /* Твой второй цвет для контраста */
+    padding: 30px 25px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px); /* Легкий интерактив при наведении */
+}
+
+.feature-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.feature-title {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.feature-descr {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Кнопка под блоком */
+.about-action {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #ff8562; /* Твой фирменный цвет */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e06e4c; /* Чуть темнее при наведении */
+    transform: translateY(-2px);
+}
+
+/* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 850px) {
     .about-section {
-        padding: 80px 20px !important; /* Уменьшаем отступы на мобилках */
-        background-color: #14181d !important; /* Жестко закрепляем твой фирменный цвет фона */
+        padding: 80px 20px;
     }
-    
-    .block-title {
-        font-size: 32px !important; /* Уменьшаем заголовки */
-        margin-bottom: 25px !important;
-        color: #ffffff !important; /* Жестко закрепляем белый цвет заголовка */
-    }
-    
     .about-text {
-        font-size: 15px !important; /* Удобный мобильный шрифт */
-        line-height: 1.6 !important;
-        color: rgba(255, 255, 255, 0.85) !important; /* Жестко закрепляем мягкий белый текст */
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+    /* Перестраиваем 3 колонки в один вертикальный ряд на телефонах */
+    .about-features {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .feature-item {
+        padding: 25px 20px;
     }
 }
-
