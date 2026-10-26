@@ -637,9 +637,74 @@ html {
     .tour-card-descr { font-size: 14px; }
 }
 
+/* ==========================================================================
+   10. СТИЛИ ДЛЯ ОТДЕЛЬНОЙ СТРАНИЦЫ ГАЛЕРЕИ (ИНТЕРЬЕРЫ / ЭКСТЕРЬЕРЫ)
+   ========================================================================== */
+.gallery-page-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Разделы внутри страницы (Интерьеры, Экстерьеры...) */
+.gallery-page-block {
+    margin-bottom: 80px; /* Отступ между блоками категорий */
+}
+
+/* Подзаголовки категорий */
+.gallery-block-subtitle {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    border-left: 4px solid #ff8562; /* Твой фирменный оранжевый акцент слева от названия */
+    padding-left: 15px;
+}
+
+/* Элемент плитки */
+.gallery-page-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    background-color: #1a2026;
+    transition: transform 0.3s ease;
+}
+
+.gallery-page-item:hover {
+    transform: translateY(-3px);
+}
+
+.gallery-page-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Сетка 1: Для вертикальных рендеров (Интерьеры) — 3 в ряд */
+.gallery-grid-vertical {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.gallery-grid-vertical .gallery-page-item {
+    aspect-ratio: 9 / 14; /* Четкие вертикальные пропорции */
+}
+
+/* Сетка 2: Для горизонтальных рендеров (Экстерьеры / Мысли) — 2 в ряд */
+.gallery-grid-horizontal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+.gallery-grid-horizontal .gallery-page-item {
+    aspect-ratio: 16 / 10; /* Красивые горизонтальные пропорции */
+}
+
 
 /* ==========================================================================
-   10. ЕДИНЫЙ МОБИЛЬНЫЙ АДАПТИВ ДЛЯ СМАРТФОНОВ (ДО 768px)
+   11. ЕДИНЫЙ МОБИЛЬНЫЙ АДАПТИВ ДЛЯ СМАРТФОНОВ (ДО 768px)
    ========================================================================== */
 @media (max-width: 768px) {
     /* Фиксируем высоту компактной шапки */
@@ -684,6 +749,14 @@ html {
     .gallery-row-verticals .gallery-item {
         aspect-ratio: 4 / 5; /* Делаем фото на смартфонах чуть более квадратными */
     }
+
+    /* Адаптив сеток на отдельной странице галереи */
+    .gallery-grid-vertical,
+    .gallery-grid-horizontal {
+        grid-template-columns: 1fr !important; /* Всё выстраивается по 1 в ряд */
+        gap: 20px;
+    }
+
 }
 
 @media (max-width: 576px) {

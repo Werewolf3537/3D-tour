@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея работ | Кирилл Бахарев</title>
+    <!-- Подключаем общие стили из корня -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- Иконка сайта -->
+    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #14181d;"> <!-- Задаем базовый фон сайта -->
+
+    <!-- ШАПКА ВНУТРЕННЕЙ СТРАНИЦЫ (Такая же, как на странице туров) -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="../" class="header-logo-block" style="text-decoration: none;">
+                <img src="../img/logo.png" alt="Логотип" class="logo-img">
+                <span class="brand-name">Кирилл Бахарев</span>
+            </a>
+            <a href="../" class="btn-contacts">← На главную</a>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ ГАЛЕРИИ -->
+    <main style="padding-top: 130px; padding-bottom: 80px;">
+        <div class="gallery-page-container">
+            
+            <h1 class="block-title">Галерея работ</h1>
+
+            <!-- БЛОК 1: ИНТЕРЬЕРЫ (Вертикальные рендеры плиточкой по 3 в ряд) -->
+            <section class="gallery-page-block">
+                <h2 class="gallery-block-subtitle">Интерьеры</h2>
+                <div class="gallery-grid-vertical">
+                    <div class="gallery-page-item"><img src="../img/1_int.jpg" alt="Интерьер 1" class="gallery-page-img"></div>
+                    <div class="gallery-page-item"><img src="../img/2_int.jpg" alt="Интерьер 2" class="gallery-page-img"></div>
+                    <div class="gallery-page-item"><img src="../img/3_int.jpg" alt="Интерьер 3" class="gallery-page-img"></div>
+                    <!-- Сюда сможешь докидывать новые: 4_int.jpg, 5_int.jpg и т.д. -->
+                </div>
+            </section>
+
+            <!-- БЛОК 2: ЭКСТЕРЬЕРЫ (Горизонтальные рендеры плиточкой по 2 в ряд) -->
+            <section class="gallery-page-block">
+                <h2 class="gallery-block-subtitle">Экстерьеры</h2>
+                <div class="gallery-grid-horizontal">
+                    <div class="gallery-page-item"><img src="../img/1_ext.jpg" alt="Экстерьер 1" class="gallery-page-img"></div>
+                    <div class="gallery-page-item"><img src="../img/2_ext.jpg" alt="Экстерьер 2" class="gallery-page-img"></div>
+                    <!-- Новые экстерьеры пойдут ниже по 2 в ряд -->
+                </div>
+            </section>
+
+            <!-- БЛОК 3: СВОБОДА МЫСЛЕЙ (Концепты, игровое, фэнтези) -->
+            <section class="gallery-page-block">
+                <h2 class="gallery-block-subtitle">Свобода мыслей</h2>
+                <!-- Используем горизонтальную сетку, но ты сможешь изменить на вертикальную -->
+                <div class="gallery-grid-horizontal">
+                    <div class="gallery-page-item"><img src="../img/1_concept.jpg" alt="Концепт 1" class="gallery-page-img"></div>
+                    <div class="gallery-page-item"><img src="../img/2_concept.jpg" alt="Концепт 2" class="gallery-page-img"></div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ПОДВАЛ САЙТА (КОНТАКТЫ) -->
+    <footer id="contacts" class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <h2 class="footer-title">Контакты</h2>
+                <a href="tel:+79059060419" class="footer-link">+7 (905) 906 04-19</a>
+                <a href="mailto:wolf-studio@bk.ru" class="footer-link">wolf-studio@bk.ru</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
