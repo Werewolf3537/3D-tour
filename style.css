@@ -105,23 +105,25 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 32px;  /* Компактный размер для аккуратного вида */
+    height: 32px;
+    background-color: transparent; /* Убрали круглый фон */
+    border-radius: 0; /* Убрали скругление в круг */
+    transition: transform 0.2s ease;
 }
 
 .social-link:hover {
-    background-color: #ff8562;
-    transform: translateY(-2px);
+    background-color: transparent; /* Фон при наведении больше не меняется */
+    transform: translateY(-2px); /* Картинка изящно приподнимается вверх */
 }
 
-.social-link svg {
-    width: 20px;
-    height: 20px;
-    fill: #ffffff;
+/* Новый стиль для картинок, которые мы положили в папку img */
+.social-img-file {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Картинка не искажается и вписывается в размеры */
 }
+
 
 /* Временный стиль для текстовой иконки Max */
 .letter-icon {
@@ -168,12 +170,14 @@ html {
         align-items: center;
         gap: 30px;
         transition: right 0.4s ease;
+        padding-top: 60px; /* Добавляем отступ сверху, чтобы ссылки сместились чуть ниже */
     }
 
     /* Прячем кнопки в это же меню, пониже */
     .header-actions {
         position: fixed;
-        top: 250px;
+        top: auto; /* Отменяем жесткую привязку сверху */
+        bottom: 15%; /* Намертво прижимаем кнопку и иконки к нижней части экрана смартфона */
         right: -100%;
         width: 70%;
         flex-direction: column;
@@ -319,4 +323,14 @@ html {
 }
 .footer-link:hover {
     color: #ff8562;
+}
+
+
+@media (max-width: 768px) {
+    .site-header {
+        height: 72px; /* Уменьшили высоту шапки на 20% (было 90px) */
+    }
+    .logo-img {
+        height: 48px; /* Немного пропорционально уменьшаем логотип в узкой шапке */
+    }
 }
