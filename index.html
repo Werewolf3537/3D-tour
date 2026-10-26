@@ -124,9 +124,57 @@
 
 
 
-        <!-- ВРЕМЕННЫЕ ЗАГЛУШКИ ДЛЯ ОСТАЛЬНЫХ БЛОКОВ (Их наполним следующими шагами) -->
-        <section id="tour" style="height: 100vh; padding: 100px 30px; background: #1a2026;"><h2>Блок: 3D-тур</h2></section>
-        <section id="gallery" style="height: 100vh; padding: 100px 30px; background: #14181d;"><h2>Блок: Галерея</h2></section>
+    <!-- БЛОК: 3D-ТУР -->
+    <section id="tour" class="tour-section">
+        <div class="tour-container">
+            
+            <!-- Общий заголовок для блока (стили подтянутся автоматически) -->
+            <h2 class="block-title">3D-тур</h2>
+            
+            <!-- Две ячейки с турами -->
+            <div class="tour-grid">
+                
+                <!-- Тур 1: Ресторан -->
+                <div class="tour-card">
+                    <div class="tour-image-box">
+                        <img src="img/tour_1.jpg" alt="Ресторан Тесто-место" class="tour-img">
+                    </div>
+                    <div class="tour-info">
+                        <h3 class="tour-card-title">Ресторан Тесто-место</h3>
+                        <p class="tour-card-descr">
+                            Ресторан в ТРЦ «Планета» (г. Новокузнецк). <br>
+                            Ознакомьтесь с планировкой, масштабом и объемом пространства с помощью виртуального 3D-тура.
+                        </p>
+                        <!-- Кнопка с открытием ссылки в новом окне target="_blank" -->
+                        <a href="https://wolf-studio.ru/testo-mesto/" target="_blank" class="btn-tour">Смотреть тур</a>
+                    </div>
+                </div>
+
+                <!-- Тур 2: Квартира -->
+                <div class="tour-card">
+                    <div class="tour-image-box">
+                        <img src="img/tour_2.jpg" alt="Квартира 78м2" class="tour-img">
+                    </div>
+                    <div class="tour-info">
+                        <h3 class="tour-card-title">Квартира 78м2</h3>
+                        <p class="tour-card-descr">
+                            Современный интерьер квартиры в Нижнем Новгороде. <br>
+                            Проект реализован в строгом соответствии с дизайнерской концепцией. <br>
+                            Интерактивный 3D-тур позволяет наглядно оценить эргономику комнат, масштаб мебели и сложные узлы примыкания материалов еще до начала ремонта.
+                        </p>
+                        <a href="https://wolf-studio.ru/apartment_78m2/" target="_blank" class="btn-tour">Смотреть тур</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+       
+
+
+	<section id="gallery" style="height: 100vh; padding: 100px 30px; background: #14181d;"><h2>Блок: Галерея</h2></section>
         
     </main> <!-- Закрываем основной контент -->
 

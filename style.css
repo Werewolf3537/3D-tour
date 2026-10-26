@@ -495,3 +495,141 @@ html {
         padding: 25px 20px;
     }
 }
+
+
+
+
+/* ==========================================================================
+   БЛОК: 3D-ТУР (2 ЯЧЕЙКИ 9:16)
+   ========================================================================== */
+
+.tour-section {
+    background-color: #1a2026; /* Чередуем: этот блок чуть светлее основного фона */
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.tour-container {
+    max-width: 1200px; /* Ограничиваем максимальную ширину ряда */
+    width: 100%;
+}
+
+/* Двухколоночная сетка */
+.tour-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Расстояние между двумя карточками */
+    width: 100%;
+}
+
+/* Карточка тура */
+.tour-card {
+    flex: 1;
+    max-width: 500px; /* Защита от чрезмерного растягивания карточки на ультрашироких экранах */
+    background-color: #14181d; /* Внутренний фон карточки делаем темным для контраста */
+    border-radius: 12px;
+    overflow: hidden; /* Чтобы углы картинки скруглялись вместе с карточкой */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.tour-card:hover {
+    transform: translateY(-5px); /* Легкий интерактив при наведении на карточку */
+}
+
+/* Контейнер для картинки с жестким пропорциональным соотношением */
+.tour-image-box {
+    width: 100%;
+    aspect-ratio: 9 / 16; /* Намертво фиксируем пропорции 9:16 */
+    overflow: hidden;
+    background-color: #0b0d10; /* Темная подложка, пока картинка грузится */
+}
+
+.tour-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинка заполняет всё пространство 9:16 без искажений */
+    transition: transform 0.5s ease;
+}
+
+.tour-card:hover .tour-img {
+    transform: scale(1.03); /* Эффект легкого приближения картинки при наведении */
+}
+
+/* Блок с текстовым описанием внутри карточки */
+.tour-info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Позволяет текстовой части занимать все оставшееся место */
+}
+
+.tour-card-title {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.tour-card-descr {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Прижимает кнопку к самому низу, даже если объём текста в карточках разный */
+}
+
+/* Кнопка "Смотреть тур" */
+.btn-tour {
+    display: inline-block;
+    text-align: center;
+    background-color: #ff8562; /* Твой фирменный цвет */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-tour:hover {
+    background-color: #e06e4c; /* Чуть темнее при наведении */
+    transform: translateY(-1px);
+}
+
+
+/* АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ И ПЛАНШЕТОВ */
+@media (max-width: 850px) {
+    .tour-section {
+        padding: 80px 20px;
+    }
+    
+    /* Перестраиваем карточки из горизонтального ряда в вертикальный */
+    .tour-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .tour-card {
+        width: 100%;
+        max-width: 450px; /* Ограничение ширины на телефонах, чтобы карточка не была слишком огромной */
+    }
+    
+    .tour-info {
+        padding: 20px; /* Чуть уменьшаем внутренние отступы текста на мобилках */
+    }
+    
+    .tour-card-title {
+        font-size: 20px;
+    }
+    
+    .tour-card-descr {
+        font-size: 14px;
+    }
+}
+
