@@ -5,47 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кирилл Бахарев | 3D-визуализация</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Подключаем шрифты (например, чистый Inter) -->
+    <!-- Подключаем чистый шрифт Inter -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- ШАПКА САЙТА (HEADER) -->
+    <!-- 1. БЛОК: ШАПКА САЙТА (HEADER) -->
     <header class="site-header">
         <div class="header-container">
             
-            <!-- Левая часть: Лого (теперь из папки img) и Имя -->
+            <!-- Левая часть: Логотип и Имя -->
             <div class="header-logo-block">
                 <img src="img/logo.png" alt="Логотип" class="logo-img">
                 <span class="brand-name">Кирилл Бахарев</span>
             </div>
 
-            <!-- Бургер-меню для мобильных устройств -->
+            <!-- Бургер-меню для мобильных телефонов -->
             <button class="menu-toggle" aria-label="Открыть меню">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <!-- Центр: Навигационные ссылки-якоря -->
+            <!-- Центр: Ссылки с плавной прокруткой-якорем -->
             <nav class="header-nav">
                 <a href="#about" class="nav-link">Обо мне</a>
                 <a href="#tour" class="nav-link">3D-тур</a>
                 <a href="#gallery" class="nav-link">Галерея</a>
             </nav>
 
-            <!-- Правая часть: Кнопка действия и иконки соцсетей -->
+            <!-- Правая часть: Кнопка действия и новые иконки мессенджеров -->
             <div class="header-actions">
                 <a href="#contacts" class="btn-contacts">Контакты</a>
                 <div class="social-icons">
-                    <!-- Ссылка на Telegram -->
-                    <a href="https://t.me/Werewolf3537" target="_blank" class="social-link" title="Telegram">
+                    <a href="https://t.me" target="_blank" class="social-link" title="Telegram">
                         <img src="img/telegram.png" alt="Telegram" class="social-img-file">
                     </a>
-                    <!-- Ссылка на Max -->
-                    <a href="https://max.ru/u/f9LHodD0cOIHTwYNIuJd_QZD4vaIbmfor5s6AsI6r4L5PxcWQ_haYTPDZgU" target="_blank" class="social-link" title="Max">
+                    <a href="https://твой_выход_на_max" target="_blank" class="social-link" title="Max">
                         <img src="img/max.png" alt="Max" class="social-img-file">
                     </a>
                 </div>
@@ -54,15 +52,10 @@
         </div>
     </header>
 
-
-    <!-- ГЛАВНЫЙ ЭКРАН (HERO SECTION) -->
-    <!-- Картина-фон заходит под шапку благодаря абсолютному позиционированию контента -->
+    <!-- 2 БЛОК: ГЛАВНЫЙ ЭКРАН (HERO SECTION) -->
     <section class="hero-section">
         <div class="hero-content">
-            <!-- Главный заголовок портфолио -->
             <h1 class="hero-title">3D-визуализация<br>жилых и коммерческих объектов</h1>
-            
-            <!-- Описание (шрифт на 50-60% меньше основного заголовка) -->
             <p class="hero-subtitle">
                 В работе ценю скорость, точность по вашему ТЗ и ответственность за результат. 
                 Создаю не просто статичные кадры — также к проекту я прилагаю интерактивный 3D-тур. 
@@ -71,120 +64,136 @@
         </div>
     </section>
 
-    <!-- ОСНОВНОЙ КОНТЕНТ САЙТА -->
+    <!-- ОТКРЫВАЕМ ОСНОВНОЙ КОНТЕНТ САЙТА -->
     <main>
-        
-    <!-- БЛОК: ОБО МНЕ -->
-    <section id="about" class="about-section">
-        <div class="about-container">
-            
-            <h2 class="block-title">Обо мне</h2>
-            
-            <!-- Лаконичный текст с переносом строки -->
-            <p class="about-text">
-                Меня зовут Кирилл, я занимаюсь профессиональной 3D-визуализацией для дизайнеров интерьера, архитекторов и девелоперов. 
-                <br><br>
-                Моя задача — перевести ваши идеи, чертежи и мудборды в фотореалистичные кадры и интерактивные туры, которые помогут защитить проект перед заказчиком.
-            </p>
 
-            <!-- Ключевые тезисы с твоими иконками из папки img -->
-            <div class="about-features">
+
+
+
+
+        <!-- 3 БЛОК: ОБО МНЕ -->
+        <section id="about" class="about-section">
+            <div class="about-container">
                 
-                <!-- Тезис 1: Сроки -->
-                <div class="feature-item">
-                    <div class="feature-icon-wrapper">
-                        <img src="img/time.png" alt="Сроки" class="about-feature-icon">
-                    </div>
-                    <h3 class="feature-title">Сроки</h3>
-                    <p class="feature-descr">Вы получаете качественный и предсказуемый результат точно вовремя.</p>
-                </div>
+                <h2 class="block-title">Обо мне</h2>
                 
-                <!-- Тезис 2: Точность по ТЗ -->
-                <div class="feature-item">
-                    <div class="feature-icon-wrapper">
-                        <img src="img/accuracy.png" alt="Точность" class="about-feature-icon">
+                <p class="about-text">
+                    Меня зовут Кирилл, я занимаюсь профессиональной 3D-визуализацией для дизайнеров интерьера, архитекторов и девелоперов. 
+                    <br><br>
+                    Моя задача — перевести ваши идеи, чертежи и мудборды в фотореалистичные кадры и интерактивные туры, которые помогут защитить проект перед заказчиком.
+                </p>
+
+                <!-- Ключевые тезисы с твоими иконками -->
+                <div class="about-features">
+                    
+                    <!-- Тезис 1: Сроки -->
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <img src="img/time.png" alt="Сроки" class="about-feature-icon">
+                        </div>
+                        <h3 class="feature-title">Сроки</h3>
+                        <p class="feature-descr">Вы получаете качественный и предсказуемый результат точно вовремя.</p>
                     </div>
-                    <h3 class="feature-title">Точность по ТЗ</h3>
-                    <p class="feature-descr">Точно передаю пропорции, свет, объемы и заложенные материалы.</p>
+                    
+                    <!-- Тезис 2: Точность по ТЗ -->
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <img src="img/accuracy.png" alt="Точность" class="about-feature-icon">
+                        </div>
+                        <h3 class="feature-title">Точность по ТЗ</h3>
+                        <p class="feature-descr">Точно передаю пропорции, свет, объемы и заложенные материалы.</p>
+                    </div>
+                    
+                    <!-- Тезис 3: Интерактивность -->
+                    <div class="feature-item">
+                        <div class="feature-icon-wrapper">
+                            <img src="img/tour.png" alt="3D-тур" class="about-feature-icon">
+                        </div>
+                        <h3 class="feature-title">Интерактивность</h3>
+                        <p class="feature-descr">Даю возможность погрузиться в проект с помощью 3D-тура.</p>
+                    </div>
+                    
                 </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- 4 БЛОК: 3D-ТУР -->
+        <section id="tour" class="tour-section">
+            <div class="tour-container">
                 
-                <!-- Тезис 3: Интерактивность -->
-                <div class="feature-item">
-                    <div class="feature-icon-wrapper">
-                        <img src="img/tour.png" alt="3D-тур" class="about-feature-icon">
+                <h2 class="block-title">3D-тур</h2>
+                
+                <!-- Две вертикальные ячейки с турами 9:16 -->
+                <div class="tour-grid">
+                    
+                    <!-- Тур 1: Ресторан -->
+                    <div class="tour-card">
+                        <div class="tour-image-box">
+                            <img src="img/tour_1.jpg" alt="Ресторан Тесто-место" class="tour-img">
+                        </div>
+                        <div class="tour-info">
+                            <h3 class="tour-card-title">Ресторан "Тесто-место"</h3>
+                            <p class="tour-card-descr">
+                                Ресторан в ТРЦ «Планета» (г. Новокузнецк). <br>
+                                Ознакомьтесь с планировкой, масштабом и объемом пространства с помощью виртуального 3D-тура.
+                            </p>
+                            <a href="https://wolf-studio.ru" target="_blank" class="btn-tour">Смотреть тур</a>
+                        </div>
                     </div>
-                    <h3 class="feature-title">Интерактивность</h3>
-                    <p class="feature-descr">Даю возможность погрузиться в проект с помощью 3D-тура.</p>
+
+                    <!-- Тур 2: Квартира -->
+                    <div class="tour-card">
+                        <div class="tour-image-box">
+                            <img src="img/tour_2.jpg" alt="Квартира 78м2" class="tour-img">
+                        </div>
+                        <div class="tour-info">
+                            <h3 class="tour-card-title">Квартира 78м2</h3>
+                            <p class="tour-card-descr">
+                                Современный интерьер квартиры в Нижнем Новгороде. <br>
+                                Проект реализован в строгом соответствии с дизайнерской концепцией. <br>
+                                Интерактивный 3D-тур позволяет наглядно оценить эргономику комнат, масштаб мебели и сложные узлы примыкания материалов еще до начала ремонта.
+                            </p>
+                            <a href="https://wolf-studio.ru" target="_blank" class="btn-tour">Смотреть тур</a>
+                        </div>
+                    </div>
+
                 </div>
+
+                <!-- Кнопка перехода на внутреннюю архивную страницу -->
+                <div class="tour-more-action">
+                    <a href="3d-tour/" class="btn-more-tours">Больше 3D-туров</a>
+                </div>
+
+            </div>
+        </section>
+
+
+
+        <!-- 5 БЛОК: ГАЛЕРЕЯ -->
+        <!-- Задаем класс gallery-section и цвет фона #14181d, чтобы шло чередование с турами -->
+        <section id="gallery" class="gallery-section" style="background-color: #14181d; padding: 120px 20px;">
+            <div class="gallery-container" style="max-width: 1200px; width: 100%; margin: 0 auto;">
+                
+                <!-- Заголовок блока, стили подтянутся из CSS автоматически -->
+                <h2 class="block-title">Галерея</h2>
+                
+                <!-- Временный текст-заглушка для проверки скролла -->
+                <p style="color: rgba(255,255,255,0.5); text-align: center; font-size: 16px;">
+                    Здесь будут размещены ваши статичные 3D-рендеры
+                </p>
                 
             </div>
+        </section>
 
-        </div>
-    </section>
-
-
-
-    <!-- БЛОК: 3D-ТУР -->
-    <section id="tour" class="tour-section">
-        <div class="tour-container">
-            
-            <!-- Общий заголовок для блока -->
-            <h2 class="block-title">3D-тур</h2>
-            
-            <!-- Две ячейки с турами -->
-            <div class="tour-grid">
-                
-                <!-- Тур 1: Ресторан -->
-                <div class="tour-card">
-                    <div class="tour-image-box">
-                        <img src="img/tour_1.jpg" alt="Ресторан Тесто-место" class="tour-img">
-                    </div>
-                    <div class="tour-info">
-                        <h3 class="tour-card-title">Ресторан "Тесто-место"</h3>
-                        <p class="tour-card-descr">
-                            Ресторан в ТРЦ «Планета» (г. Новокузнецк). <br>
-                            Ознакомьтесь с планировкой, масштабом и объемом пространства с помощью виртуального 3D-тура.
-                        </p>
-                        <a href="https://wolf-studio.ru/testo-mesto/" target="_blank" class="btn-tour">Смотреть тур</a>
-                    </div>
-                </div>
-
-                <!-- Тур 2: Квартира -->
-                <div class="tour-card">
-                    <div class="tour-image-box">
-                        <img src="img/tour_2.jpg" alt="Квартира 78м2" class="tour-img">
-                    </div>
-                    <div class="tour-info">
-                        <h3 class="tour-card-title">Квартира 78м2</h3>
-                        <p class="tour-card-descr">
-                            Современный интерьер квартиры в Нижнем Новгороде. <br>
-                            Проект реализован в строгом соответствии с дизайнерской концепцией. <br>
-                            Интерактивный 3D-тур позволяет наглядно оценить эргономику комнат, масштаб мебели и сложные узлы примыкания материалов еще до начала ремонта.
-                        </p>
-                        <a href="https://wolf-studio.ru/apartment_78m2/" target="_blank" class="btn-tour">Смотреть тур</a>
-                    </div>
-                </div>
-
-            </div> <!-- Конец сетки с турами -->
-
-            <!-- КНОПКА ДЛЯ ПЕРЕХОДА НА СТРАНИЦУ АРХИВА -->
-            <div class="tour-more-action">
-                <a href="3d-tour/" class="btn-more-tours">Больше 3D-туров</a>
-            </div>
-
-        </div>
-    </section>
+    </main> <!-- ЗАКРЫВАЕМ ОСНОВНОЙ КОНТЕНТ САЙТА -->
 
 
-       
 
-
-	<section id="gallery" style="height: 100vh; padding: 100px 30px; background: #14181d;"><h2>Блок: Галерея</h2></section>
-        
-    </main> <!-- Закрываем основной контент -->
-
-    <!-- ПОДВАЛ САЙТА (КОНТАКТЫ) -->
-    <!-- Секция теперь имеет фоновое изображение через CSS -->
+    <!-- 6 БЛОК: ПОДВАЛ САЙТА (КОНТАКТЫ) -->
+    <!-- Фоновое изображение подгружается через стили CSS -->
     <footer id="contacts" class="site-footer">
         <div class="footer-container">
             <div class="footer-content">
@@ -198,20 +207,22 @@
 
 
 
-    <!-- СКРИПТ АКТИВАЦИИ МОБИЛЬНОГО МЕНЮ (БУРГЕРА) -->
+
+
+    <!-- СКРИПТ ДЛЯ МОБИЛЬНОГО МЕНЮ (БУРГЕРА) -->
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const headerNav = document.querySelector('.header-nav');
         const headerActions = document.querySelector('.header-actions');
 
-        // Клик по бургеру открывает/закрывает меню
+        // Клик по бургеру открывает и закрывает меню
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             headerNav.classList.toggle('active');
             headerActions.classList.toggle('active');
         });
 
-        // Автоматически закрываем меню при клике на любую ссылку в нем
+        // Автоматически закрываем меню при клике на любую ссылку в нем (для мобилок)
         document.querySelectorAll('.header-nav a, .btn-contacts').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -221,5 +232,4 @@
         });
     </script>
 </body>
-
 </html>

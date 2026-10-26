@@ -1,4 +1,6 @@
-/* Общие настройки */
+/* ==========================================================================
+   1. ОБЩИЕ НАСТРОЙКИ САЙТА
+   ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,19 +8,32 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Обеспечивает плавную прокрутку по сайту */
+    scroll-behavior: smooth; /* Плавная прокрутка по сайту */
     font-family: 'Inter', sans-serif;
 }
 
-/* Шапка сайта */
+/* Универсальный стиль для заголовков блоков (Обо мне, 3D-тур, Галерея) */
+.block-title {
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   2. ШАПКА САЙТА (HEADER)
+   ========================================================================== */
 .site-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 90px; /* Золотая середина между 80 и 100px */
+    height: 90px;
     background-color: rgba(0, 0, 0, 0.7); /* Чёрный 70% прозрачности */
-    backdrop-filter: blur(10px); /* Красивое размытие за шапкой */
+    backdrop-filter: blur(10px); /* Размытие заднего фона */
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -26,14 +41,14 @@ html {
 
 .header-container {
     width: 100%;
-    max-width: 100%; /* Убираем ограничение в 1440px, чтобы увести к самым краям */
-    padding: 0 40px; /* Отступ от самого края экрана (на мобилках можно сделать 20px) */
+    max-width: 100%; /* Растягиваем к краям экрана */
+    padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* Левая часть: Лого и Имя */
+/* Левая часть шапки: Лого и Имя */
 .header-logo-block {
     display: flex;
     align-items: center;
@@ -41,22 +56,22 @@ html {
 }
 
 .logo-img {
-    height: 60px; /* Увеличили на 20% (было 50px) */
+    height: 60px; /* Увеличен на 20% */
     width: auto;
     object-fit: contain;
 }
 
 .brand-name {
     color: #ffffff;
-    font-size: 28px; /* Увеличили примерно на 30% (было 22px) */
-    font-weight: 400; /* Сделали текст НЕ жирным (обычным) */
+    font-size: 28px; /* Увеличено на 30% */
+    font-weight: 400; /* Не жирный шрифт */
     white-space: nowrap;
 }
 
-/* Центр: Ссылки */
+/* Центральная часть: Меню-навигация */
 .header-nav {
     display: flex;
-    gap: 60px;
+    gap: 60px; /* Увеличенное расстояние */
 }
 
 .nav-link {
@@ -94,7 +109,7 @@ html {
     border-color: #ff8562;
 }
 
-/* Иконки соцсетей */
+/* Блок иконок соцсетей */
 .social-icons {
     display: flex;
     align-items: center;
@@ -105,34 +120,25 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;  /* Компактный размер для аккуратного вида */
+    width: 32px;
     height: 32px;
-    background-color: transparent; /* Убрали круглый фон */
-    border-radius: 0; /* Убрали скругление в круг */
+    background-color: transparent;
+    border-radius: 0;
     transition: transform 0.2s ease;
 }
 
 .social-link:hover {
-    background-color: transparent; /* Фон при наведении больше не меняется */
-    transform: translateY(-2px); /* Картинка изящно приподнимается вверх */
+    background-color: transparent;
+    transform: translateY(-2px);
 }
 
-/* Новый стиль для картинок, которые мы положили в папку img */
 .social-img-file {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Картинка не искажается и вписывается в размеры */
+    object-fit: contain;
 }
 
-
-/* Временный стиль для текстовой иконки Max */
-.letter-icon {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 16px;
-}
-
-/* Кнопка бургер-меню (скрыта на ПК) */
+/* Бургер-меню (скрыто на ПК) */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -151,272 +157,61 @@ html {
     transition: all 0.3s ease;
 }
 
-/* АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ (Экран меньше 992px) */
-@media (max-width: 992px) {
-    .menu-toggle {
-        display: flex; /* Показываем бургер */
-    }
-
-    /* Прячем навигацию в выпадающее меню */
-    .header-nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        transition: right 0.4s ease;
-        padding-top: 60px; /* Добавляем отступ сверху, чтобы ссылки сместились чуть ниже */
-    }
-
-    /* Прячем кнопки в это же меню, пониже */
-    .header-actions {
-        position: fixed;
-        top: auto;
-        bottom: 5%; /* Опустили блок еще ниже к самому краю экрана смартфона */
-        right: -100%;
-        width: 70%;
-        flex-direction: column;
-        gap: 30px;
-        transition: right 0.4s ease;
-        z-index: 1000;
-        align-items: center;
-    }
-
-    /* При активации бургера — выдвигаем меню */
-    .header-nav.active,
-    .header-actions.active {
-        right: 0;
-    }
-
-    /* Анимация превращения бургера в крестик */
-    .menu-toggle.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-}
-
-/* Коррекция для совсем маленьких экранов (смартфоны) */
-@media (max-width: 480px) {
-    .brand-name {
-        font-size: 18px; /* Уменьшаем шрифт имени, чтобы влезал */
-    }
-    .logo-img {
-        height: 40px;
-    }
-    .header-nav, .header-actions {
-        width: 100%; /* Меню на весь экран смартфона */
-    }
-}
-
 /* ==========================================================================
-   ГЛАВНЫЙ ЭКРАН (HERO SECTION)
+   3. ГЛАВНЫЙ ЭКРАН (HERO SECTION)
    ========================================================================== */
-
 .hero-section {
     position: relative;
     width: 100%;
-    height: 100vh; /* Экран занимает ровно 100% высоты видимой области */
-    
-    /* Путь к твоей фоновой картинке. Положи ее в папку img под именем hero-bg.jpg */
+    height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('img/hero-background.jpg');
-    
-    background-size: cover; /* Растягивает картинку без потери пропорций */
-    background-position: center; /* Центрирует изображение */
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    
     display: flex;
-    align-items: center; /* Центрирование контента по вертикали */
-    justify-content: center; /* Центрирование контента по горизонтали */
-    text-align: center; /* Выравнивание текста по центру */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     padding: 0 20px;
 }
 
-/* Контейнер для текста, чтобы он не расплывался на ультрашироких мониторах */
 .hero-content {
-    max-width: 900px; 
+    max-width: 900px;
     width: 100%;
-    z-index: 10; /* Контент поверх фонового слоя */
+    z-index: 10;
 }
 
-/* Крупный главный заголовок */
 .hero-title {
     color: #ffffff;
-    font-size: 48px; /* Базовый размер для ПК */
+    font-size: 48px;
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 50px; /* Отступ до подзаголовка */
-    text-transform: uppercase; /* Делает буквы заглавными (опционально, выглядит монументально) */
+    margin-bottom: 50px; /* Увеличенный отступ до описания */
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Описание (на 50-60% меньше заголовка) */
 .hero-subtitle {
-    color: rgba(255, 255, 255, 0.85); /* Чуть мягче чистого белого для лучшей читаемости */
-    font-size: 20px; /* Идеальное соотношение (~40-45% от размера заголовка) */
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.6;
     max-width: 800px;
-    margin: 0 auto; /* Центрирование текстового блока */
-}
-
-
-/* АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ И ПЛАНШЕТОВ */
-
-/* Планшеты (экран меньше 992px) */
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 38px; /* Уменьшаем заголовок, чтобы текст аккуратно переносился */
-    }
-    .hero-subtitle {
-        font-size: 18px;
-    }
-}
-
-/* Смартфоны (экран меньше 576px) */
-@media (max-width: 576px) {
-    .hero-section {
-        height: 100vh; /* Сохраняем во весь экран на мобильных */
-    }
-    .hero-title {
-        font-size: 28px; /* Компактный размер для мобильного экрана */
-        margin-bottom: 20px;
-    }
-    .hero-subtitle {
-        font-size: 15px; /* Читабельный уменьшенный шрифт */
-        line-height: 1.5;
-    }
-}
-
-/* ==========================================================================
-   ПОДВАЛ САЙТА (КОНТАКТЫ) С ФОНОМ
-   ========================================================================== */
-
-.site-footer {
-    position: relative;
-    width: 100%;
-    min-height: 450px; /* Фиксированная высота блока, чтобы картинка красиво раскрылась */
-    
-    /* Путь к твоей картинке. Положи её в img под именем background_contakt.jpg или .png */
-    background-image: url('img/background_contakt.jpg'); 
-    
-    background-size: cover; /* Растягивает картинку по всему блоку */
-    background-position: center; /* Центрирует изображение */
-    background-repeat: no-repeat;
-    
-    display: flex;
-    align-items: center; /* Центрируем контент по вертикали внутри подвала */
-}
-
-/* Контейнер, который удерживает текст в рамках общей сетки сайта */
-.footer-container {
-    width: 100%;
-    max-width: 1440px;
     margin: 0 auto;
-    padding: 0 60px; /* Отступ от левого края экрана на ПК */
 }
-
-/* Блок с текстом: уводим влево и выравниваем по левому краю */
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Прижимаем строки к левому краю */
-    gap: 15px;
-    text-align: left;
-    
-    /* Добавляем легкую тень всему блоку текста, чтобы он не сливался с фоновым рендером */
-    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8), 2px 2px 5px rgba(0, 0, 0, 0.9);
-}
-
-.footer-title {
-    color: #ffffff;
-    font-size: 42px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-.footer-link {
-    color: #ffffff; /* Делаем текст чисто белым для максимальной контрастности */
-    font-size: 24px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: #ff8562; /* Твой фирменный цвет при наведении */
-}
-
-
-/* АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ (Экран меньше 768px) */
-@media (max-width: 768px) {
-    .site-footer {
-        min-height: 350px; /* Чуть уменьшаем высоту подвала на мобилках */
-        background-position: calc(50% + 50px) center; /* Смещаем фон чуть вправо, чтобы важная часть рендера не перекрывалась текстом */
-    }
-    
-    .footer-container {
-        padding: 0 30px; /* На смартфонах делаем отступ от края поменьше */
-    }
-    
-    .footer-title {
-        font-size: 32px; /* Уменьшаем заголовок */
-    }
-    
-    .footer-link {
-        font-size: 18px; /* Удобный размер ссылок для экрана телефона */
-    }
-
-    /* 👇 ДОБАВИЛИ СЮДА: Уменьшаем кнопку "На главную" в шапке второй страницы */
-    .site-header .btn-contacts[href="../"] {
-        padding: 6px 14px !important; /* Уменьшили внутренние отступы на 30% */
-        font-size: 14px !important;    /* Сделали шрифт чуть аккуратнее */
-    }
-}
-
-
-
 
 /* ==========================================================================
-   ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ ПОСЛЕДУЮЩИХ БЛОКОВ
+   4. БЛОК: ОБО МНЕ
    ========================================================================== */
-
-/* Универсальный стиль для заголовков блоков (Обо мне, 3D-тур, Галерея) */
-.block-title {
-    color: #ffffff;
-    font-size: 42px; /* Крупный, заметный размер */
-    font-weight: 700;
-    text-transform: uppercase; /* Все буквы заглавные */
-    letter-spacing: 2px; /* Небольшой элегантный разряд букв */
-    text-align: center; /* Центрируем по середине */
-    margin-bottom: 40px; /* Отступ от заголовка до контента */
-}
-
-
-/* ==========================================================================
-   БЛОК: ОБО МНЕ (ОБНОВЛЕННЫЙ)
-   ========================================================================== */
-
 .about-section {
-    background-color: #14181d; 
-    padding: 120px 20px; 
+    background-color: #14181d; /* Твой благородный цвет */
+    padding: 120px 20px;
     display: flex;
     justify-content: center;
 }
 
 .about-container {
-    max-width: 1100px; /* Сделали контейнер чуть шире для 3 колонок */
+    max-width: 1100px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -429,21 +224,20 @@ html {
     line-height: 1.7;
     text-align: center;
     max-width: 850px;
-    margin-bottom: 60px; /* Отступ до колонок */
+    margin-bottom: 60px;
 }
 
-/* Сетка для преимуществ */
 .about-features {
     display: flex;
     justify-content: space-between;
     gap: 30px;
     width: 100%;
-    margin-bottom: 0; /* Убрали отступ, так как кнопки внизу больше нет */
+    margin-bottom: 0;
 }
 
 .feature-item {
     flex: 1;
-    background-color: #1a2026; /* Твой второй цвет для контраста карточек */
+    background-color: #1a2026; /* Контрастный фон карточек */
     padding: 30px 25px;
     border-radius: 8px;
     text-align: center;
@@ -451,24 +245,22 @@ html {
 }
 
 .feature-item:hover {
-    transform: translateY(-5px); /* Легкий подъем карточки при наведении */
+    transform: translateY(-5px);
 }
 
-/* Контейнер для твоих картинок-иконок */
 .feature-icon-wrapper {
-    width: 50px; /* Фиксированный аккуратный размер иконки */
+    width: 50px;
     height: 50px;
-    margin: 0 auto 20px auto; /* Центрируем и делаем отступ до заголовка */
+    margin: 0 auto 20px auto;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Стили для файлов картинок (time.png, accuracy.png, tour.png) */
 .about-feature-icon {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Защита от искажения и сжатия картинок */
+    object-fit: contain;
 }
 
 .feature-title {
@@ -484,60 +276,34 @@ html {
     line-height: 1.5;
 }
 
-
-/* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */
-@media (max-width: 850px) {
-    .about-section {
-        padding: 80px 20px;
-    }
-    .about-text {
-        font-size: 16px;
-        margin-bottom: 40px;
-    }
-    /* Перестраиваем 3 колонки в один вертикальный ряд на телефонах */
-    .about-features {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .feature-item {
-        padding: 25px 20px;
-    }
-}
-
-
-
-
 /* ==========================================================================
-   БЛОК: 3D-ТУР (2 ЯЧЕЙКИ 9:16)
+   5. БЛОК: 3D-ТУР (НА ГЛАВНОЙ СТРАНИЦЕ)
    ========================================================================== */
-
 .tour-section {
-    background-color: #1a2026; /* Чередуем: этот блок чуть светлее основного фона */
+    background-color: #1a2026; /* Чередование: блок чуть светлее основного фона */
     padding: 120px 20px;
     display: flex;
     justify-content: center;
 }
 
 .tour-container {
-    max-width: 1200px; /* Ограничиваем максимальную ширину ряда */
+    max-width: 1200px;
     width: 100%;
 }
 
-/* Двухколоночная сетка */
 .tour-grid {
     display: flex;
     justify-content: center;
-    gap: 40px; /* Расстояние между двумя карточками */
+    gap: 40px;
     width: 100%;
 }
 
-/* Карточка тура */
 .tour-card {
     flex: 1;
-    max-width: 500px; /* Защита от чрезмерного растягивания карточки на ультрашироких экранах */
-    background-color: #14181d; /* Внутренний фон карточки делаем темным для контраста */
+    max-width: 500px;
+    background-color: #14181d;
     border-radius: 12px;
-    overflow: hidden; /* Чтобы углы картинки скруглялись вместе с карточкой */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -545,34 +311,32 @@ html {
 }
 
 .tour-card:hover {
-    transform: translateY(-5px); /* Легкий интерактив при наведении на карточку */
+    transform: translateY(-5px);
 }
 
-/* Контейнер для картинки с жестким пропорциональным соотношением */
 .tour-image-box {
     width: 100%;
-    aspect-ratio: 9 / 16; /* Намертво фиксируем пропорции 9:16 */
+    aspect-ratio: 9 / 16; /* Пропорции 9:16 */
     overflow: hidden;
-    background-color: #0b0d10; /* Темная подложка, пока картинка грузится */
+    background-color: #0b0d10;
 }
 
 .tour-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Картинка заполняет всё пространство 9:16 без искажений */
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
 .tour-card:hover .tour-img {
-    transform: scale(1.03); /* Эффект легкого приближения картинки при наведении */
+    transform: scale(1.03);
 }
 
-/* Блок с текстовым описанием внутри карточки */
 .tour-info {
     padding: 30px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Позволяет текстовой части занимать все оставшееся место */
+    flex-grow: 1;
 }
 
 .tour-card-title {
@@ -587,14 +351,13 @@ html {
     font-size: 15px;
     line-height: 1.6;
     margin-bottom: 25px;
-    flex-grow: 1; /* Прижимает кнопку к самому низу, даже если объём текста в карточках разный */
+    flex-grow: 1;
 }
 
-/* Кнопка "Смотреть тур" */
 .btn-tour {
     display: inline-block;
     text-align: center;
-    background-color: #ff8562; /* Твой фирменный цвет */
+    background-color: #ff8562;
     color: #ffffff;
     text-decoration: none;
     padding: 14px 28px;
@@ -605,17 +368,15 @@ html {
 }
 
 .btn-tour:hover {
-    background-color: #e06e4c; /* Чуть темнее при наведении */
+    background-color: #e06e4c;
     transform: translateY(-1px);
 }
 
-/* Контейнер для центрирования кнопки под карточками */
 .tour-more-action {
     margin-top: 50px;
     text-align: center;
 }
 
-/* Кнопка "Больше 3D-туров" (делаем её контурной, чтобы она не спорила с основными кнопками) */
 .btn-more-tours {
     display: inline-block;
     color: #ffffff;
@@ -623,80 +384,175 @@ html {
     padding: 14px 35px;
     font-size: 16px;
     font-weight: 600;
-    border: 2px solid #ff8562; /* Твой фирменный цвет */
+    border: 2px solid #ff8562;
     border-radius: 6px;
     transition: all 0.3s ease;
 }
 
 .btn-more-tours:hover {
-    background-color: #ff8562; /* Заливается цветом при наведении */
+    background-color: #ff8562;
     box-shadow: 0 5px 15px rgba(255, 133, 98, 0.3);
 }
 
-
-/* АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ И ПЛАНШЕТОВ */
-@media (max-width: 850px) {
-    .tour-section {
-        padding: 80px 20px;
-    }
-    
-    /* Перестраиваем карточки из горизонтального ряда в вертикальный */
-    .tour-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-    
-    .tour-card {
-        width: 100%;
-        max-width: 450px; /* Ограничение ширины на телефонах, чтобы карточка не была слишком огромной */
-    }
-    
-    .tour-info {
-        padding: 20px; /* Чуть уменьшаем внутренние отступы текста на мобилках */
-    }
-    
-    .tour-card-title {
-        font-size: 20px;
-    }
-    
-    .tour-card-descr {
-        font-size: 14px;
-    }
-}
-
-
-
-
-
-/* Сетка для страницы со всеми турами — теперь ровно 3 колонки */
+/* ==========================================================================
+   6. СЕТКА ДЛЯ ВНУТРЕННЕЙ СТРАНИЦЫ (3 КОЛОНКИ С УМЕНЬШЕННЫМИ ФОТО НА 30%)
+   ========================================================================== */
 .tour-grid-page {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Три колонки одинаковой ширины */
-    gap: 30px; /* Немного уменьшили зазор между ними для компактности */
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    gap: 30px;
     width: 100%;
 }
 
-/* Уменьшаем контейнер под картинки на 30% */
 .tour-grid-page .tour-image-box {
-    max-width: 70%; /* Ограничиваем ширину картинки до 70% (на 30% меньше) */
-    margin: 0 auto; /* Центрируем уменьшенную картинку внутри карточки */
+    max-width: 70%; /* Картинка уменьшена на 30% */
+    margin: 0 auto;
 }
 
-/* Адаптив для плитки на планшетах и мобилках */
+/* ==========================================================================
+   7. ПОДВАЛ САЙТА (КОНТАКТЫ) С ФОНОМ И ВЫРАВНИВАНИЕМ ВЛЕВО
+   ========================================================================== */
+.site-footer {
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    background-image: url('img/background_contakt.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Слева */
+    gap: 15px;
+    text-align: left;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8), 2px 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+.footer-title {
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #ff8562;
+}
+
+/* ==========================================================================
+   8. АДАПТИВНОСТЬ ДЛЯ СРЕДНИХ ЭКРАНОВ И ПЛАНШЕТОВ (ДО 1024px)
+   ========================================================================== */
 @media (max-width: 1024px) {
     .tour-grid-page {
-        grid-template-columns: repeat(2, 1fr); /* На планшетах по 2 в ряд */
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
     }
 }
 
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: flex;
+    }
+    .header-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.4s ease;
+        padding-top: 60px;
+    }
+    .header-actions {
+        position: fixed;
+        top: auto;
+        bottom: 2% !important; /* Принудительно опустили в самый низ меню на смартфонах */
+        right: -100%;
+        width: 70%;
+        flex-direction: column;
+        gap: 20px !important;
+        transition: right 0.4s ease;
+        z-index: 1000;
+        align-items: center;
+    }
+    .header-nav.active,
+    .header-actions.active {
+        right: 0;
+    }
+    .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    .hero-title { font-size: 38px; }
+    .hero-subtitle { font-size: 18px; }
+}
+
+@media (max-width: 850px) {
+    .about-section, .tour-section { padding: 80px 20px; }
+    .about-text { font-size: 16px; margin-bottom: 40px; }
+    .about-features, .tour-grid { flex-direction: column; align-items: center; gap: 20px; }
+    .feature-item, .tour-card { width: 100%; max-width: 450px; }
+    .tour-info { padding: 20px; }
+    .tour-card-title { font-size: 20px; }
+    .tour-card-descr { font-size: 14px; }
+}
+
+/* ==========================================================================
+   9. ЕДИНЫЙ МОБИЛЬНЫЙ АДАПТИВ ДЛЯ СМАРТФОНОВ (ДО 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .tour-grid-page {
-        grid-template-columns: 1fr; /* На смартфонах в одну колонку */
+    /* Фиксируем высоту компактной шапки */
+    .site-header { height: 72px !important; }
+    .logo-img { height: 44px !important; }
+    .brand-name { font-size: 18px !important; }
+
+    /* Уменьшаем кнопку "На главную" на второй странице */
+    .site-header .btn-contacts[href="../"] {
+        padding: 6px 12px !important; 
+        font-size: 13px !important;    
     }
-    .tour-grid-page .tour-image-box {
-        max-width: 100%; /* На телефонах возвращаем картинку на всю ширину, чтобы не было слишком мелко */
-    }
+
+    /* Адаптив плитки туров */
+    .tour-grid-page { grid-template-columns: 1fr; }
+    .tour-grid-page .tour-image-box { max-width: 100%; }
+
+    /* Мобильный подвал */
+    .site-footer { min-height: 350px !important; background-position: calc(50% + 50px) center !important; }
+    .footer-container { padding: 0 30px !important; }
+    .footer-title { font-size: 32px !important; }
+    .footer-link { font-size: 18px !important; }
 }
 
+@media (max-width: 576px) {
+    .hero-title { font-size: 28px; margin-bottom: 20px; }
+    .hero-subtitle { font-size: 15px; line-height: 1.5; }
+}
 
+@media (max-width: 480px) {
+    .header-nav, .header-actions { width: 100%; }
+}
