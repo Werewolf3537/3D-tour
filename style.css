@@ -568,10 +568,73 @@ html {
    9. АДАПТИВНОСТЬ ДЛЯ СРЕДНИХ ЭКРАНОВ И ПЛАНШЕТОВ (ДО 1024px / 992px)
    ========================================================================== */
 @media (max-width: 1024px) {
-    /* Код адаптива для планшетов здесь... */
+    .tour-grid-page {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки туров на планшетах */
+    }
 }
+
 @media (max-width: 992px) {
-    /* Твой бургер-меню адаптив здесь... */
+    /* Показываем бургер-меню */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    /* Выпадающая шторка меню на смартфонах */
+    .header-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.98); 
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Центрируем весь список строго по вертикали экрана */
+        align-items: center;
+        gap: 35px; /* Зазор между ссылками */
+        transition: right 0.4s ease;
+        padding: 0;
+        z-index: 1000;
+    }
+
+    /* Кнопка "Контакты" и соцсети встают аккуратно под ссылки */
+    .header-actions {
+        position: fixed;
+        top: calc(50% + 140px); /* Идеальное положение ровно под ссылками на одном экране */
+        right: -100%;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        transition: right 0.4s ease;
+        z-index: 1001;
+        align-items: center;
+    }
+
+    /* При активации бургера — выдвигаем шторку */
+    .header-nav.active,
+    .header-actions.active {
+        right: 0;
+    }
+
+    /* Анимация превращения бургера в крестик */
+    .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* Корректируем шрифты на главном экране */
+    .hero-title { font-size: 38px; }
+    .hero-subtitle { font-size: 18px; }
+}
+
+@media (max-width: 850px) {
+    .about-section, .tour-section { padding: 80px 20px; }
+    .about-text { font-size: 16px; margin-bottom: 40px; }
+    .about-features, .tour-grid { flex-direction: column; align-items: center; gap: 20px; }
+    .feature-item, .tour-card { width: 100%; max-width: 450px; }
+    .tour-info { padding: 20px; }
+    .tour-card-title { font-size: 20px; }
+    .tour-card-descr { font-size: 14px; }
 }
 
 
@@ -579,20 +642,55 @@ html {
    10. ЕДИНЫЙ МОБИЛЬНЫЙ АДАПТИВ ДЛЯ СМАРТФОНОВ (ДО 768px)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Твой компактный адаптив шапки, подвала здесь... */
+    /* Фиксируем высоту компактной шапки */
+    .site-header { height: 72px !important; }
+    .logo-img { height: 44px !important; }
+    .brand-name { font-size: 18px !important; }
 
-    /* 👇 И В САМЫЙ НИЗ ЭТОГО ЖЕ БЛОКА 10 КЛАДЕМ МОБИЛЬНЫЙ АДАПТИВ ГАЛЕРЕИ */
+    /* Возвращаем классическое выравнивание по краям (Лого слева, бургер справа) */
+    .site-header .header-container {
+        justify-content: space-between !important; 
+        gap: 15px !important; 
+    }
+
+    /* Уменьшаем кнопку "На главную" на второй странице и прижимаем её вправо */
+    .site-header .btn-contacts[href="../"] {
+        padding: 6px 12px !important; 
+        font-size: 13px !important;    
+        margin-left: auto !important; /* Удерживает кнопку справа */
+    }
+
+    /* Адаптив плитки туров */
+    .tour-grid-page { grid-template-columns: 1fr; }
+    .tour-grid-page .tour-image-box { max-width: 100%; }
+
+    /* Мобильный подвал с фоновым рендером */
+    .site-footer { min-height: 350px !important; background-position: calc(50% + 50px) center !important; }
+    .footer-container { padding: 0 30px !important; }
+    .footer-title { font-size: 32px !important; }
+    .footer-link { font-size: 18px !important; }
+
+    /* Мобильный адаптив для сложной асимметричной галереи */
     .gallery-row-mixed {
-        flex-direction: column;
+        flex-direction: column; /* Разворачиваем верхний ряд вертикально */
         gap: 20px;
     }
     .gallery-row-verticals {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Нижний ряд превращаем в 1 колонку */
         gap: 20px;
         margin-top: 20px;
     }
     .gallery-row-mixed .item-vertical,
     .gallery-row-verticals .gallery-item {
-        aspect-ratio: 4 / 5;
+        aspect-ratio: 4 / 5; /* Делаем фото на смартфонах чуть более квадратными */
     }
+}
+
+@media (max-width: 576px) {
+    .hero-title { font-size: 28px; margin-bottom: 20px; }
+    .hero-subtitle { font-size: 15px; line-height: 1.5; }
+}
+
+@media (max-width: 480px) {
+    .header-nav, .header-actions { width: 100%; }
 }
