@@ -474,31 +474,37 @@ html {
     .menu-toggle {
         display: flex;
     }
+    /* Навигация (выпадающая шторка) на смартфонах */
     .header-nav {
         position: fixed;
         top: 0;
         right: -100%;
         width: 70%;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.95);
+        background-color: rgba(0, 0, 0, 0.98); /* Сделали фон чуть плотнее для надежности */
+        display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start; /* Ссылки пойдут сверху вниз */
         align-items: center;
-        gap: 30px;
+        gap: 35px;
         transition: right 0.4s ease;
-        padding-top: 60px;
+        padding-top: 140px; /* Отступ сверху, чтобы ссылки не лезли на шапку */
+        z-index: 1000;
     }
+
+    /* Кнопка Контакты и соцсети в мобильном меню */
     .header-actions {
         position: fixed;
         top: auto;
-        bottom: 2% !important; /* Принудительно опустили в самый низ меню на смартфонах */
+        bottom: 40px !important; /* Четко задаем 40 пикселей от самого низа экрана телефона */
         right: -100%;
         width: 70%;
+        display: flex;
         flex-direction: column;
-        gap: 20px !important;
-        transition: right 0.4s ease;
-        z-index: 1000;
         align-items: center;
+        gap: 25px !important;
+        transition: right 0.4s ease;
+        z-index: 1001; /* Поверх фона навигации */
     }
     .header-nav.active,
     .header-actions.active {
