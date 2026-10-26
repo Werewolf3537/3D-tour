@@ -296,17 +296,46 @@ html {
     }
 }
 
+/* ==========================================================================
+   ПОДВАЛ САЙТА (КОНТАКТЫ) С ФОНОМ
+   ========================================================================== */
+
 .site-footer {
-    background-color: #0d1013; /* Сделали подвал чуть темнее основного цвета #14181d */
-    padding: 100px 20px;
-    text-align: center;
+    position: relative;
+    width: 100%;
+    min-height: 450px; /* Фиксированная высота блока, чтобы картинка красиво раскрылась */
+    
+    /* Путь к твоей картинке. Положи её в img под именем background_contakt.jpg или .png */
+    background-image: url('img/background_contakt.jpg'); 
+    
+    background-size: cover; /* Растягивает картинку по всему блоку */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat;
+    
+    display: flex;
+    align-items: center; /* Центрируем контент по вертикали внутри подвала */
 }
+
+/* Контейнер, который удерживает текст в рамках общей сетки сайта */
+.footer-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 60px; /* Отступ от левого края экрана на ПК */
+}
+
+/* Блок с текстом: уводим влево и выравниваем по левому краю */
 .footer-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    align-items: flex-start; /* Прижимаем строки к левому краю */
+    gap: 15px;
+    text-align: left;
+    
+    /* Добавляем легкую тень всему блоку текста, чтобы он не сливался с фоновым рендером */
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8), 2px 2px 5px rgba(0, 0, 0, 0.9);
 }
+
 .footer-title {
     color: #ffffff;
     font-size: 42px;
@@ -315,25 +344,40 @@ html {
     letter-spacing: 2px;
     margin-bottom: 10px;
 }
+
 .footer-link {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 22px;
+    color: #ffffff; /* Делаем текст чисто белым для максимальной контрастности */
+    font-size: 24px;
+    font-weight: 600;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
+
 .footer-link:hover {
-    color: #ff8562;
+    color: #ff8562; /* Твой фирменный цвет при наведении */
 }
 
 
+/* АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ (Экран меньше 768px) */
 @media (max-width: 768px) {
-    .site-header {
-        height: 72px; /* Уменьшили высоту шапки на 20% (было 90px) */
+    .site-footer {
+        min-height: 350px; /* Чуть уменьшаем высоту подвала на мобилках */
+        background-position: calc(50% + 50px) center; /* Смещаем фон чуть вправо, чтобы важная часть рендера не перекрывалась текстом */
     }
-    .logo-img {
-        height: 48px; /* Немного пропорционально уменьшаем логотип в узкой шапке */
+    
+    .footer-container {
+        padding: 0 30px; /* На смартфонах делаем отступ от края поменьше */
+    }
+    
+    .footer-title {
+        font-size: 32px; /* Уменьшаем заголовок */
+    }
+    
+    .footer-link {
+        font-size: 18px; /* Удобный размер ссылок для экрана телефона */
     }
 }
+
 
 
 /* ==========================================================================
