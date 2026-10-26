@@ -12,39 +12,38 @@
 </head>
 <body>
 
+    <!-- ШАПКА САЙТА (HEADER) -->
     <header class="site-header">
         <div class="header-container">
             
-            <!-- Левая часть: Лого и Имя -->
+            <!-- Левая часть: Лого (теперь из папки img) и Имя -->
             <div class="header-logo-block">
                 <img src="img/logo.png" alt="Логотип" class="logo-img">
                 <span class="brand-name">Кирилл Бахарев</span>
             </div>
 
-            <!-- Бургер-меню для мобилок -->
+            <!-- Бургер-меню для мобильных устройств -->
             <button class="menu-toggle" aria-label="Открыть меню">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <!-- Центр: Навигация -->
+            <!-- Центр: Навигационные ссылки-якоря -->
             <nav class="header-nav">
                 <a href="#about" class="nav-link">Обо мне</a>
                 <a href="#tour" class="nav-link">3D-тур</a>
                 <a href="#gallery" class="nav-link">Галерея</a>
             </nav>
 
-            <!-- Правая часть: Контакты и Соцсети -->
+            <!-- Правая часть: Кнопка действия и иконки соцсетей -->
             <div class="header-actions">
                 <a href="#contacts" class="btn-contacts">Контакты</a>
                 <div class="social-icons">
-                    <!-- Замени '#' на свои реальные ссылки -->
                     <a href="#" target="_blank" class="social-link tg-icon" title="Telegram">
                         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                     </a>
                     <a href="#" target="_blank" class="social-link max-icon" title="Max">
-                        <!-- Временная буква M, потом заменим на иконку (3ds Max / другое) -->
                         <span class="letter-icon">M</span>
                     </a>
                 </div>
@@ -53,31 +52,48 @@
         </div>
     </header>
 
-    <!-- Временные пустые блоки, чтобы проверить плавный скролл -->
-    <main style="background: #1a1a1a; color: #fff; padding-top: 120px;">
-        <section id="about" style="height: 80vh; padding: 40px;"><h2>Блок: Обо мне</h2></section>
-        <section id="tour" style="height: 80vh; padding: 40px; background: #222;"><h2>Блок: 3D-тур</h2></section>
-        <section id="gallery" style="height: 80vh; padding: 40px;"><h2>Блок: Галерея</h2></section>
-        <footer id="contacts" style="height: 50vh; padding: 40px; background: #111;">
+    <!-- ГЛАВНЫЙ ЭКРАН (HERO SECTION) -->
+    <!-- Картина-фон заходит под шапку благодаря абсолютному позиционированию контента -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <!-- Главный заголовок портфолио -->
+            <h1 class="hero-title">3D-визуализация<br>жилых и коммерческих объектов</h1>
+            
+            <!-- Описание (шрифт на 50-60% меньше основного заголовка) -->
+            <p class="hero-subtitle">
+                В работе ценю скорость, точность по вашему ТЗ и ответственность за результат. 
+                Создаю не просто статичные кадры — также к проекту я прилагаю интерактивный 3D-тур. 
+                Это дает уникальную возможность заказчикам полностью погрузиться в будущий объект со всех сторон.
+            </p>
+        </div>
+    </section>
+
+    <!-- ТЕХНИЧЕСКИЕ ЗАГЛУШКИ ДЛЯ ПРОВЕРКИ СКРОЛЛА (Будем наполнять дальше) -->
+    <main style="background: #121212; color: #fff;">
+        <section id="about" style="height: 100vh; padding: 100px 30px;"><h2>Блок: Обо мне</h2></section>
+        <section id="tour" style="height: 100vh; padding: 100px 30px; background: #1a1a1a;"><h2>Блок: 3D-тур</h2></section>
+        <section id="gallery" style="height: 100vh; padding: 100px 30px;"><h2>Блок: Галерея</h2></section>
+        <footer id="contacts" style="height: 50vh; padding: 100px 30px; background: #0a0a0a;">
             <h2>Контакты</h2>
-            <p>Email: wolf-studio@bk.ru</p>
-            <p>Телефон: +7 (905) 906-04-19</p>
+            <p>Email: info@wolf-studio.ru</p>
+            <p>Телефон: +7 (999) 000-00-00</p>
         </footer>
     </main>
 
-    <!-- Скрипт для мобильного меню -->
+    <!-- СКРИПТ АКТИВАЦИИ МОБИЛЬНОГО МЕНЮ (БУРГЕРА) -->
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const headerNav = document.querySelector('.header-nav');
         const headerActions = document.querySelector('.header-actions');
 
+        // Клик по бургеру открывает/закрывает меню
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             headerNav.classList.toggle('active');
             headerActions.classList.toggle('active');
         });
 
-        // Закрываем меню при клике на ссылку (для мобилок)
+        // Автоматически закрываем меню при клике на любую ссылку в нем
         document.querySelectorAll('.header-nav a, .btn-contacts').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -87,4 +103,5 @@
         });
     </script>
 </body>
+
 </html>
