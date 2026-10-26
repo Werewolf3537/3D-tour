@@ -534,12 +534,6 @@ html {
     .logo-img { height: 44px !important; }
     .brand-name { font-size: 18px !important; }
 
-    /* Уменьшаем кнопку "На главную" на второй странице */
-    .site-header .btn-contacts[href="../"] {
-        padding: 6px 12px !important; 
-        font-size: 13px !important;    
-    }
-
     /* Адаптив плитки туров */
     .tour-grid-page { grid-template-columns: 1fr; }
     .tour-grid-page .tour-image-box { max-width: 100%; }
@@ -549,7 +543,21 @@ html {
     .footer-container { padding: 0 30px !important; }
     .footer-title { font-size: 32px !important; }
     .footer-link { font-size: 18px !important; }
+
+    /* Уменьшаем кнопку "На главную" на второй странице и прижимаем её вправо */
+    .site-header .btn-contacts[href="../"] {
+        padding: 6px 12px !important; 
+        font-size: 13px !important;    
+        margin-left: auto !important;  /* Сдвигает кнопку в правый край */
+    }
+
+    /* Гарантируем, что блок с логотипом и именем намертво сидит в левом краю */
+    .site-header .header-container {
+        justify-content: flex-start !important; 
+        gap: 15px !important; 
+    }
 }
+
 
 @media (max-width: 576px) {
     .hero-title { font-size: 28px; margin-bottom: 20px; }
