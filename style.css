@@ -386,12 +386,12 @@ html {
     justify-content: space-between;
     gap: 30px;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 0; /* Убрали отступ, так как кнопки внизу больше нет */
 }
 
 .feature-item {
     flex: 1;
-    background-color: #1a2026; /* Твой второй цвет для контраста */
+    background-color: #1a2026; /* Твой второй цвет для контраста карточек */
     padding: 30px 25px;
     border-radius: 8px;
     text-align: center;
@@ -399,12 +399,24 @@ html {
 }
 
 .feature-item:hover {
-    transform: translateY(-5px); /* Легкий интерактив при наведении */
+    transform: translateY(-5px); /* Легкий подъем карточки при наведении */
 }
 
-.feature-icon {
-    font-size: 36px;
-    margin-bottom: 15px;
+/* Контейнер для твоих картинок-иконок */
+.feature-icon-wrapper {
+    width: 50px; /* Фиксированный аккуратный размер иконки */
+    height: 50px;
+    margin: 0 auto 20px auto; /* Центрируем и делаем отступ до заголовка */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Стили для файлов картинок (time.png, accuracy.png, tour.png) */
+.about-feature-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Защита от искажения и сжатия картинок */
 }
 
 .feature-title {
@@ -420,27 +432,6 @@ html {
     line-height: 1.5;
 }
 
-/* Кнопка под блоком */
-.about-action {
-    margin-top: 20px;
-}
-
-.btn-primary {
-    display: inline-block;
-    background-color: #ff8562; /* Твой фирменный цвет */
-    color: #ffffff;
-    text-decoration: none;
-    padding: 15px 35px;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-primary:hover {
-    background-color: #e06e4c; /* Чуть темнее при наведении */
-    transform: translateY(-2px);
-}
 
 /* АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ */
 @media (max-width: 850px) {
