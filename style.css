@@ -1,0 +1,215 @@
+/* Общие настройки */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Обеспечивает плавную прокрутку по сайту */
+    font-family: 'Inter', sans-serif;
+}
+
+/* Шапка сайта */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px; /* Золотая середина между 80 и 100px */
+    background-color: rgba(0, 0, 0, 0.7); /* Чёрный 70% прозрачности */
+    backdrop-filter: blur(10px); /* Красивое размытие за шапкой */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Левая часть: Лого и Имя */
+.header-logo-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 50px; /* Высота логотипа */
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-name {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Центр: Ссылки */
+.header-nav {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ff8562; /* Твой фирменный цвет при наведении */
+}
+
+/* Правая часть: Кнопка и Соцсети */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.btn-contacts {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid #ffffff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-contacts:hover {
+    background-color: #ff8562;
+    border-color: #ff8562;
+}
+
+/* Иконки соцсетей */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+    background-color: #ff8562;
+    transform: translateY(-2px);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+}
+
+/* Временный стиль для текстовой иконки Max */
+.letter-icon {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* Кнопка бургер-меню (скрыта на ПК) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+/* АДАПТИВНОСТЬ ПОД МОБИЛЬНЫЕ (Экран меньше 992px) */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: flex; /* Показываем бургер */
+    }
+
+    /* Прячем навигацию в выпадающее меню */
+    .header-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.4s ease;
+    }
+
+    /* Прячем кнопки в это же меню, пониже */
+    .header-actions {
+        position: fixed;
+        top: 250px;
+        right: -100%;
+        width: 70%;
+        flex-direction: column;
+        gap: 30px;
+        transition: right 0.4s ease;
+        z-index: 1000;
+    }
+
+    /* При активации бургера — выдвигаем меню */
+    .header-nav.active,
+    .header-actions.active {
+        right: 0;
+    }
+
+    /* Анимация превращения бургера в крестик */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* Коррекция для совсем маленьких экранов (смартфоны) */
+@media (max-width: 480px) {
+    .brand-name {
+        font-size: 18px; /* Уменьшаем шрифт имени, чтобы влезал */
+    }
+    .logo-img {
+        height: 40px;
+    }
+    .header-nav, .header-actions {
+        width: 100%; /* Меню на весь экран смартфона */
+    }
+}
