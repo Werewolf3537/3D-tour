@@ -73,12 +73,17 @@
         <section id="about" style="height: 100vh; padding: 100px 30px;"><h2>Блок: Обо мне</h2></section>
         <section id="tour" style="height: 100vh; padding: 100px 30px; background: #1a1a1a;"><h2>Блок: 3D-тур</h2></section>
         <section id="gallery" style="height: 100vh; padding: 100px 30px;"><h2>Блок: Галерея</h2></section>
-        <footer id="contacts" style="height: 50vh; padding: 100px 30px; background: #0a0a0a;">
-            <h2>Контакты</h2>
-            <p>Email: info@wolf-studio.ru</p>
-            <p>Телефон: +7 (999) 000-00-00</p>
-        </footer>
-    </main>
+    </main> <!-- Сначала закрываем основной контент -->
+
+    <!-- А теперь открываем подвал сайта, который стоит сам по себе -->
+    <footer id="contacts" class="site-footer">
+        <div class="footer-content">
+            <h2 class="footer-title">Контакты</h2>
+            <a href="tel:+79059060419" class="footer-link">+7 (905) 906 04-19</a>
+            <a href="mailto:wolf-studio@bk.ru" class="footer-link">wolf-studio@bk.ru</a>
+        </div>
+    </footer>
+
 
     <!-- СКРИПТ АКТИВАЦИИ МОБИЛЬНОГО МЕНЮ (БУРГЕРА) -->
     <script>

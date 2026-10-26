@@ -26,9 +26,8 @@ html {
 
 .header-container {
     width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 30px;
+    max-width: 100%; /* Убираем ограничение в 1440px, чтобы увести к самым краям */
+    padding: 0 40px; /* Отступ от самого края экрана (на мобилках можно сделать 20px) */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,22 +41,22 @@ html {
 }
 
 .logo-img {
-    height: 50px; /* Высота логотипа */
+    height: 60px; /* Увеличили на 20% (было 50px) */
     width: auto;
     object-fit: contain;
 }
 
 .brand-name {
     color: #ffffff;
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 28px; /* Увеличили примерно на 30% (было 22px) */
+    font-weight: 400; /* Сделали текст НЕ жирным (обычным) */
     white-space: nowrap;
 }
 
 /* Центр: Ссылки */
 .header-nav {
     display: flex;
-    gap: 40px;
+    gap: 60px;
 }
 
 .nav-link {
@@ -224,7 +223,7 @@ html {
     height: 100vh; /* Экран занимает ровно 100% высоты видимой области */
     
     /* Путь к твоей фоновой картинке. Положи ее в папку img под именем hero-bg.jpg */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/hero-background.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('img/hero-background.jpg');
     
     background-size: cover; /* Растягивает картинку без потери пропорций */
     background-position: center; /* Центрирует изображение */
@@ -250,7 +249,7 @@ html {
     font-size: 48px; /* Базовый размер для ПК */
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 25px; /* Отступ до подзаголовка */
+    margin-bottom: 50px; /* Отступ до подзаголовка */
     text-transform: uppercase; /* Делает буквы заглавными (опционально, выглядит монументально) */
     letter-spacing: 1px;
 }
@@ -291,4 +290,33 @@ html {
         font-size: 15px; /* Читабельный уменьшенный шрифт */
         line-height: 1.5;
     }
+}
+
+.site-footer {
+    background-color: #0a0a0a;
+    padding: 100px 20px;
+    text-align: center;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.footer-title {
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 22px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-link:hover {
+    color: #ff8562;
 }
