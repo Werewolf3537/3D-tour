@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все 3D-туры | Кирилл Бахарев</title>
+    <!-- Подключаем CSS из корня сайта (выходим на уровень выше с помощью ../) -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #1a2026;"> <!-- Задаем базовый фон страницы -->
+
+    <!-- УПРОЩЕННАЯ ШАПКА ДЛЯ ВНУТРЕННЕЙ СТРАНИЦЫ -->
+    <header class="site-header">
+        <div class="header-container">
+            <!-- Ссылка ведет обратно на главную страницу -->
+            <a href="../" class="header-logo-block" style="text-decoration: none;">
+                <img src="../img/logo.png" alt="Логотип" class="logo-img">
+                <span class="brand-name">Кирилл Бахарев</span>
+            </a>
+            <!-- Кнопка Назад вместо меню, чтобы пользователю было легко вернуться -->
+            <a href="../" class="btn-contacts">← На главную</a>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ БЛОК СО ВСЕМИ ТУРАМИ -->
+    <main style="padding-top: 130px; padding-bottom: 80px;">
+        <section class="tour-container">
+            
+            <h1 class="block-title">Все 3D-туры</h1>
+            
+            <!-- Изменяем flex на grid (в style.css добавим правило), чтобы карточки ровно ложились по 2-3 в ряд -->
+            <div class="tour-grid-page">
+                
+                <!-- Тур 1: Ресторан -->
+                <div class="tour-card">
+                    <div class="tour-image-box"><img src="../img/tour_1.jpg" alt="Ресторан Тесто-место" class="tour-img"></div>
+                    <div class="tour-info">
+                        <h3 class="tour-card-title">Ресторан Тесто-место</h3>
+                        <p class="tour-card-descr">Ресторан в ТРЦ «Планета» (г. Новокузнецк). Ознакомьтесь с планировкой, масштабом и объемом пространства.</p>
+                        <a href="https://wolf-studio.ru" target="_blank" class="btn-tour">Смотреть тур</a>
+                    </div>
+                </div>
+
+                <!-- Тур 2: Квартира 78м2 -->
+                <div class="tour-card">
+                    <div class="tour-image-box"><img src="../img/tour_2.jpg" alt="Квартира 78м2" class="tour-img"></div>
+                    <div class="tour-info">
+                        <h3 class="tour-card-title">Квартира 78м2</h3>
+                        <p class="tour-card-descr">Современный интерьер квартиры в Нижнем Новгороде. Проект реализован в строгом соответствии с концепцией.</p>
+                        <a href="https://wolf-studio.ru" target="_blank" class="btn-tour">Смотреть тур</a>
+                    </div>
+                </div>
+
+                <!-- Тур 3: Новый тур -->
+                <div class="tour-card">
+                    <div class="tour-image-box"><img src="../img/tour_3.jpg" alt="Новая работа 3" class="tour-img"></div>
+                    <div class="tour-info">
+                        <h3 class="tour-card-title">Магазин КПК</h3>
+                        <p class="tour-card-descr">Профессиональная визуализация коммерческого пространства торговой точки в г. Новокузнецк.</p>
+                        <a href="#" target="_blank" class="btn-tour">Смотреть тур</a>
+                    </div>
+                </div>
+
+                <!-- Тур 4: Новый тур -->
+                <div class="tour-card">
+                    <div class="tour-image-box"><img src="../img/tour_4.jpg" alt="Новая работа 4" class="tour-img"></div>
+                    <div class="tour-info">
+                        <h3 class="tour-card-title">Офис 48м2</h3>
+                        <p class="tour-card-descr">Дизайн и эргономика современного офисного пространства в г. Новосибирск.</p>
+                        <a href="#" target="_blank" class="btn-tour">Смотреть тур</a>
+                    </div>
+                </div>
+
+                <!-- Тур 5: Новый тур -->
+                <div class="tour-card">
+                    <div class="tour-image-box"><img src="../img/tour_5.jpg" alt="Новая работа 5" class="tour-img"></div>
+                    <div class="tour-info">
+                        <h3 class="tour-card-title">Квартира 50м2</h3>
+                        <p class="tour-card-descr">Жилой объект в ЖК "Кузнецова" (г. Новокузнецк). Оценка узлов примыкания материалов.</p>
+                        <a href="#" target="_blank" class="btn-tour">Смотреть тур</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ПОДВАЛ САЙТА (КОНТАКТЫ) -->
+    <footer id="contacts" class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <h2 class="footer-title">Контакты</h2>
+                <a href="tel:+79059060419" class="footer-link">+7 (905) 906 04-19</a>
+                <a href="mailto:wolf-studio@bk.ru" class="footer-link">wolf-studio@bk.ru</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

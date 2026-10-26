@@ -601,6 +601,30 @@ html {
     transform: translateY(-1px);
 }
 
+/* Контейнер для центрирования кнопки под карточками */
+.tour-more-action {
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* Кнопка "Больше 3D-туров" (делаем её контурной, чтобы она не спорила с основными кнопками) */
+.btn-more-tours {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid #ff8562; /* Твой фирменный цвет */
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-more-tours:hover {
+    background-color: #ff8562; /* Заливается цветом при наведении */
+    box-shadow: 0 5px 15px rgba(255, 133, 98, 0.3);
+}
+
 
 /* АДАПТИВНОСТЬ ДЛЯ СМАРТФОНОВ И ПЛАНШЕТОВ */
 @media (max-width: 850px) {
@@ -630,6 +654,26 @@ html {
     
     .tour-card-descr {
         font-size: 14px;
+    }
+}
+
+
+
+
+
+/* Сетка для страницы со всеми турами (плитка по 2 штуки в ряд на ПК) */
+.tour-grid-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Ровно две колонки одинаковой ширины */
+    gap: 40px;
+    width: 100%;
+}
+
+/* Адаптив для плитки на мобилках */
+@media (max-width: 850px) {
+    .tour-grid-page {
+        grid-template-columns: 1fr; /* На смартфонах перестраиваем в одну колонку */
+        gap: 30px;
     }
 }
 
