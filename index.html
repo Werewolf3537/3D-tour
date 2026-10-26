@@ -71,14 +71,28 @@
         </div>
     </section>
 
-    <!-- ТЕХНИЧЕСКИЕ ЗАГЛУШКИ ДЛЯ ПРОВЕРКИ СКРОЛЛА (Будем наполнять дальше) -->
-    <main style="background: #121212; color: #fff;">
-        <section id="about" style="height: 100vh; padding: 100px 30px;"><h2>Блок: Обо мне</h2></section>
-        <section id="tour" style="height: 100vh; padding: 100px 30px; background: #1a1a1a;"><h2>Блок: 3D-тур</h2></section>
-        <section id="gallery" style="height: 100vh; padding: 100px 30px;"><h2>Блок: Галерея</h2></section>
-    </main> <!-- Сначала закрываем основной контент -->
+    <!-- ОСНОВНОЙ КОНТЕНТ САЙТА -->
+    <main>
+        
+        <!-- БЛОК: ОБО МНЕ -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2 class="block-title">Обо мне</h2>
+                <p class="about-text">
+                    Меня зовут Кирилл, я занимаюсь профессиональной 3D-визуалением для дизайнеров интерьера, архитекторов и девелоперов. 
+                    <br><br>
+                    Моя задача — перевести ваши идеи, чертежи и мудборды в фотореалистичные кадры и интерактивные туры, которые помогут защитить проект перед заказчиком. Я умею точно передать пропорции и свет, а главное — строго соблюдаю согласованные сроки. Вы получаете качественный и предсказуемый результат без лишних вопросов.
+                </p>
+            </div>
+        </section>
 
-    <!-- А теперь открываем подвал сайта, который стоит сам по себе -->
+        <!-- ВРЕМЕННЫЕ ЗАГЛУШКИ ДЛЯ ОСТАЛЬНЫХ БЛОКОВ (Их наполним следующими шагами) -->
+        <section id="tour" style="height: 100vh; padding: 100px 30px; background: #1a2026;"><h2>Блок: 3D-тур</h2></section>
+        <section id="gallery" style="height: 100vh; padding: 100px 30px; background: #14181d;"><h2>Блок: Галерея</h2></section>
+        
+    </main> <!-- Закрываем основной контент -->
+
+    <!-- ПОДВАЛ САЙТА (КОНТАКТЫ) -->
     <footer id="contacts" class="site-footer">
         <div class="footer-content">
             <h2 class="footer-title">Контакты</h2>
@@ -86,6 +100,7 @@
             <a href="mailto:wolf-studio@bk.ru" class="footer-link">wolf-studio@bk.ru</a>
         </div>
     </footer>
+
 
 
     <!-- СКРИПТ АКТИВАЦИИ МОБИЛЬНОГО МЕНЮ (БУРГЕРА) -->
