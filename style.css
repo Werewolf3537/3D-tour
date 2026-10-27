@@ -768,7 +768,7 @@ html {
         gap: 20px;
     }
     .gallery-row-verticals {
-        grid-template-columns: 1fr; /* Нижний ряд превращаем в 1 колонку */
+        grid-template-columns: 1fr; /* Нижний ряд превращаем в 1CommandLine */
         gap: 20px;
         margin-top: 20px;
     }
@@ -789,8 +789,24 @@ html {
         display: none !important;
     }
 
+    /* 👇 ТВОЁ ИСПРАВЛЕНИЕ: Возвращаем шторку бургер-меню главной страницы на место */
+    .site-header .header-nav {
+        position: fixed !important; 
+        left: auto !important;     
+        transform: none !important; 
+    }
 
+    /* На главной странице в шторке ссылки должны быть видны */
+    .site-header:has(.menu-toggle) .header-nav {
+        display: flex !important;
+    }
+
+    /* Сбрасываем десктопный отступ у ссылки туров в мобильной шторке */
+    .nav-tour-link {
+        margin-left: 0 !important;
+    }
 }
+
 
 @media (max-width: 576px) {
     .hero-title { font-size: 28px; margin-bottom: 20px; }
