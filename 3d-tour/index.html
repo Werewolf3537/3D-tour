@@ -13,18 +13,29 @@
 </head>
 <body style="background-color: #1a2026;"> <!-- Задаем базовый фон страницы -->
 
-    <!-- УПРОЩЕННАЯ ШАПКА ДЛЯ ВНУТРЕННЕЙ СТРАНИЦЫ -->
+
+
+    <!-- ШАПКА СТРАНИЦЫ 3D-ТУРОВ -->
     <header class="site-header">
         <div class="header-container">
-            <!-- Ссылка ведет обратно на главную страницу -->
+            <!-- Логотип ведет на главную -->
             <a href="../" class="header-logo-block" style="text-decoration: none;">
                 <img src="../img/logo.png" alt="Логотип" class="logo-img">
                 <span class="brand-name">Кирилл Бахарев</span>
             </a>
-            <!-- Кнопка Назад вместо меню, чтобы пользователю было легко вернуться -->
-            <a href="../" class="btn-contacts">← На главную</a>
+            
+            <!-- Ссылка на третью страницу (Галерея) -->
+            <nav class="header-nav">
+                <a href="../gallery/" class="nav-link">Галерея</a>
+            </nav>
+
+            <!-- Кнопка возврата на главную -->
+            <div class="header-actions">
+                <a href="../" class="btn-contacts">← На главную</a>
+            </div>
         </div>
     </header>
+
 
     <!-- ОСНОВНОЙ БЛОК СО ВСЕМИ ТУРАМИ -->
     <main style="padding-top: 130px; padding-bottom: 80px;">

@@ -757,6 +757,12 @@ html {
         gap: 20px;
     }
 
+    /* Скрываем навигационные ссылки в шапке внутренних страниц на мобилках, чтобы не загромождать экран */
+    .site-header:not(:has(.menu-toggle)) .header-nav {
+        display: none !important;
+    }
+
+
 }
 
 @media (max-width: 576px) {
