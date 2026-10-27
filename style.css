@@ -68,11 +68,21 @@ html {
     white-space: nowrap;
 }
 
-/* Центральная часть: Меню-навигация */
+/* Центральная часть: Меню-навигация (Идеальный центр на ПК) */
 .header-nav {
     display: flex;
-    gap: 60px; /* Увеличенное расстояние */
+    gap: 60px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Сдвигает блок ровно на половину его собственной ширины назад, обеспечивая математический центр */
 }
+
+/* Специальный стиль для ссылки "3D-туры" на третьей странице */
+.nav-tour-link {
+    margin-left: 40px; /* Увеличили отступ, чтобы отодвинуть ссылку еще правее */
+    color: #ffffff !important; /* Принудительно возвращаем чистый белый цвет */
+}
+
 
 .nav-link {
     color: #ffffff;
@@ -580,8 +590,9 @@ html {
     }
     
     /* Выпадающая шторка меню на смартфонах */
+    /* Выпадающая шторка меню на смартфонах */
     .header-nav {
-        position: fixed;
+        position: fixed; /* Возвращаем fixed для мобильной шторки */
         top: 0;
         right: -100%;
         width: 70%;
@@ -589,13 +600,20 @@ html {
         background-color: rgba(0, 0, 0, 0.98); 
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Центрируем весь список строго по вертикали экрана */
+        justify-content: center; 
         align-items: center;
-        gap: 35px; /* Зазор между ссылками */
+        gap: 35px; 
         transition: right 0.4s ease;
         padding: 0;
         z-index: 1000;
+        transform: none !important; /* Отменяем сдвиг, который мы писали для ПК */
     }
+
+    /* Сбрасываем гигантский отступ у ссылки туров на мобилках, чтобы в шторке всё было ровно */
+    .nav-tour-link {
+        margin-left: 0 !important;
+    }
+
 
     /* Кнопка "Контакты" и соцсети встают аккуратно под ссылки */
     .header-actions {
