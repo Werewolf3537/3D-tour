@@ -129,3 +129,54 @@ body {
 .modal-btn:hover {
     background: #ffb340;
 }
+
+/* Стили для логотипа в стиле Wolf Studio */
+.game-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    background: #1c1c1e;
+    border-bottom: 1px solid #2c2c2e;
+}
+
+.logo-image {
+    height: 35px; /* Высота логотипа, можешь менять под себя */
+    width: auto;
+    object-fit: contain;
+}
+
+
+/* Новые цвета для шапки */
+.highlight-white {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.money-green {
+    font-size: 18px;
+    color: #34d399 !important; /* Насыщенный зеленый для бюджета */
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.2);
+}
+
+.target-orange {
+    font-size: 18px;
+    color: #ff9f0a !important; /* Яркий оранжевый для цели */
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 159, 10, 0.2);
+}
+
+/* Блок бонуса в описании */
+.bonus-alert {
+    background: rgba(255, 159, 10, 0.1);
+    border: 1px dashed #ff9f0a;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #ff9f0a;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+

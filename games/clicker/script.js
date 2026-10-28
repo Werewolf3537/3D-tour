@@ -16,12 +16,12 @@ const modalBtn = document.getElementById('modal-btn');
 // Игровая логика и уровни
 let currentLevel = 1;
 let budget = 0;
-let isPlaying = false; // Игра на паузе, пока не закрыта инструкция
+let isPlaying = false;
 
 const levels = {
-    1: { target: 50000, speedModifier: 0.8, spawnRate: 0.025 },  // Уровень 1: 50к
-    2: { target: 250000, speedModifier: 1.1, spawnRate: 0.035 }, // Уровень 2: 250к
-    3: { target: 500000, speedModifier: 1.4, spawnRate: 0.045 }  // Уровень 3: 500к
+    1: { target: 50000, speedModifier: 0.8, spawnRate: 0.025 },
+    2: { target: 250000, speedModifier: 1.1, spawnRate: 0.035 },
+    3: { target: 500000, speedModifier: 1.4, spawnRate: 0.045 }
 };
 
 // Параметры игрока (👛 Кошелёк)
@@ -32,10 +32,8 @@ const player = {
     emoji: '👛'
 };
 
-// Массив падающих элементов
 let items = [];
 
-// Подгонка Canvas под физические размеры экрана
 function resizeCanvas() {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
@@ -46,7 +44,6 @@ function resizeCanvas() {
 }
 window.addEventListener('resize', resizeCanvas);
 
-// --- УПРАВЛЕНИЕ ---
 function movePlayer(clientX, clientY) {
     if (!isPlaying) return;
     const rect = canvas.getBoundingClientRect();
@@ -57,25 +54,20 @@ function movePlayer(clientX, clientY) {
     player.y = Math.max(player.radius, Math.min(canvas.height - player.radius, targetY));
 }
 
-// ПК управление
 canvas.addEventListener('mousemove', (e) => movePlayer(e.clientX, e.clientY));
-// Тач управление для смартфонов (без багов зума и скролла)
 canvas.addEventListener('touchmove', (e) => {
     if (e.touches.length > 0) {
         movePlayer(e.touches.clientX, e.touches.clientY);
     }
 }, { passive: false });
 
-// Класс падающего элемента (Деньги / Дорогостоящие соблазны)
 class FallingItem {
     constructor() {
         this.x = Math.random() * (canvas.width - 95) + 47;
         this.y = -40;
         
         const rand = Math.random();
-        // 35% шанс на доход, 65% шанс на дорогую покупку (штраф)
         if (rand < 0.35) {
-            // Заработок на ремонт (+500, +1000, +5000)
             const rewards = [
                 { text: '+500 ₽', val: 500, color: '#4ade80' },
                 { text: '+1 000 ₽', val: 1000, color: '#22c55e' },
@@ -86,7 +78,6 @@ class FallingItem {
             this.value = reward.val;
             this.color = reward.color;
         } else {
-            // Дорогостоящие покупки (-10к, -50к, -100к)
             const penalties = [
                 { text: '-10 000 ₽', val: -10000, color: '#f87171' },
                 { text: '-50 000 ₽', val: -50000, color: '#ef4444' },
@@ -100,7 +91,6 @@ class FallingItem {
 
         const currentLvlCfg = levels[currentLevel] || levels;
         this.speed = (Math.random() * 1.5 + 2.5) * currentLvlCfg.speedModifier;
-        
         this.width = 94;
         this.height = 34;
         this.radius = 30; 
@@ -130,13 +120,11 @@ class FallingItem {
     }
 }
 
-// Игровой цикл
 function gameLoop() {
     if (!isPlaying) return;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Отрисовка игрока (👛 Кошелёк)
     ctx.save();
     ctx.font = `${player.radius * 1.6}px sans-serif`;
     ctx.textAlign = 'center';
@@ -144,24 +132,20 @@ function gameLoop() {
     ctx.fillText(player.emoji, player.x, player.y);
     ctx.restore();
 
-    // Генерация элементов
     const currentLvlCfg = levels[currentLevel] || levels;
     if (Math.random() < currentLvlCfg.spawnRate) {
         items.push(new FallingItem());
     }
 
-    // Обработка элементов
     for (let i = items.length - 1; i >= 0; i--) {
         const item = items[i];
         item.update();
         item.draw();
 
-        // Проверка столкновения
         const dist = Math.hypot(item.x - player.x, item.y - player.y);
         if (dist < player.radius + item.radius) {
             budget += item.value;
             
-            // Если баланс упал ниже 0 — Game Over
             if (budget < 0) {
                 budget = 0;
                 updateUI();
@@ -206,35 +190,38 @@ function checkLevelProgress() {
     }
 }
 
+// Новая логика поздравлений и азартных предложений
 function showModal(isWin) {
     modal.style.display = 'flex';
     modalScore.textContent = `${budget.toLocaleString('ru-RU')} ₽`;
 
     if (isWin) {
-        if (currentLevel < 3) {
-            modalTitle.textContent = `🎉 Уровень ${currentLevel} пройден!`;
-            modalDesc.textContent = `Отличный темп! Переходим к следующему этапу ремонта?`;
-            modalBtn.textContent = `Начать уровень ${currentLevel + 1}`;
+        if (currentLevel === 1) {
+            modalTitle.textContent = `🎉 Уровень 1 Пройден!`;
+            modalDesc.textContent = `Поздравляем! Вы выиграли 3 дополнительных ракурса к проекту! Хотите больше? Пройди второй уровень и получи 3D-тур к проекту - бесплатно!`;
+            modalBtn.textContent = `Начать уровень 2`;
+        } else if (currentLevel === 2) {
+            modalTitle.textContent = `🔥 Уровень 2 Пройден!`;
+            modalDesc.textContent = `Потрясающе! Бесплатный 3D-тур ваш! Идем ва-банк? Пройди третий уровень и забери весь выигрыш + скидка 5% на проект!`;
+            modalBtn.textContent = `Начать уровень 3`;
         } else {
-            modalTitle.textContent = `👑 Ремонт завершен!`;
-            modalDesc.textContent = `Вы собрали весь необходимый бюджет и успешно защитили кошелёк от спонтанных дорогостоящих трат!`;
-            modalBtn.textContent = `Сыграть еще раз`;
+            modalTitle.textContent = `👑 ПОЛНАЯ ПОБЕДА!`;
+            modalDesc.textContent = `Вы собрали 500 000 ₽! Все бонусы ваши: 3 ракурса + 3D-тур + скидка 5% на проект визуализации! Сделайте скриншот и отправьте Кириллу!`;
+            modalBtn.textContent = `Забрать выигрыш`;
         }
     } else {
         modalTitle.textContent = `📉 Бюджет исчерпан!`;
-        modalDesc.textContent = `Дорогостоящие покупки съели все ваши деньги. Ремонт заморожен на уровне ${currentLevel}.`;
+        modalDesc.textContent = `Крупные траты сожгли бюджет. Но вы можете попробовать снова и вернуть свои бонусы!`;
         modalBtn.textContent = `Попробовать снова`;
     }
 }
 
-// Кнопка на стартовом окне инструкции
 startBtn.addEventListener('click', () => {
     startModal.style.display = 'none';
     isPlaying = true;
     gameLoop();
 });
 
-// Кнопка на окнах результатов левелов
 modalBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     const currentTarget = levels[currentLevel]?.target;
@@ -252,6 +239,5 @@ modalBtn.addEventListener('click', () => {
     gameLoop();
 });
 
-// Инициализация размеров холста при загрузке
 resizeCanvas();
 updateUI();

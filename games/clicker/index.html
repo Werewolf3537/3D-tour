@@ -9,13 +9,21 @@
 <body>
 
     <div class="game-container">
-        <!-- Стартовый экран с инструкцией -->
+        <!-- Твой фирменный логотип на самом верху -->
+          <div class="game-logo">
+              <img src="img/logo.png" alt="Wolf Studio" class="logo-image">
+          </div>
+
+        <!-- Стартовый экран с инструкцией и бонусом за 1 уровень -->
         <div class="modal-overlay" id="start-modal" style="display: flex;">
             <div class="modal-content">
                 <h2>🏡 Правила игры</h2>
-                <p style="margin: 15px 0 25px; line-height: 1.5; color: #e5e5ea;">
+                <p style="margin: 15px 0; line-height: 1.5; color: #e5e5ea;">
                     Перемещайте кошелёк, чтобы собрать деньги на ремонт. Избегайте дорогостоящих покупок, которые преследуют Вас!
                 </p>
+                <div class="bonus-alert">
+                    🎁 <strong>Азарт-Бонус:</strong> Пройди первый уровень и получи 3 дополнительных ракурса на свой проект!
+                </div>
                 <button class="modal-btn" id="start-btn">Начать ремонт</button>
             </div>
         </div>
@@ -23,15 +31,15 @@
         <div class="game-header">
             <div class="header-block">
                 <span>Уровень:</span>
-                <span id="level-display" class="highlight">1</span>
+                <span id="level-display" class="highlight-white">1</span>
             </div>
             <div class="header-block">
                 <span>Бюджет:</span>
-                <span id="budget-display" class="money">0 ₽</span>
+                <span id="budget-display" class="money-green">0 ₽</span>
             </div>
             <div class="header-block">
                 <span>Цель:</span>
-                <span id="target-display">50 000 ₽</span>
+                <span id="target-display" class="target-orange">50 000 ₽</span>
             </div>
         </div>
 
