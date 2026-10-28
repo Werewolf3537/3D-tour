@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Симулятор Ремонта</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>🏡 Симулятор Бюджета на Ремонт</h1>
+    
+    <div class="stats">
+        Бюджет: <span class="money" id="money-display">0</span> ₽<br>
+        <span class="income-text">Пассивный доход: +<span id="income-display">0</span> ₽/сек</span>
+    </div>
+
+    <!-- Интерактивный рендер -->
+    <div class="render-container">
+        <!-- Замени URL на путь к своему рендеру, например: img/my-render.jpg -->
+        <img src="https://unsplash.com" class="render-img" id="render-pic" alt="Ремонт">
+        <div class="progress-overlay">Готовность: <span id="progress-display">0</span>%</div>
+    </div>
+
+    <!-- Кнопка заработка -->
+    <div class="click-zone" id="click-target">💰</div>
+
+    <!-- Магазин ремонта -->
+    <div class="shop">
+        <button class="upgrade-btn" id="upg-walls" disabled>
+            <div class="upgrade-info">
+                <span class="upgrade-name">Выровнять стены и обои</span>
+                <span class="upgrade-desc">+10 ₽/сек (+15% готовности)</span>
+            </div>
+            <span class="upgrade-cost" id="cost-walls">100 ₽</span>
+        </button>
+
+        <button class="upgrade-btn" id="upg-floor" disabled>
+            <div class="upgrade-info">
+                <span class="upgrade-name">Постелить кварцвинил</span>
+                <span class="upgrade-desc">+50 ₽/сек (+25% готовности)</span>
+            </div>
+            <span class="upgrade-cost" id="cost-floor">500 ₽</span>
+        </button>
+
+        <button class="upgrade-btn" id="upg-light" disabled>
+            <div class="upgrade-info">
+                <span class="upgrade-name">Дизайнерский свет и треки</span>
+                <span class="upgrade-desc">+200 ₽/сек (+30% готовности)</span>
+            </div>
+            <span class="upgrade-cost" id="cost-light">2500 ₽</span>
+        </button>
+
+        <button class="upgrade-btn" id="upg-furniture" disabled>
+            <div class="upgrade-info">
+                <span class="upgrade-name">Заказать мебель под заказ</span>
+                <span class="upgrade-desc">+1000 ₽/сек (+30% готовности)</span>
+            </div>
+            <span class="upgrade-cost" id="cost-furniture">10000 ₽</span>
+        </button>
+    </div>
+
+    <!-- Окно победы -->
+    <div class="win-screen" id="win-modal">
+        <h2>🎉 Ремонт полностью готов!</h2>
+        <p>Вы построили идеальный интерьер.</p>
+        <!-- Замени URL на путь к финальному рендеру -->
+        <img src="https://unsplash.com" class="win-img" alt="Финал">
+        <a href="#" class="portfolio-link">Посмотреть все мои проекты</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
