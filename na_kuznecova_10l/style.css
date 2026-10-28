@@ -993,7 +993,7 @@ body.view-control-buttons .viewControlButton {
 
 @media (max-width: 768px) {
   #mini-map-wrapper {
-    width: 45vw !important;    /* На смартфонах карта займет 45% от ширины экрана */
+    width: 75vw !important;    /* На смартфонах карта займет 45% от ширины экрана */
     min-width: 160px !important; /* Минимальный порог для маленьких экранов */
     max-width: 220px !important; /* Ограничение для больших телефонов */
   }
