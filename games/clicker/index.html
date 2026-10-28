@@ -2,71 +2,40 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Симулятор Ремонта</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Бюджет против Правок | Wolf Studio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>🏡 Симулятор Бюджета на Ремонт</h1>
-    
-    <div class="stats">
-        Бюджет: <span class="money" id="money-display">0</span> ₽<br>
-        <span class="income-text">Пассивный доход: +<span id="income-display">0</span> ₽/сек</span>
+    <div class="game-container">
+        <div class="game-header">
+            <div class="header-block">
+                <span>Уровень:</span>
+                <span id="level-display" class="highlight">1</span>
+            </div>
+            <div class="header-block">
+                <span>Бюджет:</span>
+                <span id="budget-display" class="money">0 ₽</span>
+            </div>
+            <div class="header-block">
+                <span>Цель:</span>
+                <span id="target-display">50 000 ₽</span>
+            </div>
+        </div>
+
+        <!-- Игровое поле -->
+        <canvas id="gameCanvas"></canvas>
     </div>
 
-    <!-- Интерактивный рендер -->
-    <div class="render-container">
-        <!-- Замени URL на путь к своему рендеру, например: img/my-render.jpg -->
-        <img src="https://unsplash.com" class="render-img" id="render-pic" alt="Ремонт">
-        <div class="progress-overlay">Готовность: <span id="progress-display">0</span>%</div>
-    </div>
-
-    <!-- Кнопка заработка -->
-    <div class="click-zone" id="click-target">💰</div>
-
-    <!-- Магазин ремонта -->
-    <div class="shop">
-        <button class="upgrade-btn" id="upg-walls" disabled>
-            <div class="upgrade-info">
-                <span class="upgrade-name">Выровнять стены и обои</span>
-                <span class="upgrade-desc">+10 ₽/сек (+15% готовности)</span>
-            </div>
-            <span class="upgrade-cost" id="cost-walls">100 ₽</span>
-        </button>
-
-        <button class="upgrade-btn" id="upg-floor" disabled>
-            <div class="upgrade-info">
-                <span class="upgrade-name">Постелить кварцвинил</span>
-                <span class="upgrade-desc">+50 ₽/сек (+25% готовности)</span>
-            </div>
-            <span class="upgrade-cost" id="cost-floor">500 ₽</span>
-        </button>
-
-        <button class="upgrade-btn" id="upg-light" disabled>
-            <div class="upgrade-info">
-                <span class="upgrade-name">Дизайнерский свет и треки</span>
-                <span class="upgrade-desc">+200 ₽/сек (+30% готовности)</span>
-            </div>
-            <span class="upgrade-cost" id="cost-light">2500 ₽</span>
-        </button>
-
-        <button class="upgrade-btn" id="upg-furniture" disabled>
-            <div class="upgrade-info">
-                <span class="upgrade-name">Заказать мебель под заказ</span>
-                <span class="upgrade-desc">+1000 ₽/сек (+30% готовности)</span>
-            </div>
-            <span class="upgrade-cost" id="cost-furniture">10000 ₽</span>
-        </button>
-    </div>
-
-    <!-- Окно победы -->
-    <div class="win-screen" id="win-modal">
-        <h2>🎉 Ремонт полностью готов!</h2>
-        <p>Вы построили идеальный интерьер.</p>
-        <!-- Замени URL на путь к финальному рендеру -->
-        <img src="https://unsplash.com" class="win-img" alt="Финал">
-        <a href="#" class="portfolio-link">Посмотреть все мои проекты</a>
+    <!-- Модальное окно: Конец игры / Переход уровня -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Поздравляем!</h2>
+            <p id="modal-desc">Вы набрали необходимую сумму.</p>
+            <div class="modal-score" id="modal-score">0 ₽</div>
+            <button class="modal-btn" id="modal-btn">Далее</button>
+        </div>
     </div>
 
     <script src="script.js"></script>

@@ -1,233 +1,131 @@
-/* Общие настройки в стиле Wolf Studio */
 * {
     box-sizing: border-box;
-    user-select: none;
-    -webkit-user-select: none;
     margin: 0;
     padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    /* Полностью отключаем системный зум и жесты браузера на мобилках */
+    touch-action: none; 
 }
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background-color: #0b0b0c; /* Глубокий черный цвет сайта */
+    background-color: #0b0b0c;
     color: #ffffff;
-    padding: 20px;
+    overflow: hidden; /* Запрещаем скролл страницы */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 440px;
+    height: 100vh;
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+    background: #0b0b0c;
+    position: relative;
+}
+
+/* Верхняя панель с кошельком и целями */
+.game-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 10px;
+    background: #1c1c1e;
+    border-bottom: 1px solid #2c2c2e;
+    font-size: 14px;
+    font-weight: 600;
+    color: #8e8e93;
+}
+
+.header-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100vh;
+    gap: 4px;
 }
 
-/* Заголовок */
-h1 {
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin: 10px 0 20px 0;
-    text-align: center;
-    text-transform: uppercase;
+.highlight {
     color: #ffffff;
-}
-
-/* Статистика */
-.stats {
-    font-size: 16px;
-    margin-bottom: 25px;
-    text-align: center;
-    color: #8e8e93;
+    font-size: 18px;
 }
 
 .money {
-    font-size: 28px;
-    color: #ff9f0a; /* Оранжевый акцент */
-    font-weight: 700;
-    display: inline-block;
-    margin-top: 5px;
+    font-size: 18px;
+    color: #ff9f0a; /* Фирменный оранжевый */
     text-shadow: 0 0 10px rgba(255, 159, 10, 0.2);
 }
 
-.income-text {
-    font-size: 13px; 
-    color: #636366;
-    display: block;
-    margin-top: 4px;
-}
-
-/* Карточка интерактивного рендера (стиль блоков портфолио) */
-.render-container {
-    position: relative;
-    width: 100%;
-    max-width: 440px;
-    height: 250px;
-    background: #1c1c1e;
-    border: 1px solid #2c2c2e;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 25px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
-}
-
-.render-img {
+/* Холст игры */
+#gameCanvas {
+    flex-grow: 1;
+    background: #121214;
+    cursor: none; /* Прячем курсор на ПК, так как у нас свой значок */
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: blur(25px) grayscale(100%);
-    opacity: 0.05;
-    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.progress-overlay {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    background: rgba(28, 28, 30, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #ff9f0a;
-    border: 1px solid rgba(255, 159, 10, 0.3);
-}
-
-/* Зона клика (минималистичная кнопка-калькулятор) */
-.click-zone {
-    width: 100px;
-    height: 100px;
-    background: #1c1c1e;
-    border: 1px solid #3a3a3c;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 36px;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    transition: all 0.1s ease;
-    margin-bottom: 30px;
-}
-
-.click-zone:hover {
-    border-color: #ff9f0a;
-    box-shadow: 0 0 15px rgba(255, 159, 10, 0.15);
-}
-
-.click-zone:active {
-    transform: scale(0.92);
-    background: #2c2c2e;
-}
-
-/* Магазин элементов ремонта */
-.shop {
-    width: 100%;
-    max-width: 440px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.upgrade-btn {
-    width: 100%;
-    background: #1c1c1e;
-    border: 1px solid #2c2c2e;
-    border-radius: 10px;
-    padding: 14px;
-    color: #ffffff;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.2s ease;
-}
-
-.upgrade-btn:hover:not(:disabled) {
-    background: #2c2c2e;
-    border-color: #48484a;
-}
-
-.upgrade-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-.upgrade-info {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 2px;
-}
-
-.upgrade-name { 
-    font-weight: 600; 
-    font-size: 14px;
-    color: #ffffff;
-}
-
-.upgrade-desc { 
-    font-size: 11px; 
-    color: #8e8e93; 
-}
-
-.upgrade-cost { 
-    font-weight: 600; 
-    font-size: 14px;
-    color: #ff9f0a; 
-}
-
-/* Экран триумфального завершения */
-.win-screen {
+/* Стили окон уведомлений */
+.modal-overlay {
     display: none;
     position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    background: rgba(11, 11, 12, 0.98);
-    backdrop-filter: blur(10px);
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 11, 12, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    text-align: center;
-    z-index: 999;
+    z-index: 100;
 }
 
-.win-screen h2 {
-    font-size: 26px;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-
-.win-screen p {
-    color: #8e8e93;
-    font-size: 15px;
-}
-
-.win-img {
-    width: 100%; 
-    max-width: 440px; 
-    border-radius: 12px; 
+.modal-content {
+    background: #1c1c1e;
     border: 1px solid #2c2c2e;
-    margin: 20px 0;
-    box-shadow: 0 20px 45px rgba(0,0,0,0.8);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 340px;
+    width: 90%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-.portfolio-link {
-    display: inline-block;
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: #8e8e93;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.modal-score {
+    font-size: 32px;
+    color: #ff9f0a;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.modal-btn {
     background: #ff9f0a;
     color: #000000;
-    padding: 14px 32px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
+    border: none;
+    padding: 12px 28px;
     font-size: 16px;
-    letter-spacing: 0.5px;
-    transition: all 0.2s ease;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
 }
 
-.portfolio-link:hover {
+.modal-btn:hover {
     background: #ffb340;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 159, 10, 0.3);
 }
