@@ -13,19 +13,23 @@ const modalTitle = document.getElementById('modal-title');
 const modalDesc = document.getElementById('modal-desc');
 const modalBtn = document.getElementById('modal-btn');
 
-// Полная и корректная карта лабиринта (0 - путь, 1 - стена)
-const grid = [,
- ,
- ,
- ,
- ,
- ,
- ,
- ,
- ,
- ,
-    [1,1,1,1,1,1,1,1,1,1,1]
+// Текстовая карта лабиринта (так код никогда не обрежется при копировании)
+const mapTemplate = [
+    "11111111111",
+    "10001000001",
+    "10101011101",
+    "10100000101",
+    "10111110101",
+    "10000010001",
+    "11111011101",
+    "10001000101",
+    "10101110101",
+    "10000000001",
+    "11111111111"
 ];
+
+// Автоматически преобразуем текстовую карту в двумерный массив чисел
+const grid = mapTemplate.map(row => row.split('').map(Number));
 
 const rows = grid.length;
 const cols = grid[0].length;
@@ -56,7 +60,7 @@ function resizeCanvas() {
 }
 window.addEventListener('resize', resizeCanvas);
 
-// Отрисовка уменьшенного золотого кошелька
+// Oтрисовка уменьшенного золотого кошелька
 function drawPlayer(x, y, radius) {
     ctx.save();
     ctx.translate(x, y);
@@ -256,7 +260,7 @@ function endGame(isWin) {
             modalBtn.textContent = `Забрать выигрыш`;
         }
     } else {
-        modalTitle.textContent = `📋 Правки настигли вас`;
+        modalTitle.textContent = `📉 Бюджет исчерпан!`;
         modalDesc.textContent = `Дизайнер успел внести миллион изменений. Но вы можете попробовать снова и вернуть свои бонусы!`;
         modalBtn.textContent = `Попробовать снова`;
     }
