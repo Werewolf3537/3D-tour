@@ -11,18 +11,18 @@ const modalDesc = document.getElementById('modal-desc');
 const modalScore = document.getElementById('modal-score');
 const modalBtn = document.getElementById('modal-btn');
 
-// Игровая логика и уровни (Новые цели и баланс скорости)
+// Игровая логика и уровни
 let currentLevel = 1;
 let budget = 0;
 let isPlaying = true;
 
 const levels = {
-    1: { target: 100000, speedModifier: 0.8, spawnRate: 0.025 },  // Замедлено на 20% от базы
+    1: { target: 100000, speedModifier: 0.8, spawnRate: 0.025 },
     2: { target: 250000, speedModifier: 1.1, spawnRate: 0.035 },
     3: { target: 500000, speedModifier: 1.4, spawnRate: 0.045 }
 };
 
-// Параметры игрока (Увеличен на 20%: радиус был 25, стал 30)
+// Параметры игрока
 const player = {
     x: 0,
     y: 0,
@@ -67,13 +67,13 @@ canvas.addEventListener('touchmove', (e) => {
 // Класс падающего элемента
 class FallingItem {
     constructor() {
-        // Учитываем увеличенный размер плашек при спавне у краев экрана
         this.x = Math.random() * (canvas.width - 80) + 40;
         this.y = -40;
         
         const rand = Math.random();
-        if (rand < 0.55) {
-            // Положительные (Бюджет: 500, 1000, 5000)
+        // Изменено соотношение: 35% за положительные, 65% за отрицательные (правок больше!)
+        if (rand < 0.35) {
+            // Положительные (Бюджет: +500, +1000, +5000)
             const rewards = [
                 { text: '+500 ₽', val: 500, color: '#4ade80' },
                 { text: '+1 000 ₽', val: 1000, color: '#22c55e' },
@@ -85,11 +85,11 @@ class FallingItem {
             this.color = reward.color;
             this.isBad = false;
         } else {
-            // Отрицательные (Правки: -500, -1000, -5000)
+            // Отрицательные (Правки критически увеличены: -10к, -50к, -100к)
             const penalties = [
-                { text: '-500 ₽', val: -500, color: '#f87171' },
-                { text: '-1 000 ₽', val: -1000, color: '#ef4444' },
-                { text: '-5 000 ₽', val: -5000, color: '#b91c1c' }
+                { text: '-10 000 ₽', val: -10000, color: '#f87171' },
+                { text: '-50 000 ₽', val: -50000, color: '#ef4444' },
+                { text: '-100 000 ₽', val: -100000, color: '#b91c1c' }
             ];
             const penalty = penalties[Math.floor(Math.random() * penalties.length)];
             this.text = penalty.text;
@@ -98,14 +98,13 @@ class FallingItem {
             this.isBad = true;
         }
 
-        // Скорость замедлена на 20%
         const currentLvlCfg = levels[currentLevel] || levels[3];
         this.speed = (Math.random() * 1.5 + 2.5) * currentLvlCfg.speedModifier;
         
-        // Размеры плашек увеличены на 30% (ширина была 55->72, высота 26->34)
-        this.width = 72;
+        // Размеры плашек увеличены под длинный текст вроде "-100 000 ₽"
+        this.width = 90;
         this.height = 34;
-        this.radius = 26; // Радиус для обработки столкновений тоже пропорционально увеличен
+        this.radius = 30; 
     }
 
     update() {
@@ -116,17 +115,15 @@ class FallingItem {
         ctx.save();
         ctx.fillStyle = 'rgba(28, 28, 30, 0.95)';
         ctx.strokeStyle = this.color;
-        ctx.lineWidth = 2.5; // Чуть жирнее рамка для читаемости
+        ctx.lineWidth = 2.5;
         
-        // Скругленный прямоугольник вокруг цифры
         ctx.beginPath();
         ctx.roundRect(this.x - this.width/2, this.y - this.height/2, this.width, this.height, 8);
         ctx.fill();
         ctx.stroke();
 
-        // Текст цифры (Размер шрифта увеличен для читаемости)
         ctx.fillStyle = this.color;
-        ctx.font = 'bold 15px sans-serif';
+        ctx.font = 'bold 13px sans-serif';
         ctx.textBaseline = 'middle';
         ctx.textAlign = 'center';
         ctx.fillText(this.text, this.x, this.y);
@@ -140,7 +137,7 @@ function gameLoop() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Отрисовка игрока (Размер увеличен на 20%)
+    // Отрисовка игрока
     ctx.save();
     ctx.font = `${player.radius * 1.6}px sans-serif`;
     ctx.textAlign = 'center';
@@ -164,7 +161,16 @@ function gameLoop() {
         const dist = Math.hypot(item.x - player.x, item.y - player.y);
         if (dist < player.radius + item.radius) {
             budget += item.value;
-            if (budget < 0) budget = 0; 
+            
+            // Условие полного проигрыша: если баланс ушел ниже нуля
+            if (budget < 0) {
+                budget = 0;
+                updateUI();
+                isPlaying = false;
+                items.splice(i, 1);
+                showModal(false); // Вызываем окно проигрыша
+                return;
+            }
             
             updateUI();
             items.splice(i, 1);
@@ -212,9 +218,14 @@ function showModal(isWin) {
             modalBtn.textContent = `Начать уровень ${currentLevel + 1}`;
         } else {
             modalTitle.textContent = `👑 Полная победа!`;
-            modalDesc.textContent = `Вы успешно собрали весь бюджет и защитили проект от безумных правок!`;
+            modalDesc.textContent = `Вы успешно собрали весь бюджет и защитили проект от бесконечных правок!`;
             modalBtn.textContent = `Сыграть еще раз`;
         }
+    } else {
+        // Окно Game Over
+        modalTitle.textContent = `📉 Проект закрыт!`;
+        modalDesc.textContent = `Правки полностью уничтожили ваш бюджет. Вы проиграли на уровне ${currentLevel}.`;
+        modalBtn.textContent = `Попробовать снова`;
     }
 }
 
@@ -222,15 +233,12 @@ modalBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     
     const currentTarget = levels[currentLevel]?.target;
-    if (currentTarget && budget >= currentTarget) {
-        if (currentLevel < 3) {
-            currentLevel++;
-        } else {
-            // Если прошли 3 уровень — сброс на начало (победный круг)
-            currentLevel = 1;
-            budget = 0;
-        }
+    
+    // Если это была победа и уровни еще есть — повышаем уровень
+    if (isPlaying === false && budget >= currentTarget && currentLevel < 3) {
+        currentLevel++;
     } else {
+        // Если проиграли (бюджет сгорел) или прошли всю игру — сбрасываем всё
         currentLevel = 1;
         budget = 0;
     }
