@@ -25,7 +25,7 @@ const levels = {
 const player = {
     x: 0,
     y: 0,
-    radius: 30
+    radius: 25
 };
 
 let items = [];

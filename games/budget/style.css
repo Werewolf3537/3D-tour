@@ -95,8 +95,9 @@ body {
 
 #gameCanvas {
     flex-grow: 1;
-    background: #121214;
-    cursor: none;
+    /* Стильный темный градиент из нижнего левого в верхний правый угол */
+    background: linear-gradient(to top right, #0d0d0e, #16161a);
+    cursor: none; /* Прячем курсор на ПК */
     width: 100%;
     height: 100%;
 }
