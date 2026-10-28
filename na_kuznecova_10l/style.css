@@ -949,7 +949,7 @@ body.view-control-buttons .viewControlButton {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
   transition: opacity 0.2s ease-in-out, visibility 0.2s !important;
   
-  /* ИЗМЕНЕНО: Кнопка «Планировка» ИЗНАЧАЛЬНО СКРЫТА */
+  /* Изначально кнопка скрыта */
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
@@ -959,7 +959,7 @@ body.view-control-buttons .viewControlButton {
   background-color: rgb(103, 115, 131) !important;
 }
 
-/* Класс скрытия для кнопки (теперь он делает её видимой, когда нужно) */
+/* Кнопка плавно появляется, когда у нее есть этот класс */
 .map-open-button.hidden-state {
   opacity: 1 !important;
   visibility: visible !important;
@@ -975,11 +975,19 @@ body.view-control-buttons .viewControlButton {
   height: auto !important;
   transition: opacity 0.2s ease-in-out, visibility 0.2s !important;
   
-  /* ИЗМЕНЕНО: Карта ИЗНАЧАЛЬНО ОТКРЫТА */
+  /* ИЗМЕНЕНО ТУТ: Базовое состояние делаем скрытым */
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* КАРТА ОТКРЫВАЕТСЯ И ПОЯВЛЯЕТСЯ ТОЛЬКО ЗДЕСЬ */
+#mini-map-wrapper.active-state {
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
 }
+
 
 
 /* Настройки адаптивной ширины в процентах от экрана (vw) */
