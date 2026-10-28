@@ -4,7 +4,6 @@
     padding: 0;
     user-select: none;
     -webkit-user-select: none;
-    /* Полностью отключаем системный зум и жесты браузера на мобилках */
     touch-action: none; 
 }
 
@@ -12,7 +11,7 @@ body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background-color: #0b0b0c;
     color: #ffffff;
-    overflow: hidden; /* Запрещаем скролл страницы */
+    overflow: hidden; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +30,50 @@ body {
     position: relative;
 }
 
-/* Верхняя панель с кошельком и целями */
+.game-logo-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: #1c1c1e;
+    border-bottom: 1px solid #2c2c2e;
+}
+
+.logo-left-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.site-link-btn {
+    font-size: 12px;
+    color: #8e8e93;
+    text-decoration: none;
+    border: 1px solid #3a3a3c;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.site-link-btn:hover {
+    color: #ff9f0a;
+    border-color: #ff9f0a;
+    background: rgba(255, 159, 10, 0.05);
+}
+
 .game-header {
     display: flex;
     justify-content: space-around;
@@ -51,27 +93,14 @@ body {
     gap: 4px;
 }
 
-.highlight {
-    color: #ffffff;
-    font-size: 18px;
-}
-
-.money {
-    font-size: 18px;
-    color: #ff9f0a; /* Фирменный оранжевый */
-    text-shadow: 0 0 10px rgba(255, 159, 10, 0.2);
-}
-
-/* Холст игры */
 #gameCanvas {
     flex-grow: 1;
     background: #121214;
-    cursor: none; /* Прячем курсор на ПК, так как у нас свой значок */
+    cursor: none;
     width: 100%;
     height: 100%;
 }
 
-/* Стили окон уведомлений */
 .modal-overlay {
     display: none;
     position: fixed;
@@ -130,57 +159,6 @@ body {
     background: #ffb340;
 }
 
-/* Стили новой горизонтальной панели логотипа */
-.game-logo-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 15px;
-    background: #1c1c1e;
-    border-bottom: 1px solid #2c2c2e;
-}
-
-.logo-left-block {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Отступ между картинкой-логотипом и текстом */
-}
-
-.logo-img {
-    height: 24px; /* Высота твоей иконки логотипа */
-    width: auto;
-    object-fit: contain;
-}
-
-.logo-text {
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #ffffff;
-}
-
-/* Кнопка-ссылка на основной сайт */
-.site-link-btn {
-    font-size: 12px;
-    color: #8e8e93;
-    text-decoration: none;
-    border: 1px solid #3a3a3c;
-    padding: 6px 12px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-}
-
-.site-link-btn:hover {
-    color: #ff9f0a;
-    border-color: #ff9f0a;
-    background: rgba(255, 159, 10, 0.05);
-}
-
-/* Остальные стили (кнопки, шапка игры, холст) оставляем без изменений */
-
-
-
-/* Новые цвета для шапки */
 .highlight-white {
     color: #ffffff;
     font-size: 18px;
@@ -189,19 +167,18 @@ body {
 
 .money-green {
     font-size: 18px;
-    color: #34d399 !important; /* Насыщенный зеленый для бюджета */
+    color: #34d399 !important;
     font-weight: 700;
     text-shadow: 0 0 10px rgba(52, 211, 153, 0.2);
 }
 
 .target-orange {
     font-size: 18px;
-    color: #ff9f0a !important; /* Яркий оранжевый для цели */
+    color: #ff9f0a !important;
     font-weight: 700;
     text-shadow: 0 0 10px rgba(255, 159, 10, 0.2);
 }
 
-/* Блок бонуса в описании */
 .bonus-alert {
     background: rgba(255, 159, 10, 0.1);
     border: 1px dashed #ff9f0a;
@@ -212,4 +189,3 @@ body {
     margin-bottom: 20px;
     line-height: 1.4;
 }
-

@@ -1,7 +1,6 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-// Элементы интерфейса
 const levelDisplay = document.getElementById('level-display');
 const budgetDisplay = document.getElementById('budget-display');
 const targetDisplay = document.getElementById('target-display');
@@ -13,7 +12,6 @@ const modalDesc = document.getElementById('modal-desc');
 const modalScore = document.getElementById('modal-score');
 const modalBtn = document.getElementById('modal-btn');
 
-// Игровая логика и уровни
 let currentLevel = 1;
 let budget = 0;
 let isPlaying = false;
@@ -24,12 +22,10 @@ const levels = {
     3: { target: 500000, speedModifier: 1.4, spawnRate: 0.045 }
 };
 
-// Параметры игрока (👛 Кошелёк)
 const player = {
     x: 0,
     y: 0,
-    radius: 30, 
-    emoji: '👛'
+    radius: 30
 };
 
 let items = [];
@@ -57,12 +53,45 @@ function movePlayer(clientX, clientY) {
 // ПК управление
 canvas.addEventListener('mousemove', (e) => movePlayer(e.clientX, e.clientY));
 
-// ИСПРАВЛЕНО: Тач-управление для смартфонов с корректным индексом e.touches[0]
+// Исправленное мобильное управление (работает без багов скролла)
 canvas.addEventListener('touchmove', (e) => {
-    if (e.touches && e.touches.length > 0) {
-        movePlayer(e.touches[0].clientX, e.touches[0].clientY);
+    if (e.targetTouches && e.targetTouches.length > 0) {
+        movePlayer(e.targetTouches[0].clientX, e.targetTouches[0].clientY);
     }
 }, { passive: false });
+
+canvas.addEventListener('touchstart', (e) => {
+    if (e.targetTouches && e.targetTouches.length > 0) {
+        movePlayer(e.targetTouches[0].clientX, e.targetTouches[0].clientY);
+    }
+}, { passive: false });
+
+// Отрисовка стильного золотого кошелька вектором
+function drawPlayer(x, y, radius) {
+    ctx.save();
+    ctx.translate(x, y);
+
+    // Основное тело кошелька
+    ctx.fillStyle = '#ff9f0a';
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(-radius * 0.8, radius * 0.6);
+    ctx.quadraticCurveTo(-radius, -radius * 0.3, -radius * 0.5, -radius * 0.5);
+    ctx.lineTo(radius * 0.5, -radius * 0.5);
+    ctx.quadraticCurveTo(radius, -radius * 0.3, radius * 0.8, radius * 0.6);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Золотая застежка сверху
+    ctx.fillStyle = '#ffb340';
+    ctx.beginPath();
+    ctx.arc(0, -radius * 0.55, 6, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+}
 
 class FallingItem {
     constructor() {
@@ -128,12 +157,8 @@ function gameLoop() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.save();
-    ctx.font = `${player.radius * 1.6}px sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(player.emoji, player.x, player.y);
-    ctx.restore();
+    // Вызов отрисовки нашего векторного кошелька
+    drawPlayer(player.x, player.y, player.radius);
 
     const currentLvlCfg = levels[currentLevel] || levels;
     if (Math.random() < currentLvlCfg.spawnRate) {
