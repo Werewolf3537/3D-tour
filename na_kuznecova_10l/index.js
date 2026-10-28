@@ -231,7 +231,7 @@
 
 
   function updateSceneName(scene) {
-    sceneNameElement.innerHTML = "ЖК "Дом на Кузнецова" 2-евро ТИП 10-Л 45.7м2 - 47.6м2";
+    sceneNameElement.innerHTML = "ЖК - Дом на Кузнецова, 2-евро ТИП 10-Л 45.7м2 - 47.6м2";
   }
 
   function updateSceneList(scene) {
