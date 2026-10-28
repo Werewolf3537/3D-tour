@@ -130,21 +130,54 @@ body {
     background: #ffb340;
 }
 
-/* Стили для логотипа в стиле Wolf Studio */
-.game-logo {
+/* Стили новой горизонтальной панели логотипа */
+.game-logo-bar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 12px 0;
+    padding: 12px 15px;
     background: #1c1c1e;
     border-bottom: 1px solid #2c2c2e;
 }
 
-.logo-image {
-    height: 35px; /* Высота логотипа, можешь менять под себя */
+.logo-left-block {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Отступ между картинкой-логотипом и текстом */
+}
+
+.logo-img {
+    height: 24px; /* Высота твоей иконки логотипа */
     width: auto;
     object-fit: contain;
 }
+
+.logo-text {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+/* Кнопка-ссылка на основной сайт */
+.site-link-btn {
+    font-size: 12px;
+    color: #8e8e93;
+    text-decoration: none;
+    border: 1px solid #3a3a3c;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.site-link-btn:hover {
+    color: #ff9f0a;
+    border-color: #ff9f0a;
+    background: rgba(255, 159, 10, 0.05);
+}
+
+/* Остальные стили (кнопки, шапка игры, холст) оставляем без изменений */
+
 
 
 /* Новые цвета для шапки */

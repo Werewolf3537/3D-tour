@@ -9,12 +9,18 @@
 <body>
 
     <div class="game-container">
-        <!-- Твой фирменный логотип на самом верху -->
-          <div class="game-logo">
-              <img src="img/logo.png" alt="Wolf Studio" class="logo-image">
-          </div>
+        <!-- Новая брендированная шапка в одну строчку -->
+        <div class="game-logo-bar">
+            <div class="logo-left-block">
+                <!-- Путь к твоему файлу логотипа (например, logo.png) -->
+                <img src="logo.png" alt="Wolf Studio" class="logo-img">
+                <span class="logo-text">КИРИЛЛ БАХАРЕВ</span>
+            </div>
+            <!-- Ссылка на сайт wolf-studio.ru -->
+            <a href="https://wolf-studio.ru/" target="_blank" class="site-link-btn">wolf-studio.ru</a>
+        </div>
 
-        <!-- Стартовый экран с инструкцией и бонусом за 1 уровень -->
+        <!-- Стартовый экран с инструкцией -->
         <div class="modal-overlay" id="start-modal" style="display: flex;">
             <div class="modal-content">
                 <h2>🏡 Правила игры</h2>
@@ -22,7 +28,7 @@
                     Перемещайте кошелёк, чтобы собрать деньги на ремонт. Избегайте дорогостоящих покупок, которые преследуют Вас!
                 </p>
                 <div class="bonus-alert">
-                    🎁 <strong>Азарт-Бонус:</strong> Пройди первый уровень и получи 3 дополнительных ракурса на свой проект!
+                    🎁 <strong>Азарт-Bonus:</strong> Пройди первый уровень и получи 3 дополнительных ракурса на свой проект!
                 </div>
                 <button class="modal-btn" id="start-btn">Начать ремонт</button>
             </div>

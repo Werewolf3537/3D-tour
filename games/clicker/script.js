@@ -54,10 +54,13 @@ function movePlayer(clientX, clientY) {
     player.y = Math.max(player.radius, Math.min(canvas.height - player.radius, targetY));
 }
 
+// ПК управление
 canvas.addEventListener('mousemove', (e) => movePlayer(e.clientX, e.clientY));
+
+// ИСПРАВЛЕНО: Тач-управление для смартфонов с корректным индексом e.touches[0]
 canvas.addEventListener('touchmove', (e) => {
-    if (e.touches.length > 0) {
-        movePlayer(e.touches.clientX, e.touches.clientY);
+    if (e.touches && e.touches.length > 0) {
+        movePlayer(e.touches[0].clientX, e.touches[0].clientY);
     }
 }, { passive: false });
 
@@ -190,7 +193,6 @@ function checkLevelProgress() {
     }
 }
 
-// Новая логика поздравлений и азартных предложений
 function showModal(isWin) {
     modal.style.display = 'flex';
     modalScore.textContent = `${budget.toLocaleString('ru-RU')} ₽`;
