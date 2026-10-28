@@ -9,10 +9,33 @@
 <body>
 
     <div class="game-container">
+        <!-- Брендированная шапка Wolf Studio -->
+        <div class="game-logo-bar">
+            <div class="logo-left-block">
+                <img src="logo.png" alt="Wolf Studio" class="logo-img">
+                <span class="logo-text">КИРИЛЛ БАХАРЕВ</span>
+            </div>
+            <a href="https://wolf-studio.ru" target="_blank" class="site-link-btn">wolf-studio.ru</a>
+        </div>
+
+        <!-- Стартовый экран с инструкцией -->
+        <div class="modal-overlay" id="start-modal" style="display: flex;">
+            <div class="modal-content">
+                <h2>🏡 Правила игры</h2>
+                <p style="margin: 15px 0; line-height: 1.5; color: #e5e5ea;">
+                    Указывайте кошельку путь кликами или тапами. За Вами гонится дизайнер с правками — убегайте от него! В случае зависания ПК быстро решите пример.
+                </p>
+                <div class="bonus-alert">
+                    🎁 <strong>Азарт-Bonus:</strong> Продержись 20 секунд и получи 3 дополнительных ракурса на свой проект!
+                </div>
+                <button class="modal-btn" id="start-btn">Начать рендеринг</button>
+            </div>
+        </div>
+
         <div class="game-header">
             <div class="header-block">
                 <span>Статус:</span>
-                <span id="status-display" class="highlight">Рендеринг...</span>
+                <span id="status-display" class="status-green">Рендеринг...</span>
             </div>
             <div class="header-block">
                 <span>Время выжить:</span>
@@ -27,14 +50,12 @@
             <div class="freeze-overlay" id="puzzle-box">
                 <div class="puzzle-title">💻 ПК ЗАВИС! Реши пример:</div>
                 <div class="puzzle-question" id="puzzle-question">3 + 5 = ?</div>
-                <div class="puzzle-answers" id="puzzle-answers">
-                    <!-- Сюда JS вставит кнопки с ответами -->
-                </div>
+                <div class="puzzle-answers" id="puzzle-answers"></div>
             </div>
         </div>
     </div>
 
-    <!-- Модальное окно конца игры / победы -->
+    <!-- Модальное окно конца игры / перехода уровня -->
     <div class="modal-overlay" id="modal">
         <div class="modal-content">
             <h2 id="modal-title">Результат</h2>
