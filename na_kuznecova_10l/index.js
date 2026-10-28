@@ -453,20 +453,24 @@
   var mapCloseBtn = document.getElementById('mini-map-close-btn');
 
   if (mapOpenBtn && mapWrapper && mapCloseBtn) {
-    // НАЖАЛИ «КАРТА»: скрываем кнопку, плавно проявляем планировку
+    // Дополнительно: на всякий случай явно добавляем класс активности карте на старте
+    mapWrapper.classList.add('active-state');
+
+    // НАЖАЛИ «ПЛАНИРОВКА»: скрываем кнопку (убираем hidden-state), плавно проявляем карту
     mapOpenBtn.addEventListener('click', function(event) {
       event.stopPropagation(); // Защита, чтобы панорама не дергалась при клике
-      mapOpenBtn.classList.add('hidden-state');
-      mapWrapper.classList.add('active-state');
+      mapOpenBtn.classList.remove('hidden-state'); // Скрываем кнопку
+      mapWrapper.classList.add('active-state');       // Показываем карту
     });
 
-    // НАЖАЛИ НА КРЕСТИК: скрываем планировку, возвращаем кнопку обратно
+    // НАЖАЛИ НА КРЕСТИК: скрываем карту, показываем кнопку «Планировка» (добавляем hidden-state)
     mapCloseBtn.addEventListener('click', function(event) {
       event.stopPropagation();
-      mapWrapper.classList.remove('active-state');
-      mapOpenBtn.classList.remove('hidden-state');
+      mapWrapper.classList.remove('active-state');    // Скрываем карту
+      mapOpenBtn.classList.add('hidden-state');    // Показываем кнопку
     });
   }
+
 
 
 })();

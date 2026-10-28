@@ -937,7 +937,7 @@ body.view-control-buttons .viewControlButton {
   position: absolute !important;
   bottom: 20px !important;
   left: 20px !important;
-  z-index: 1001 !important; /* Чуть выше карты, чтобы всегда нажиматься */
+  z-index: 1001 !important;
   background-color: rgba(20, 25, 35, 0.6) !important;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -948,34 +948,39 @@ body.view-control-buttons .viewControlButton {
   cursor: pointer !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
   transition: opacity 0.2s ease-in-out, visibility 0.2s !important;
-  pointer-events: auto !important;
+  
+  /* ИЗМЕНЕНО: Кнопка «Планировка» ИЗНАЧАЛЬНО СКРЫТА */
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 .no-touch .map-open-button:hover {
   background-color: rgb(103, 115, 131) !important;
 }
 
-/* Класс скрытия для кнопки */
+/* Класс скрытия для кнопки (теперь он делает её видимой, когда нужно) */
 .map-open-button.hidden-state {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
-/* 2. Контейнер мини-карты (Изначально СКРЫТ через opacity и visibility) */
+/* 2. Контейнер мини-карты */
 #mini-map-wrapper {
   position: absolute !important;
   bottom: 20px !important;
   left: 20px !important;
   z-index: 1000 !important;
   height: auto !important;
-  pointer-events: none !important;
-  
-  /* Начальное скрытое состояние для анимации плавного разворачивания */
-  opacity: 0 !important;
-  visibility: hidden !important;
   transition: opacity 0.2s ease-in-out, visibility 0.2s !important;
+  
+  /* ИЗМЕНЕНО: Карта ИЗНАЧАЛЬНО ОТКРЫТА */
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
+
 
 /* Настройки адаптивной ширины в процентах от экрана (vw) */
 @media (min-width: 769px) {
