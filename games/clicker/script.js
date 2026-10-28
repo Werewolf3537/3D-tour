@@ -5,6 +5,8 @@ const ctx = canvas.getContext('2d');
 const levelDisplay = document.getElementById('level-display');
 const budgetDisplay = document.getElementById('budget-display');
 const targetDisplay = document.getElementById('target-display');
+const startModal = document.getElementById('start-modal');
+const startBtn = document.getElementById('start-btn');
 const modal = document.getElementById('modal');
 const modalTitle = document.getElementById('modal-title');
 const modalDesc = document.getElementById('modal-desc');
@@ -14,20 +16,20 @@ const modalBtn = document.getElementById('modal-btn');
 // Игровая логика и уровни
 let currentLevel = 1;
 let budget = 0;
-let isPlaying = true;
+let isPlaying = false; // Игра на паузе, пока не закрыта инструкция
 
 const levels = {
-    1: { target: 100000, speedModifier: 0.8, spawnRate: 0.025 },
-    2: { target: 250000, speedModifier: 1.1, spawnRate: 0.035 },
-    3: { target: 500000, speedModifier: 1.4, spawnRate: 0.045 }
+    1: { target: 50000, speedModifier: 0.8, spawnRate: 0.025 },  // Уровень 1: 50к
+    2: { target: 250000, speedModifier: 1.1, spawnRate: 0.035 }, // Уровень 2: 250к
+    3: { target: 500000, speedModifier: 1.4, spawnRate: 0.045 }  // Уровень 3: 500к
 };
 
-// Параметры игрока
+// Параметры игрока (👛 Кошелёк)
 const player = {
     x: 0,
     y: 0,
     radius: 30, 
-    emoji: '👷‍♂️'
+    emoji: '👛'
 };
 
 // Массив падающих элементов
@@ -55,25 +57,25 @@ function movePlayer(clientX, clientY) {
     player.y = Math.max(player.radius, Math.min(canvas.height - player.radius, targetY));
 }
 
-// ПК
+// ПК управление
 canvas.addEventListener('mousemove', (e) => movePlayer(e.clientX, e.clientY));
-// Смартфоны
+// Тач управление для смартфонов (без багов зума и скролла)
 canvas.addEventListener('touchmove', (e) => {
     if (e.touches.length > 0) {
-        movePlayer(e.touches[0].clientX, e.touches[0].clientY);
+        movePlayer(e.touches.clientX, e.touches.clientY);
     }
 }, { passive: false });
 
-// Класс падающего элемента
+// Класс падающего элемента (Деньги / Дорогостоящие соблазны)
 class FallingItem {
     constructor() {
-        this.x = Math.random() * (canvas.width - 80) + 40;
+        this.x = Math.random() * (canvas.width - 95) + 47;
         this.y = -40;
         
         const rand = Math.random();
-        // Изменено соотношение: 35% за положительные, 65% за отрицательные (правок больше!)
+        // 35% шанс на доход, 65% шанс на дорогую покупку (штраф)
         if (rand < 0.35) {
-            // Положительные (Бюджет: +500, +1000, +5000)
+            // Заработок на ремонт (+500, +1000, +5000)
             const rewards = [
                 { text: '+500 ₽', val: 500, color: '#4ade80' },
                 { text: '+1 000 ₽', val: 1000, color: '#22c55e' },
@@ -83,9 +85,8 @@ class FallingItem {
             this.text = reward.text;
             this.value = reward.val;
             this.color = reward.color;
-            this.isBad = false;
         } else {
-            // Отрицательные (Правки критически увеличены: -10к, -50к, -100к)
+            // Дорогостоящие покупки (-10к, -50к, -100к)
             const penalties = [
                 { text: '-10 000 ₽', val: -10000, color: '#f87171' },
                 { text: '-50 000 ₽', val: -50000, color: '#ef4444' },
@@ -95,14 +96,12 @@ class FallingItem {
             this.text = penalty.text;
             this.value = penalty.val;
             this.color = penalty.color;
-            this.isBad = true;
         }
 
-        const currentLvlCfg = levels[currentLevel] || levels[3];
+        const currentLvlCfg = levels[currentLevel] || levels;
         this.speed = (Math.random() * 1.5 + 2.5) * currentLvlCfg.speedModifier;
         
-        // Размеры плашек увеличены под длинный текст вроде "-100 000 ₽"
-        this.width = 90;
+        this.width = 94;
         this.height = 34;
         this.radius = 30; 
     }
@@ -137,7 +136,7 @@ function gameLoop() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Отрисовка игрока
+    // Отрисовка игрока (👛 Кошелёк)
     ctx.save();
     ctx.font = `${player.radius * 1.6}px sans-serif`;
     ctx.textAlign = 'center';
@@ -146,7 +145,7 @@ function gameLoop() {
     ctx.restore();
 
     // Генерация элементов
-    const currentLvlCfg = levels[currentLevel] || levels[3];
+    const currentLvlCfg = levels[currentLevel] || levels;
     if (Math.random() < currentLvlCfg.spawnRate) {
         items.push(new FallingItem());
     }
@@ -162,13 +161,13 @@ function gameLoop() {
         if (dist < player.radius + item.radius) {
             budget += item.value;
             
-            // Условие полного проигрыша: если баланс ушел ниже нуля
+            // Если баланс упал ниже 0 — Game Over
             if (budget < 0) {
                 budget = 0;
                 updateUI();
                 isPlaying = false;
                 items.splice(i, 1);
-                showModal(false); // Вызываем окно проигрыша
+                showModal(false); 
                 return;
             }
             
@@ -214,31 +213,35 @@ function showModal(isWin) {
     if (isWin) {
         if (currentLevel < 3) {
             modalTitle.textContent = `🎉 Уровень ${currentLevel} пройден!`;
-            modalDesc.textContent = `Отличный темп! Переходим к следующему этапу?`;
+            modalDesc.textContent = `Отличный темп! Переходим к следующему этапу ремонта?`;
             modalBtn.textContent = `Начать уровень ${currentLevel + 1}`;
         } else {
-            modalTitle.textContent = `👑 Полная победа!`;
-            modalDesc.textContent = `Вы успешно собрали весь бюджет и защитили проект от бесконечных правок!`;
+            modalTitle.textContent = `👑 Ремонт завершен!`;
+            modalDesc.textContent = `Вы собрали весь необходимый бюджет и успешно защитили кошелёк от спонтанных дорогостоящих трат!`;
             modalBtn.textContent = `Сыграть еще раз`;
         }
     } else {
-        // Окно Game Over
-        modalTitle.textContent = `📉 Проект закрыт!`;
-        modalDesc.textContent = `Правки полностью уничтожили ваш бюджет. Вы проиграли на уровне ${currentLevel}.`;
+        modalTitle.textContent = `📉 Бюджет исчерпан!`;
+        modalDesc.textContent = `Дорогостоящие покупки съели все ваши деньги. Ремонт заморожен на уровне ${currentLevel}.`;
         modalBtn.textContent = `Попробовать снова`;
     }
 }
 
+// Кнопка на стартовом окне инструкции
+startBtn.addEventListener('click', () => {
+    startModal.style.display = 'none';
+    isPlaying = true;
+    gameLoop();
+});
+
+// Кнопка на окнах результатов левелов
 modalBtn.addEventListener('click', () => {
     modal.style.display = 'none';
-    
     const currentTarget = levels[currentLevel]?.target;
     
-    // Если это была победа и уровни еще есть — повышаем уровень
-    if (isPlaying === false && budget >= currentTarget && currentLevel < 3) {
+    if (budget >= currentTarget && currentLevel < 3) {
         currentLevel++;
     } else {
-        // Если проиграли (бюджет сгорел) или прошли всю игру — сбрасываем всё
         currentLevel = 1;
         budget = 0;
     }
@@ -249,7 +252,6 @@ modalBtn.addEventListener('click', () => {
     gameLoop();
 });
 
-// Старт игры
+// Инициализация размеров холста при загрузке
 resizeCanvas();
 updateUI();
-gameLoop();

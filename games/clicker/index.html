@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Бюджет против Правок | Wolf Studio</title>
+    <title>Бюджет на Ремонт | Wolf Studio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="game-container">
+        <!-- Стартовый экран с инструкцией -->
+        <div class="modal-overlay" id="start-modal" style="display: flex;">
+            <div class="modal-content">
+                <h2>🏡 Правила игры</h2>
+                <p style="margin: 15px 0 25px; line-height: 1.5; color: #e5e5ea;">
+                    Перемещайте кошелёк, чтобы собрать деньги на ремонт. Избегайте дорогостоящих покупок, которые преследуют Вас!
+                </p>
+                <button class="modal-btn" id="start-btn">Начать ремонт</button>
+            </div>
+        </div>
+
         <div class="game-header">
             <div class="header-block">
                 <span>Уровень:</span>
@@ -20,7 +31,7 @@
             </div>
             <div class="header-block">
                 <span>Цель:</span>
-                <span id="target-display">100 000 ₽</span>
+                <span id="target-display">50 000 ₽</span>
             </div>
         </div>
 
@@ -28,7 +39,7 @@
         <canvas id="gameCanvas"></canvas>
     </div>
 
-    <!-- Модальное окно: Конец игры / Переход уровня -->
+    <!-- Модальное окно конца игры / перехода уровня -->
     <div class="modal-overlay" id="modal">
         <div class="modal-content">
             <h2 id="modal-title">Поздравляем!</h2>
